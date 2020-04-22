@@ -1,37 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<!-- frame_splash_creen -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/frame_splash_creen"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="@drawable/frame_splash_creen"
-    android:clipToOutline="true">
+  >
+
+    <!--
+   Font family: Merienda
+        Line height: 35sp
+-->
 
     <TextView
         android:id="@+id/titulo"
-        android:layout_width="319dp"
-        android:layout_height="372dp"
+        android:layout_width="156dp"
+        android:layout_height="31dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="98dp"
+        android:layout_marginLeft="106dp"
+        android:layout_marginTop="435dp"
+        android:layout_marginRight="98dp"
+        android:layout_marginBottom="174dp"
         android:gravity="center_horizontal|top"
         android:text="@string/titulo"
-        android:textAppearance="@style/titulo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textAppearance="@style/titulo" />
 
-    <View
-        android:id="@+id/iconoProjecto"
-        android:layout_width="182dp"
-        android:layout_height="241dp"
+    <ImageView
+        android:id="@+id/iconoproyecto"
+        android:layout_width="93dp"
+        android:layout_height="165dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/icono_projecto"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="129dp"
+        android:layout_marginLeft="147dp"
+        android:layout_marginTop="254dp"
+        android:layout_marginEnd="147dp"
+        android:layout_marginRight="129dp"
+        android:background="@drawable/icono_proyecto" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

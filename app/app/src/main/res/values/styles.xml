@@ -1,5 +1,4 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -7,7 +6,6 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
     <style name="titulo">
 
         <item name="android:textSize">
@@ -35,11 +33,17 @@
         </item>
 
     </style>
+    <style name="nombre_usuario">
+
+        <item name="android:textSize">
+            12sp
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+
+    </style>
 
 
-    <!-- strings.xml -->
-    <string name="titulo">
-
-PROJECTO F
-</string>
 </resources>
