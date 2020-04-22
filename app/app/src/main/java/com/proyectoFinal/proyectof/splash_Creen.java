@@ -1,4 +1,4 @@
-package com.projectoFinal.projectof;
+package com.proyectoFinal.proyectof;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;

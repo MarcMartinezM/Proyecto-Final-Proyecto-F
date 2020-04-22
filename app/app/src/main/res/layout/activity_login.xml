@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frame_inici"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:clipToOutline="true"
     android:background="@drawable/frame_splash_creen">
 
     <TextView
@@ -24,7 +23,9 @@
         android:gravity="center_horizontal|top"
         android:text="@string/titulo"
         android:textAppearance="@style/titulo"
-        android:textSize="36sp" />
+        android:textSize="36sp"
+        tools:text="PROYECTO F"
+        android:layout_marginStart="60dp" />
     <!-- Nombre Usuario: -->
     <TextView
         android:id="@+id/nombre_usuario"
@@ -43,7 +44,8 @@
         android:gravity="top"
         android:text="@string/nombre_usuario"
         android:textAppearance="@style/nombre_usuario"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:visibility="visible" />
 
     <EditText
         android:id="@+id/input_usuario"
@@ -63,7 +65,8 @@
         android:layout_marginBottom="409dp"
         android:background="@drawable/frame_input"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:autofillHints="" />
     <!-- password Usuario: -->
     <TextView
         android:id="@+id/password_usuario"
