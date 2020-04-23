@@ -7,5 +7,16 @@
     <string name="password_usuario">Contraseña:</string>
     <string name="incio_usuario">Inicio</string>
     <string name="Registrar_user">Registrarse</string>
+
+
     <string name="titulo_Registrarse">REGISTRARSE</string>
+    <string name="registrarse_nombre_real">Nombre Real:</string>
+    <string name="registrarse_apellido">Apellido:</string>
+    <string name="registrarse_nombre_usuario">Nombre Usuario:</string>
+    <string name="registrarse_pass">Contraseña:</string>
+    <string name="registrarse_pass_repetir">Repetir Contraseña:</string>
+    <string name="registrarse_email">Correo Electronico:</string>
+    <string name="registrarse_Ciudad">Ciudad:</string>
+    <string name="registrarse_codigopostal">Codigo Postal:</string>
+    <string name="registrarse_telefono">Numero de Telefono:</string>
 </resources>
