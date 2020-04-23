@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- frame_splash_creen -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame_splash_creen"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/frame_splash_creen"
+    >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="195dp"
+        android:layout_height="54dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="86dp"
+        android:layout_marginLeft="114dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="79dp"
+        android:layout_marginRight="111dp"
+        android:layout_marginBottom="644dp"
+        android:text="@string/titulo_Registrarse"
+        android:textSize="36sp" />
+</RelativeLayout>

@@ -6,4 +6,6 @@
     <string name="nombre_usuario">Nombre Usuario:</string>
     <string name="password_usuario">Contraseña:</string>
     <string name="incio_usuario">Inicio</string>
+    <string name="Registrar_user">Registrarse</string>
+    <string name="titulo_Registrarse">REGISTRARSE</string>
 </resources>
