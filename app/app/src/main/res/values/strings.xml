@@ -19,4 +19,5 @@
     <string name="registrarse_Ciudad">Ciudad:</string>
     <string name="registrarse_codigopostal">Codigo Postal:</string>
     <string name="registrarse_telefono">Numero de Telefono:</string>
+    <string name="registrarse_botton">REGISTRARSE:</string>
 </resources>
