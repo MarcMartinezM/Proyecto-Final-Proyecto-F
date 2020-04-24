@@ -20,4 +20,7 @@
     <string name="registrarse_codigopostal">Codigo Postal:</string>
     <string name="registrarse_telefono">Numero de Telefono:</string>
     <string name="registrarse_botton">REGISTRARSE:</string>
+
+    <string name ="titulo_eventos">EVENTOS</string>
+
 </resources>
