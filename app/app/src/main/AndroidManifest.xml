@@ -20,6 +20,10 @@
             android:label=".Registrarse"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".Eventos"
+            android:label=".Eventos"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".splash_Creen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
