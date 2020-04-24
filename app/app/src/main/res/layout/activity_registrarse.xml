@@ -6,8 +6,7 @@
     android:id="@+id/frame_splash_creen"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/frame_splash_creen"
-    >
+    android:background="@drawable/frame_splash_creen">
 
     <EditText
         android:id="@+id/registrarse_input_telefono"
@@ -27,7 +26,7 @@
         android:layout_marginBottom="313dp"
         android:background="@drawable/frame_input"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="number" />
 
     <EditText
         android:id="@+id/registrarse_input_codigopostal"
@@ -47,7 +46,7 @@
         android:layout_marginBottom="350dp"
         android:background="@drawable/frame_input"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="number"/>
 
     <TextView
         android:id="@+id/titulo_registrarse"
@@ -103,7 +102,7 @@
         android:layout_marginRight="277dp"
         android:layout_marginBottom="590dp"
         android:text="@string/registrarse_nombre_real"
-        android:textSize="16sp" />
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/registrar_apellido"
@@ -122,7 +121,7 @@
         android:layout_marginRight="277dp"
         android:layout_marginBottom="556dp"
         android:text="@string/registrarse_apellido"
-        android:textSize="16sp" />
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/registrar_nombre_usuario"
@@ -141,7 +140,7 @@
         android:layout_marginRight="277dp"
         android:layout_marginBottom="522dp"
         android:text="@string/registrarse_nombre_usuario"
-        android:textSize="16sp" />
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/registrar_pass_repetir"
@@ -160,7 +159,7 @@
         android:layout_marginRight="257dp"
         android:layout_marginBottom="454dp"
         android:text="@string/registrarse_pass_repetir"
-        android:textSize="16sp" />
+        android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/registrar_email"
@@ -315,7 +314,7 @@
         android:layout_marginBottom="420dp"
         android:background="@drawable/frame_input"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/registrarse_input_nombre_user"

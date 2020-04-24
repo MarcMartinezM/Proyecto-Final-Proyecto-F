@@ -49,15 +49,27 @@ public class Registrarse extends AppCompatActivity {
            //COMPROVACIONES DE LOS DATOS PARA REGISTRARSE
            public void onClick(View v) {
                //SI ALGO ESTA VACIO MENSAJE TOAST
-               if((input_nombreReal.getText().toString()== null || input_nombreReal.getText().toString().equals("")) && (input_apellido.getText().toString()== null || input_apellido.getText().toString().equals("")) &&
-                       (input_nombreUsuario.getText().toString()== null || input_nombreUsuario.getText().toString().equals("")) && (input_pass.getText().toString()== null || input_pass.getText().toString().equals(""))&&
-                       (input_repetirPass.getText().toString()== null || input_repetirPass.getText().toString().equals("")) && (input_correo.getText().toString()== null || input_correo.getText().toString().equals("")) &&
+               if((input_nombreReal.getText().toString()== null || input_nombreReal.getText().toString().equals("")) && (input_apellido.getText().toString()== null || input_apellido.getText().toString().equals("")) ||
+                       (input_nombreUsuario.getText().toString()== null || input_nombreUsuario.getText().toString().equals("")) && (input_pass.getText().toString()== null || input_pass.getText().toString().equals("")) ||
+                       (input_repetirPass.getText().toString()== null || input_repetirPass.getText().toString().equals("")) && (input_correo.getText().toString()== null || input_correo.getText().toString().equals("")) ||
                        (input_codigoPostal.getText().toString()== null || input_codigoPostal.getText().toString().equals(""))&& (input_telefono.getText().toString()== null || input_telefono.getText().toString().equals(""))){
                    Toast.makeText(Registrarse.this,"TODOS LOS DATOS TIENES QUE ESTAR RELLENADOS.",Toast.LENGTH_SHORT).show();
                }else{
-                   //COMPRO NOMBRE USER
+                   //COMPROVACION NOMBRE USER
                    if(input_nombreUsuario.getTextSize()<=4){
                        Toast.makeText(Registrarse.this,"EL NOMBRE DE USUARIO DEBE TENER MAS DE 4 CARACTERES",Toast.LENGTH_SHORT).show();
+                   }
+                   //COMPROVACION CAMPOS PASS
+                   if(input_pass.getText().toString() != input_repetirPass.getText().toString()) {
+                       Toast.makeText(Registrarse.this,"LOS CAMPOS DE CONTRASEÑA NO COINCIDEN",Toast.LENGTH_SHORT).show();
+                   }
+                   //COMPROVACION CAMPO COD POSTAL
+                   if(input_codigoPostal.length() != 5){
+                       Toast.makeText(Registrarse.this,"CODIGO POSTAL INCORRECTO(NO TIENE 5 VALORES)",Toast.LENGTH_SHORT).show();
+                   }
+                   //COMPROVACION CAMPO NUM TLF
+                   if(input_telefono.length() != 9){
+                       Toast.makeText(Registrarse.this,"NUM TLF INCORRECTO(NO TIENE 9 VALORES)",Toast.LENGTH_SHORT).show();
                    }
                }
            }
