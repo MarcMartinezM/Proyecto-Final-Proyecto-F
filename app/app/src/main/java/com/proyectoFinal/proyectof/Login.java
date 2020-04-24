@@ -27,6 +27,12 @@ public class Login extends AppCompatActivity {
         b_inicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(input_usuario.getText().toString()==null || input_usuario.getText().toString().equals("")){
+                    Toast.makeText(Login.this,"Introduzca un nombre de usuario",Toast.LENGTH_SHORT).show();
+                }
+                if(input_pass.getText().toString()==null || input_pass.getText().toString().equals("")){
+                    Toast.makeText(Login.this,"Introduzca una contraseña",Toast.LENGTH_SHORT).show();
+                }
                 Toast.makeText(Login.this,"hola que tal",Toast.LENGTH_SHORT).show();
             }
         });

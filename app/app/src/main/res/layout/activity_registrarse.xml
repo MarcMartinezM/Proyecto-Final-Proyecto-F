@@ -12,7 +12,7 @@
     <EditText
         android:id="@+id/registrarse_input_telefono"
         android:layout_width="wrap_content"
-        android:layout_height="34dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -30,9 +30,9 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/registrarse_input_codigopostal2"
+        android:id="@+id/registrarse_input_codigopostal"
         android:layout_width="wrap_content"
-        android:layout_height="34dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="false"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -70,8 +70,8 @@
 
     <ImageView
         android:id="@+id/icono_atras"
-        android:layout_width="63dp"
-        android:layout_height="36dp"
+        android:layout_width="33dp"
+        android:layout_height="27dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -81,15 +81,15 @@
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="38dp"
-        android:layout_marginEnd="332dp"
+        android:layout_marginEnd="312dp"
         android:layout_marginRight="332dp"
         android:layout_marginBottom="658dp"
         app:srcCompat="@drawable/icono_atras" />
 
     <TextView
         android:id="@+id/registrar_nombre_real"
-        android:layout_width="125dp"
-        android:layout_height="31dp"
+        android:layout_width="106dp"
+        android:layout_height="26dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -99,7 +99,7 @@
         android:layout_marginStart="9dp"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="111dp"
-        android:layout_marginEnd="277dp"
+        android:layout_marginEnd="245dp"
         android:layout_marginRight="277dp"
         android:layout_marginBottom="590dp"
         android:text="@string/registrarse_nombre_real"
@@ -107,8 +107,8 @@
 
     <TextView
         android:id="@+id/registrar_apellido"
-        android:layout_width="125dp"
-        android:layout_height="31dp"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -118,7 +118,7 @@
         android:layout_marginStart="9dp"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="145dp"
-        android:layout_marginEnd="277dp"
+        android:layout_marginEnd="247dp"
         android:layout_marginRight="277dp"
         android:layout_marginBottom="556dp"
         android:text="@string/registrarse_apellido"
@@ -126,8 +126,8 @@
 
     <TextView
         android:id="@+id/registrar_nombre_usuario"
-        android:layout_width="125dp"
-        android:layout_height="31dp"
+        android:layout_width="126dp"
+        android:layout_height="22dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -137,7 +137,7 @@
         android:layout_marginStart="9dp"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="179dp"
-        android:layout_marginEnd="277dp"
+        android:layout_marginEnd="225dp"
         android:layout_marginRight="277dp"
         android:layout_marginBottom="522dp"
         android:text="@string/registrarse_nombre_usuario"
@@ -145,8 +145,8 @@
 
     <TextView
         android:id="@+id/registrar_pass_repetir"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
+        android:layout_width="146dp"
+        android:layout_height="20dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -156,7 +156,7 @@
         android:layout_marginStart="9dp"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="247dp"
-        android:layout_marginEnd="257dp"
+        android:layout_marginEnd="205dp"
         android:layout_marginRight="257dp"
         android:layout_marginBottom="454dp"
         android:text="@string/registrarse_pass_repetir"
@@ -164,8 +164,8 @@
 
     <TextView
         android:id="@+id/registrar_email"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
+        android:layout_width="143dp"
+        android:layout_height="26dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -175,7 +175,7 @@
         android:layout_marginStart="9dp"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="282dp"
-        android:layout_marginEnd="257dp"
+        android:layout_marginEnd="208dp"
         android:layout_marginRight="257dp"
         android:layout_marginBottom="419dp"
         android:text="@string/registrarse_email"
@@ -183,7 +183,7 @@
 
     <TextView
         android:id="@+id/registrar_ciudad"
-        android:layout_width="145dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
@@ -194,7 +194,7 @@
         android:layout_marginStart="9dp"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="315dp"
-        android:layout_marginEnd="256dp"
+        android:layout_marginEnd="221dp"
         android:layout_marginRight="256dp"
         android:layout_marginBottom="386dp"
         android:text="@string/registrarse_Ciudad"
@@ -202,8 +202,8 @@
 
     <TextView
         android:id="@+id/registrar_codigopostal"
-        android:layout_width="145dp"
-        android:layout_height="wrap_content"
+        android:layout_width="134dp"
+        android:layout_height="25dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -213,7 +213,7 @@
         android:layout_marginStart="9dp"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="350dp"
-        android:layout_marginEnd="255dp"
+        android:layout_marginEnd="217dp"
         android:layout_marginRight="255dp"
         android:layout_marginBottom="351dp"
         android:text="@string/registrarse_codigopostal"
@@ -221,8 +221,8 @@
 
     <TextView
         android:id="@+id/registrar_telefono"
-        android:layout_width="159dp"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="29dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -232,7 +232,7 @@
         android:layout_marginStart="9dp"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="387dp"
-        android:layout_marginEnd="243dp"
+        android:layout_marginEnd="201dp"
         android:layout_marginRight="243dp"
         android:layout_marginBottom="314dp"
         android:text="@string/registrarse_telefono"
@@ -240,8 +240,8 @@
 
     <TextView
         android:id="@+id/registrar_pass"
-        android:layout_width="125dp"
-        android:layout_height="31dp"
+        android:layout_width="114dp"
+        android:layout_height="20dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -251,7 +251,7 @@
         android:layout_marginStart="9dp"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="213dp"
-        android:layout_marginEnd="277dp"
+        android:layout_marginEnd="237dp"
         android:layout_marginRight="277dp"
         android:layout_marginBottom="488dp"
         android:text="@string/registrarse_pass"
@@ -269,7 +269,7 @@
         android:layout_alignParentBottom="false"
         android:layout_marginStart="174dp"
         android:layout_marginLeft="174dp"
-        android:layout_marginTop="103dp"
+        android:layout_marginTop="109dp"
         android:layout_marginEnd="23dp"
         android:layout_marginRight="23dp"
         android:layout_marginBottom="593dp"
@@ -280,7 +280,7 @@
     <EditText
         android:id="@+id/registrarse_input_apellido"
         android:layout_width="wrap_content"
-        android:layout_height="34dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -300,7 +300,7 @@
     <EditText
         android:id="@+id/registrarse_input_correo"
         android:layout_width="wrap_content"
-        android:layout_height="34dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -318,9 +318,9 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/registrarse_input_nombre_user2"
+        android:id="@+id/registrarse_input_nombre_user"
         android:layout_width="wrap_content"
-        android:layout_height="34dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -387,12 +387,29 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="false"
         android:layout_alignParentBottom="false"
-        android:layout_marginStart="74dp"
-        android:layout_marginLeft="74dp"
-        android:layout_marginTop="478dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginLeft="67dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginEnd="79dp"
         android:layout_marginRight="72dp"
         android:layout_marginBottom="223dp"
         android:background="@drawable/frame_input"
         android:text="@string/registrarse_botton" />
+
+    <Spinner
+        android:id="@+id/registrarse_spinner"
+        android:layout_width="167dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="172dp"
+        android:layout_marginLeft="172dp"
+        android:layout_marginTop="313dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginRight="21dp"
+        android:layout_marginBottom="303dp" />
 </RelativeLayout>
