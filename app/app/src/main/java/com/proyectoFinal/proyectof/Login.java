@@ -34,7 +34,8 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this,"Introduzca una contraseña",Toast.LENGTH_SHORT).show();
                 }
                 Toast.makeText(Login.this,"hola que tal",Toast.LENGTH_SHORT).show();
-            }
+                Intent pagEventos = new Intent(Login.this,Eventos.class);
+                startActivity(pagEventos);}
         });
         click_registrarse = (TextView) findViewById(R.id.click_registrarse);
         click_registrarse.setOnClickListener(new View.OnClickListener() {

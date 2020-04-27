@@ -2,6 +2,8 @@ package com.proyectoFinal.proyectof;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -11,7 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Registrarse extends AppCompatActivity {
+public class Registrarse extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     //TextView text_titulo,text_nombreReal,text_nombreUsuario,text_apellido,text_pass,text_repetirPass,text_correo,text_ciudad,text_codigoPostal,text_telefono;
     EditText input_nombreReal,input_nombreUsuario,input_apellido,input_pass,input_repetirPass,input_correo,input_codigoPostal,input_telefono;
@@ -42,6 +44,10 @@ public class Registrarse extends AppCompatActivity {
        input_codigoPostal = (EditText) findViewById(R.id.registrarse_input_codigopostal);
        input_telefono = (EditText) findViewById(R.id.registrarse_input_telefono);
        spinner_ciudad = (Spinner) findViewById(R.id.registrarse_spinner);
+       ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.array_spinner,android.R.layout.simple_spinner_item);
+       adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       spinner_ciudad.setAdapter(adapter);
+       spinner_ciudad.setOnItemSelectedListener(this);
        b_registrarse = (Button) findViewById(R.id.button_registrarse);
        imagen_atras = (ImageView) findViewById(R.id.icono_atras);
        b_registrarse.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +81,18 @@ public class Registrarse extends AppCompatActivity {
            }
        });
     }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String ciudad_Seleccionada = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(),ciudad_Seleccionada,Toast.LENGTH_LONG).show();
+  }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
 
 }
 
