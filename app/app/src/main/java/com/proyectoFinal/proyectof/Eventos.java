@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,7 +27,7 @@ public class Eventos extends AppCompatActivity {
     public static List<Evento> arrayEventos = new ArrayList<Evento>();
     public ArrayAdapter<Evento> adapter;
     public ListView listaEventos;
-
+    ImageView icono_eventos,icono_entradas,icono_favoritos,icono_buscar,icono_perfil;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,7 +57,6 @@ public class Eventos extends AppCompatActivity {
                         .scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
                         .authority(getResources().getResourcePackageName(R.drawable.pacha))
                         .appendPath(getResources().getResourceTypeName(R.drawable.pacha))
-                        //.appendPath(getResources().getResourceEntryName(R.drawable.cocacola))
                         .appendPath( arxiuImg )
                         .build();
                 ImageView imgview = (ImageView) convertView.findViewById(R.id.imageView);
@@ -66,6 +66,34 @@ public class Eventos extends AppCompatActivity {
             };
         listaEventos = (ListView) findViewById(R.id.lista_eventos);
         listaEventos.setAdapter(adapter);
+
+
+
+        icono_buscar = (ImageView) findViewById(R.id.icono_buscar);
+        icono_buscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog();
+
+            }
+        });
+
+        icono_eventos = (ImageView) findViewById(R.id.icono_eventos);
+        icono_eventos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Eventos.this,"Y a estas en la ventana eventos",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        icono_entradas = (ImageView) findViewById(R.id.icono_ticket);
+        icono_favoritos = (ImageView) findViewById(R.id.icono_guardados);
+        icono_perfil = (ImageView) findViewById(R.id.icono_perfil);
+
+        }
+        public void openDialog(){
+        Dialog_buscar db = new Dialog_buscar();
+        db.show(getSupportFragmentManager(),"dialog buscar");
         }
     }
 

@@ -1,5 +1,6 @@
 package com.proyectoFinal.proyectof;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -50,6 +51,13 @@ public class Registrarse extends AppCompatActivity implements AdapterView.OnItem
        spinner_ciudad.setOnItemSelectedListener(this);
        b_registrarse = (Button) findViewById(R.id.button_registrarse);
        imagen_atras = (ImageView) findViewById(R.id.icono_atras);
+       imagen_atras.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent pagLogin = new Intent(Registrarse.this,Login.class);
+               startActivity(pagLogin);
+           }
+       });
        b_registrarse.setOnClickListener(new View.OnClickListener() {
            @Override
            //COMPROVACIONES DE LOS DATOS PARA REGISTRARSE

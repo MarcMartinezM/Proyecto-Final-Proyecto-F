@@ -28,4 +28,6 @@
     </string-array>
     <string name ="titulo_eventos">EVENTOS</string>
 
+
+    <string name ="text_dialog">Introduce Nombre del evento:</string>
 </resources>
