@@ -2,21 +2,19 @@ package com.proyectoFinal.proyectof;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-import com.proyectoFinal.proyectof.Objectos.Evento;
 
 public class Dialog_buscar extends AppCompatDialogFragment {
     private EditText input_buscar;
+    private dialog_buscar_Listener listener;
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -31,10 +29,25 @@ public class Dialog_buscar extends AppCompatDialogFragment {
         }).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(Eventos.this,"funcion no disponible",Toast.LENGTH_SHORT).show();
+                String numbreBuuscar = input_buscar.getText().toString();
             }
         });
         input_buscar = (EditText) view.findViewById(R.id.edit_buscar);
         return builder.create();
+    }
+
+    @Override
+    public void onAttach( Context context) {
+        super.onAttach(context);
+        try {
+            listener = (dialog_buscar_Listener) context;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public interface  dialog_buscar_Listener{
+        void applyTexts(String nombreBuscar);
     }
 }
