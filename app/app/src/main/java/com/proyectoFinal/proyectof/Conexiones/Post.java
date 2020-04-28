@@ -27,18 +27,23 @@ public class Post {
         }
     }
 
-    public void post(HttpURLConnection urlConnection, URL url) {
+    public void post(HttpURLConnection conn, URL url) {
         try {
             url = new URL("http://proyectof.tk/api/user/login");
-            urlConnection = (HttpURLConnection) url.openConnection();
-            InputStream in = new BufferedInputStream(urlConnection.getInputStream());
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setReadTimeout(20000);
+            conn.setConnectTimeout(20000);
+            conn.setRequestMethod("POST");
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+            InputStream in = new BufferedInputStream(conn.getInputStream());
             readStream(in);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            urlConnection.disconnect();
+            conn.disconnect();
         }
     }
 
