@@ -29,6 +29,7 @@ public class Eventos extends AppCompatActivity implements Dialog_buscar.dialog_b
     public ArrayAdapter<Evento> adapter;
     public ListView listaEventos;
     ImageView icono_eventos,icono_entradas,icono_favoritos,icono_buscar,icono_perfil;
+    TextView text_busquerda;
     private String nombre_evento;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class Eventos extends AppCompatActivity implements Dialog_buscar.dialog_b
         arrayEventos.add(new Evento("27/4/2020", "Sala Apolo", 15.00, "pacha"));
         listaEventos();
 
-
+        text_busquerda = (TextView) findViewById(R.id.text_busqueda);
         icono_buscar = (ImageView) findViewById(R.id.icono_buscar);
         icono_buscar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,8 +73,14 @@ public class Eventos extends AppCompatActivity implements Dialog_buscar.dialog_b
         }
 
     @Override
-    public void applyTexts(String nombreBuscar) {
-       nombre_evento=nombreBuscar;
+    public void applyTexts(String nombreBuscar,boolean existe) {
+
+        nombre_evento=nombreBuscar;
+        if(existe==true){
+            text_busquerda.setText(nombreBuscar+" a sido encontrado.");
+        }else{
+            text_busquerda.setText(nombreBuscar+" no a sido encontrado.");
+        }
     }
     public void listaEventos(){
         adapter = new ArrayAdapter<Evento>(this, R.layout.activity_eventos, arrayEventos) {

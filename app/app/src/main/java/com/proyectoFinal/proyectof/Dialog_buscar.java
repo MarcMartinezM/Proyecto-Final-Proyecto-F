@@ -11,6 +11,8 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatDialogFragment;
 
+import static com.proyectoFinal.proyectof.Eventos.arrayEventos;
+
 
 public class Dialog_buscar extends AppCompatDialogFragment {
     private EditText input_buscar;
@@ -29,7 +31,14 @@ public class Dialog_buscar extends AppCompatDialogFragment {
         }).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String numbreBuuscar = input_buscar.getText().toString();
+                String nombreBuscar = input_buscar.getText().toString();
+                boolean existe=false;
+                for(int i=0;i< arrayEventos.size();i++){
+                    if(nombreBuscar.equalsIgnoreCase(arrayEventos.get(i).getNombre_evento())){
+                        existe=true;
+                    }
+                }
+                listener.applyTexts(nombreBuscar,existe);
             }
         });
         input_buscar = (EditText) view.findViewById(R.id.edit_buscar);
@@ -48,6 +57,6 @@ public class Dialog_buscar extends AppCompatDialogFragment {
     }
 
     public interface  dialog_buscar_Listener{
-        void applyTexts(String nombreBuscar);
+        void applyTexts(String nombreBuscar,boolean existe);
     }
 }
