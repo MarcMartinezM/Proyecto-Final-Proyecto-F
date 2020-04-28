@@ -9,7 +9,6 @@ public class Evento {
     String foto_evento;
 
     public Evento() {
-        super();
 
     }
 
