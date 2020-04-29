@@ -6,14 +6,14 @@ public class Evento {
     String fecha_evento;
     String nombre_evento;
     double precio_evento;
-    String foto_evento;
+    int    foto_evento;
 
     public Evento() {
         super();
 
     }
 
-    public Evento(String fecha_evento, String nombre_evento, double precio_evento, String foto_evento) {
+    public Evento(String fecha_evento, String nombre_evento, double precio_evento, int foto_evento) {
         super();
         this.fecha_evento = fecha_evento;
         this.nombre_evento = nombre_evento;
@@ -38,10 +38,10 @@ public class Evento {
     public void setPrecio_evento(double precio_evento) {
         this.precio_evento = precio_evento;
     }
-    public String getFoto_evento() {
+    public int getFoto_evento() {
         return foto_evento;
     }
-    public void setFoto_evento(String foto_evento) {
+    public void setFoto_evento(int foto_evento) {
         this.foto_evento = foto_evento;
     }
 
