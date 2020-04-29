@@ -9,7 +9,6 @@ public class Evento {
     int    foto_evento;
 
     public Evento() {
-        super();
 
     }
 
