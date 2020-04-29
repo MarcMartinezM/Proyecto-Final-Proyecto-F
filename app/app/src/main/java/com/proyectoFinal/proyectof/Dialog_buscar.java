@@ -1,5 +1,5 @@
 package com.proyectoFinal.proyectof;
-
+/*
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -60,3 +60,4 @@ public class Dialog_buscar extends AppCompatDialogFragment {
         void applyTexts(String nombreBuscar,boolean existe);
     }
 }
+*/
