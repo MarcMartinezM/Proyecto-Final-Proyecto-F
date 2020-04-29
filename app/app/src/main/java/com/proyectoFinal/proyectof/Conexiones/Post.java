@@ -1,7 +1,5 @@
 package com.proyectoFinal.proyectof.Conexiones;
 
-import com.proyectoFinal.proyectof.Objectos.Usuario;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,9 +21,8 @@ import java.util.Iterator;
 import javax.net.ssl.HttpsURLConnection;
 
 public class Post {
-    Usuario u1 = new Usuario("Adrián", "Salas", "Asalas1", "123321", "adsa1@gmail.com", 87654, 600908765);
 
-    private String readStream(InputStream is) {
+    private static String readStream(InputStream is) {
         try {
             ByteArrayOutputStream bo = new ByteArrayOutputStream();
             int i = is.read();
@@ -58,14 +55,9 @@ public class Post {
         return result.toString();
     }
 
-    public void post(HttpURLConnection conn, URL url) throws Exception {
+    public static String post(URL url, JSONObject obj) throws Exception {
         try {
-            JSONObject obj = new JSONObject();
-            obj.put("email","roberwido@gmail.com");
-            obj.put("password","scarlet123321");
-
-            url = new URL("http://proyectof.tk/api/user/login");
-            conn = (HttpURLConnection) url.openConnection();
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(20000);
             conn.setConnectTimeout(20000);
             conn.setRequestMethod("POST");
@@ -91,6 +83,7 @@ public class Post {
                     break;
                 }
                 in.close();
+                return sb.toString();
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -98,8 +91,30 @@ public class Post {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
-        } finally {
-            conn.disconnect();
+        }
+
+        return null;
+    }
+
+    public static String sendGet(String url) throws IOException {
+        URL obj = new URL(url);
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+        con.setRequestMethod("GET");
+        int responseCode = con.getResponseCode();
+        System.out.println("Response Code :: " + responseCode);
+        if (responseCode == HttpURLConnection.HTTP_OK) { // connection ok
+            BufferedReader in = new BufferedReader(new InputStreamReader( con.getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+            return response.toString();
+        } else {
+            return "";
         }
     }
+
 }

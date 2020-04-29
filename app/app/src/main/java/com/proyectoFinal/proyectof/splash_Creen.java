@@ -13,6 +13,12 @@ import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.proyectoFinal.proyectof.Conexiones.Post;
+
+import org.json.JSONObject;
+
+import java.net.URL;
+
 public class splash_Creen extends AppCompatActivity {
     private final int DURATION= 5000;
     @Override
@@ -30,6 +36,20 @@ public class splash_Creen extends AppCompatActivity {
                 finish();
             }
         },DURATION);
+    }
+
+    public String post(){
+        try {
+            JSONObject postDataParams = new JSONObject();
+            postDataParams.put("email", "roberwido@gmail.com");
+            postDataParams.put("password", "scarlet123321");
+            URL url = new URL("http://proyectof.tk/api/user/create");
+
+            return Post.post(url,postDataParams);
+        }
+        catch(Exception e){
+            return new String("Exception: " + e.getMessage());
+        }
     }
 
 }
