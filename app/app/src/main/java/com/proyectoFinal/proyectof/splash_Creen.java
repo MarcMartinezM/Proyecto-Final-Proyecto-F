@@ -32,6 +32,7 @@ public class splash_Creen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 Intent intent= new Intent(splash_Creen.this, Login.class);
+                post();
                 startActivity(intent);
                 finish();
             }
