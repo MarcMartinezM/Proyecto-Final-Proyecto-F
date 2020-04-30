@@ -1,4 +1,4 @@
-package com.proyectoFinal.proyectof;
+package com.proyectoFinal.proyectof.Adapters;
 
 
 import android.content.Context;
@@ -7,14 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
+
 
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.proyectoFinal.proyectof.Eventos;
 import com.proyectoFinal.proyectof.Objectos.Evento;
+import com.proyectoFinal.proyectof.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +28,7 @@ public class Adaptador_eventos extends ArrayAdapter<Evento> implements Filterabl
     private Filter EventosFilter;
 
     public Adaptador_eventos(List<Evento> arrayEventos,Context context){
-        super(context,R.layout.item_lista_eventos,arrayEventos);
+        super(context, R.layout.item_lista_eventos,arrayEventos);
         this.context = context;
         this.arrayEventos = arrayEventos;
         this.origArrayEventos = arrayEventos;

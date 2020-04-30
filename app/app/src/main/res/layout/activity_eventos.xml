@@ -80,27 +80,9 @@
         android:layout_marginBottom="49dp"
         android:background="@drawable/icono_perfil" />
 
-    <ImageView
-        android:id="@+id/icono_buscar"
-        android:layout_width="34dp"
-        android:layout_height="39dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentBottom="false"
-        android:layout_marginStart="273dp"
-        android:layout_marginLeft="273dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="53dp"
-        android:layout_marginRight="53dp"
-        android:layout_marginBottom="517dp"
-        android:background="@drawable/icono_buscar" />
-
     <TextView
         android:id="@+id/titulo_eventos"
-        android:layout_width="162dp"
+        android:layout_width="178dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="false"
         android:layout_alignParentTop="false"
@@ -110,7 +92,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="26dp"
-        android:layout_marginEnd="163dp"
+        android:layout_marginEnd="122dp"
         android:layout_marginRight="163dp"
         android:layout_marginBottom="566dp"
         android:gravity="center_horizontal|top"
@@ -151,7 +133,6 @@
         android:layout_marginBottom="520dp"
         android:background="@drawable/frame_input"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Busqueda" />
+        android:inputType="textPersonName" />
 
 </RelativeLayout>

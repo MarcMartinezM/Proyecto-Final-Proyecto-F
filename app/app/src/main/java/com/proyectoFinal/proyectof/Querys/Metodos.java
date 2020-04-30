@@ -30,8 +30,8 @@ public class Metodos {
             postDataParams.put("email", "roberwido@gmail.com");
             postDataParams.put("password", "scarlet123321");
             postDataParams.put("city", "Madrid");
-            postDataParams.put("zipcode", "28042");
-            postDataParams.put("phone", "937889669");
+            postDataParams.put("zipcode", 28042);
+            postDataParams.put("phone", 937889669);
             URL url = new URL("http://proyectof.tk/api/user/create");
 
             return Post.post(url,postDataParams);

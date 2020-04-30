@@ -1,37 +1,30 @@
 package com.proyectoFinal.proyectof;
 
-import android.content.ContentResolver;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.proyectoFinal.proyectof.Adapters.Adaptador_eventos;
 import com.proyectoFinal.proyectof.Objectos.Evento;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Eventos extends AppCompatActivity {
-
+    public static String nombreEvento;
     public static  List<Evento> arrayEventos;
     private Adaptador_eventos adapter;
     private ListView listaEventos;
-    private ImageView icono_eventos,icono_entradas,icono_favoritos,icono_buscar,icono_perfil;
+    private ImageView icono_eventos,icono_entradas,icono_favoritos,icono_perfil;
     private EditText input_busqueda;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,8 +33,8 @@ public class Eventos extends AppCompatActivity {
     }
     private ArrayList<Evento> getArray(){
         arrayEventos = new ArrayList<Evento>();
-        arrayEventos.add(new Evento("27/4/2020", "Pacha Barcelona", 12.00, R.drawable.pacha));
-        arrayEventos.add(new Evento("27/4/2020", "Sala Apolo", 15.00, R.drawable.pacha));
+        arrayEventos.add(new Evento("27/4/2020", "Pacha Barcelona", 12.00, R.drawable.pacha, new String[]{"23:00-05:00","06:00-13:00"}));
+        arrayEventos.add(new Evento("27/4/2020", "Sala Apolo", 15.00, R.drawable.pacha,new String[]{"23:00-05:00"}));
         return (ArrayList<Evento>) arrayEventos;
     }
     @Override
@@ -52,6 +45,7 @@ public class Eventos extends AppCompatActivity {
         listaEventos = (ListView) findViewById(R.id.lista_eventos);
         adapter = new Adaptador_eventos(getArray(),this);
         listaEventos.setAdapter(adapter);
+
 
 
         input_busqueda =(EditText) findViewById(R.id.input_buscar);
@@ -75,15 +69,18 @@ public class Eventos extends AppCompatActivity {
 
             }
         });
-
-
-        icono_buscar = (ImageView) findViewById(R.id.icono_buscar);
-        icono_buscar.setOnClickListener(new View.OnClickListener() {
+        listaEventos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(Eventos.this, arrayEventos.get(position).getNombre_evento(),Toast.LENGTH_SHORT).show();
+                nombreEvento = arrayEventos.get(position).getNombre_evento();
+                Intent pagEntrada = new Intent(Eventos.this, InfoEvento.class);
+                InfoEvento.nombreEventoPasar="";
+                startActivity(pagEntrada);
 
             }
         });
+
 
         icono_eventos = (ImageView) findViewById(R.id.icono_eventos);
         icono_eventos.setOnClickListener(new View.OnClickListener() {

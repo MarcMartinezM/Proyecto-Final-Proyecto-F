@@ -29,5 +29,11 @@
     <string name ="titulo_eventos">EVENTOS</string>
 
 
-    <string name ="text_dialog">Introduce Nombre del evento:</string>
+   <string name="text_precio">Precio Entrada:</string>
+    <string name="text_horario">Horario:</string>
+    <string name="boton_comprar">COMPRAR</string>
+
+
+    <string name="boton_añadir">+</string>
+    <string name="boton_restar">-</string>
 </resources>

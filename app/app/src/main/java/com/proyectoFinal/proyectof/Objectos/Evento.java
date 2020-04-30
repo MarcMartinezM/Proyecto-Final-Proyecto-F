@@ -7,17 +7,18 @@ public class Evento {
     String nombre_evento;
     double precio_evento;
     int    foto_evento;
-
+    String[] horario_evento;
     public Evento() {
 
     }
 
-    public Evento(String fecha_evento, String nombre_evento, double precio_evento, int foto_evento) {
+    public Evento(String fecha_evento, String nombre_evento, double precio_evento, int foto_evento,String[] horario_evento) {
         super();
         this.fecha_evento = fecha_evento;
         this.nombre_evento = nombre_evento;
         this.precio_evento = precio_evento;
         this.foto_evento = foto_evento;
+        this.horario_evento = horario_evento;
     }
     public String getFecha_evento() {
         return fecha_evento;
@@ -43,5 +44,10 @@ public class Evento {
     public void setFoto_evento(int foto_evento) {
         this.foto_evento = foto_evento;
     }
-
+    public String[] getHorario_evento() {
+        return horario_evento;
+    }
+    public void setHorario_evento(String[] horario_evento) {
+        this.horario_evento = horario_evento;
+    }
 }
