@@ -1,20 +1,24 @@
 package com.proyectoFinal.proyectof.Adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.proyectoFinal.proyectof.Objectos.Evento;
+import com.proyectoFinal.proyectof.R;
 
 import java.util.List;
 
 public class Adaptador_entrada extends BaseAdapter {
     private Context context;
-    private static String[] arrayHorario;
+    private static  List<String> arrayHorario;
 
-    public Adaptador_entrada(String[] arrayHorario,Context context) {
+    public Adaptador_entrada(List<String> arrayHorario,Context context) {
         this.arrayHorario = arrayHorario;
         this.context = context;
 
@@ -22,12 +26,12 @@ public class Adaptador_entrada extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return arrayHorario.length;
+        return arrayHorario.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return arrayHorario.get(position);
     }
 
     @Override
@@ -37,6 +41,14 @@ public class Adaptador_entrada extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_lista_horario_entrada,null);
+        TextView text_hora = convertView.findViewById(R.id.text_horario);
+        TextView text_Cantidad = convertView.findViewById(R.id.text_cantidad);
+        Button boton_mas = convertView.findViewById(R.id.button_añadir);
+        Button boton_menos = convertView.findViewById(R.id.button_restar);
+
+        text_hora.setText(arrayHorario.get(position));
+        text_Cantidad.setText("0x");
+        return convertView;
     }
 }

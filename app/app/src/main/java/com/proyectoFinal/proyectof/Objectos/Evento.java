@@ -1,18 +1,19 @@
 package com.proyectoFinal.proyectof.Objectos;
 
 import java.util.Date;
+import java.util.List;
 
 public class Evento {
     String fecha_evento;
     String nombre_evento;
     double precio_evento;
     int    foto_evento;
-    String[] horario_evento;
+    List<String> horario_evento;
     public Evento() {
 
     }
 
-    public Evento(String fecha_evento, String nombre_evento, double precio_evento, int foto_evento,String[] horario_evento) {
+    public Evento(String fecha_evento, String nombre_evento, double precio_evento, int foto_evento,List<String> horario_evento) {
         super();
         this.fecha_evento = fecha_evento;
         this.nombre_evento = nombre_evento;
@@ -44,10 +45,10 @@ public class Evento {
     public void setFoto_evento(int foto_evento) {
         this.foto_evento = foto_evento;
     }
-    public String[] getHorario_evento() {
+    public List<String> getHorario_evento() {
         return horario_evento;
     }
-    public void setHorario_evento(String[] horario_evento) {
+    public void setHorario_evento(List<String> horario_evento) {
         this.horario_evento = horario_evento;
     }
 }

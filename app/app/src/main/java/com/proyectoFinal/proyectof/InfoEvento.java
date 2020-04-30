@@ -9,8 +9,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDialog;
 
+import com.proyectoFinal.proyectof.Adapters.Adaptador_entrada;
+
 public class InfoEvento extends AppCompatActivity {
-    public static String nombreEventoPasar = Eventos.nombreEvento;
+    public static String nombreEventoPasar;
+    private Adaptador_entrada adapter;
     ImageView imagen_evento;
     TextView text_titulo,text_precio_entrada,text_horario;
     ListView lista_horario;
@@ -23,6 +26,7 @@ public class InfoEvento extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        nombreEventoPasar = Eventos.nombreEvento;
         imagen_evento = (ImageView) findViewById(R.id.imagen_evento);
         text_titulo = (TextView) findViewById(R.id.text_titulo_evento);
         text_precio_entrada = (TextView) findViewById(R.id.text_precio_entrada);
@@ -31,9 +35,12 @@ public class InfoEvento extends AppCompatActivity {
         boton_comprar = (Button) findViewById(R.id.boton_comprar);
         for(int i=0;i<Eventos.arrayEventos.size();i++){
             if(nombreEventoPasar.equalsIgnoreCase(Eventos.arrayEventos.get(i).getNombre_evento())){
+                imagen_evento.setImageResource(Eventos.arrayEventos.get(i).getFoto_evento());
                 text_titulo.setText(Eventos.arrayEventos.get(i).getNombre_evento());
                 text_precio_entrada.setText(text_precio_entrada.getText()+" "+Eventos.arrayEventos.get(i).getPrecio_evento()+"€");
                 text_horario.setText(text_horario.getText()+" "+Eventos.arrayEventos.get(i).getFecha_evento());
+                adapter = new Adaptador_entrada(Eventos.arrayEventos.get(i).getHorario_evento(),this);
+                lista_horario.setAdapter(adapter);
             }
         }
     }

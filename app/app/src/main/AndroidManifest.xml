@@ -26,8 +26,8 @@
             android:label=".Eventos"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".infoEvento"
-            android:label=".infoEvento"
+            android:name=".InfoEvento"
+            android:label=".InfoEvento"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".splash_Creen">
             <intent-filter>
