@@ -38,19 +38,4 @@ public class splash_Creen extends AppCompatActivity {
             }
         },DURATION);
     }
-
-    public String post(){
-        try {
-            JSONObject postDataParams = new JSONObject();
-            postDataParams.put("email", "roberwido@gmail.com");
-            postDataParams.put("password", "scarlet123321");
-            URL url = new URL("http://proyectof.tk/api/user/create");
-
-            return Post.post(url,postDataParams);
-        }
-        catch(Exception e){
-            return new String("Exception: " + e.getMessage());
-        }
-    }
-
 }
