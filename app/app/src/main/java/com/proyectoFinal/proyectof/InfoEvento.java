@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.ThemedSpinnerAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,9 +24,7 @@ import static com.proyectoFinal.proyectof.R.drawable.icono_corazon_llemo;
 public class InfoEvento extends AppCompatActivity {
     public static String nombreEventoPasar;
     ImageView imagen_evento, imagen_deseado,imagen_atras;
-
-    TextView text_titulo,text_precio_entrada,text_horario,text_hora,text_cantidad;
-
+    TextView text_titulo,text_precio_entrada,text_horario,text_hora,text_Cantidad;
     Button boton_comprar,boton_mas,boton_menos;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,7 +65,8 @@ public class InfoEvento extends AppCompatActivity {
         text_precio_entrada = (TextView) findViewById(R.id.text_precio_entrada);
         text_horario = (TextView) findViewById(R.id.text_horario);
         text_hora = (TextView) findViewById(R.id.text_Hora);
-        text_cantidad = (TextView) findViewById(R.id.text_cantidad);
+        text_Cantidad =(TextView) findViewById(R.id.text_cantidad);
+        text_Cantidad.setText("0 x");
         boton_comprar = (Button) findViewById(R.id.boton_comprar);
 
 
@@ -87,14 +87,15 @@ public class InfoEvento extends AppCompatActivity {
         boton_mas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("cantidad",text_cantidad.getText().toString());
+          //      Log.i("cantidad",text_cantidad.getText().toString());
                 String sumar;
-                sumar = text_cantidad.getText().toString();
+                sumar =  text_Cantidad.getText().toString();
                 String[] separar = sumar.split(" ");
                 int numero = Integer.parseInt(separar[0]);
-                numero=numero++;
-                sumar=numero+separar[1];
-                text_cantidad.setText(sumar);
+                Log.i("cantidad",numero+"");
+                numero=numero+1;
+                sumar=numero+" "+separar[1];
+                text_Cantidad.setText(sumar);
             }
         });
 
@@ -104,15 +105,15 @@ public class InfoEvento extends AppCompatActivity {
         boton_menos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (text_cantidad.getText().equals("0x")){
+                if ( text_Cantidad.getText().toString().equals("0 x")){
                     Toast.makeText(InfoEvento.this,"No puedes disminuir mas",Toast.LENGTH_SHORT).show();
                 }else{
-                    String restar= text_cantidad.getText().toString();
+                    String restar=  text_Cantidad.getText().toString();
                     String[] separar = restar.split(" ");
                     int numero = Integer.parseInt(separar[0]);
-                    numero=numero--;
-                    restar=numero+separar[1];
-                    text_cantidad.setText(restar);
+                    numero=numero-1;
+                    restar=numero+" "+separar[1];
+                    text_Cantidad.setText(restar);
 
                 }
             }

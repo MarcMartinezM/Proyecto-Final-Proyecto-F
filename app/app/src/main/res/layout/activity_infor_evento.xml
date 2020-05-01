@@ -79,11 +79,10 @@
                 android:textSize="24dp" />
 
             <TextView
-                android:id="@+id/text_Cantidad"
+                android:id="@+id/text_cantidad"
                 android:layout_width="match_parent"
-                android:layout_height="39dp"
-                android:text="0 x"
-                android:textSize="18sp" />
+                android:layout_height="53dp"
+                android:textSize="24sp" />
 
             <Button
             android:id="@+id/boton_mas"
