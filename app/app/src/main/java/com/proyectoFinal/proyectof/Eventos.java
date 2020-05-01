@@ -33,13 +33,9 @@ public class Eventos extends AppCompatActivity {
     }
     private ArrayList<Evento> getArray(){
         arrayEventos = new ArrayList<Evento>();
-        List<String> horario = new ArrayList<String>();
-        horario.add("23:00-05:00");
-        horario.add("06:00-13:00");
-        arrayEventos.add(new Evento("27/4/2020", "Pacha Barcelona", 12.00, R.drawable.pacha, horario));
-        horario.clear();
-        horario.add("23:00-05:00");
-        arrayEventos.add(new Evento("27/4/2020", "Sala Apolo", 15.00, R.drawable.pacha, horario));
+        arrayEventos.add(new Evento("27/4/2020", "Pacha Barcelona", 12.00, R.drawable.pacha, "23:00-05:00"));
+
+        arrayEventos.add(new Evento("27/4/2020", "Sala Apolo", 15.00, R.drawable.pacha, "23:00-05:00"));
         return (ArrayList<Evento>) arrayEventos;
     }
     @Override

@@ -1,6 +1,7 @@
 package com.proyectoFinal.proyectof.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,7 @@ public class Adaptador_entrada extends BaseAdapter {
         Button boton_menos = convertView.findViewById(R.id.button_restar);
 
         text_hora.setText(arrayHorario.get(position));
+        Log.i("MyActivity",arrayHorario.get(position)+"");
         text_Cantidad.setText("0x");
         return convertView;
     }

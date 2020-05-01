@@ -7,28 +7,44 @@
     android:layout_height="fill_parent"
     android:background="@drawable/frame_splash_creen">
 
+
     <ImageView
         android:id="@+id/imagen_evento"
         android:layout_width="match_parent"
-        android:layout_height="208dp"
+        android:layout_height="212dp"
 
-        app:srcCompat="@android:color/background_dark" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="588dp"
+        app:srcCompat="@android:color/background_light">
+
+    </ImageView>
+
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="521dp"
-        android:layout_below="@+id/imagen_evento"
+        android:layout_height="629dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginTop="-2dp"
-        android:layout_marginEnd="-3dp"
-        android:layout_marginRight="-3dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="217dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
         android:background="@android:color/background_light">
 
         <LinearLayout
@@ -56,18 +72,51 @@
                 android:layout_height="39dp"
                 android:text="@string/text_horario"
                 android:textSize="24dp" />
+            <TextView
+                android:id="@+id/text_Hora"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:textSize="24dp" />
 
-            <ListView
-                android:id="@+id/lista_horario"
-                android:layout_width="349dp"
-                android:layout_height="233dp" />
+            <TextView
+                android:id="@+id/text_Cantidad"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:text="0 x"
+                android:textSize="18sp" />
 
+            <Button
+            android:id="@+id/boton_mas"
+            android:layout_width="74dp"
+            android:layout_height="36dp"
+            android:background="@drawable/frame_input"
+            android:text="@string/boton_añadir" />
+            <Button
+                android:id="@+id/boton_menos"
+                android:layout_width="74dp"
+                android:layout_height="36dp"
+                android:background="@drawable/frame_input"
+                android:text="@string/boton_restar" />
             <Button
                 android:id="@+id/boton_comprar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/frame_input"
                 android:text="@string/boton_comprar" />
+
+            <ImageView
+                android:id="@+id/imagen_deseado"
+                android:layout_width="66dp"
+                android:layout_height="50dp"
+                android:background="@drawable/icono_corazon_vacio"
+                app:srcCompat="@drawable/icono_corazon_vacio" />
+
+            <ImageView
+                android:id="@+id/image_atras"
+                android:layout_width="63dp"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/icono_atras" />
+
         </LinearLayout>
 
     </ScrollView>
