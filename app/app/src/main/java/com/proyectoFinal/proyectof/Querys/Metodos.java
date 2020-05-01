@@ -1,10 +1,16 @@
 package com.proyectoFinal.proyectof.Querys;
 
+import android.util.Log;
+
+import com.mongodb.MongoClient;
 import com.proyectoFinal.proyectof.Conexiones.Post;
 
 import org.json.JSONObject;
 
 import java.net.URL;
+import java.net.UnknownHostException;
+
+import static com.proyectoFinal.proyectof.Conexiones.Mongo.crearConexion;
 
 public class Metodos {
 
@@ -40,4 +46,5 @@ public class Metodos {
             return new String("Exception: " + e.getMessage());
         }
     }
+
 }
