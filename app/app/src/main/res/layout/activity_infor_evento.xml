@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/imagen_evento"
-        android:layout_width="match_parent"
-        android:layout_height="212dp"
+        android:layout_width="410dp"
+        android:layout_height="116dp"
 
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
@@ -20,15 +20,32 @@
         android:layout_alignParentRight="false"
         android:layout_alignParentBottom="false"
         android:layout_marginStart="0dp"
-        android:layout_marginLeft="3dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginBottom="588dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="94dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="522dp"
         app:srcCompat="@android:color/background_light">
 
     </ImageView>
 
+    <ImageView
+        android:id="@+id/image_atras"
+        android:layout_width="76dp"
+        android:layout_height="57dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="310dp"
+        android:layout_marginRight="324dp"
+        android:layout_marginBottom="676dp"
+        app:srcCompat="@drawable/icono_atras" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -51,6 +68,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button_fav"
+                android:layout_width="64dp"
+                android:layout_height="61dp"
+                android:background="@drawable/icono_corazon_vacio" />
 
             <TextView
                 android:id="@+id/text_titulo_evento"
@@ -102,19 +125,6 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/frame_input"
                 android:text="@string/boton_comprar" />
-
-            <ImageView
-                android:id="@+id/imagen_deseado"
-                android:layout_width="66dp"
-                android:layout_height="50dp"
-                android:background="@drawable/icono_corazon_vacio"
-                app:srcCompat="@drawable/icono_corazon_vacio" />
-
-            <ImageView
-                android:id="@+id/image_atras"
-                android:layout_width="63dp"
-                android:layout_height="40dp"
-                app:srcCompat="@drawable/icono_atras" />
 
         </LinearLayout>
 

@@ -23,9 +23,9 @@ import static com.proyectoFinal.proyectof.R.drawable.icono_corazon_llemo;
 
 public class InfoEvento extends AppCompatActivity {
     public static String nombreEventoPasar;
-    ImageView imagen_evento, imagen_deseado,imagen_atras;
+    ImageView imagen_evento,imagen_atras;
     TextView text_titulo,text_precio_entrada,text_horario,text_hora,text_Cantidad;
-    Button boton_comprar,boton_mas,boton_menos;
+    Button boton_comprar,boton_mas,boton_menos,boton_fav;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,20 +47,31 @@ public class InfoEvento extends AppCompatActivity {
             }
         });
 
-
+        boton_fav = (Button) findViewById(R.id.button_fav);
+        boton_fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(boton_fav.getBackground().equals(R.drawable.icono_corazon_vacio)){
+                    boton_fav.setBackgroundResource(R.drawable.icono_corazon_llemo);
+                }else{
+                    boton_fav.setBackgroundResource(R.drawable.icono_corazon_llemo);
+                }
+            }
+        });
+        /*
         imagen_deseado=(ImageView) findViewById(R.id.imagen_deseado);
         imagen_deseado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(imagen_deseado.getBackground().equals(R.drawable.icono_corazon_vacio)){
-                    imagen_deseado.setImageResource(icono_corazon_llemo);
+                    imagen_deseado.setBackgroundResource(R.drawable.icono_corazon_llemo);
 
                 }else{
-                    imagen_deseado.setImageResource(R.drawable.icono_corazon_vacio);
+                    imagen_deseado.setBackgroundResource(R.drawable.icono_corazon_vacio);
                 }
             }
         });
-
+*/
         text_titulo = (TextView) findViewById(R.id.text_titulo_evento);
         text_precio_entrada = (TextView) findViewById(R.id.text_precio_entrada);
         text_horario = (TextView) findViewById(R.id.text_horario);

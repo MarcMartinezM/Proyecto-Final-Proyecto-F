@@ -28,6 +28,7 @@
     </string-array>
     <string name ="titulo_eventos">EVENTOS</string>
 
+    <string name="titulo_ticket">TICKETS</string>
 
    <string name="text_precio">Precio Entrada:</string>
     <string name="text_horario">Horario:</string>

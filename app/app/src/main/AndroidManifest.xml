@@ -29,6 +29,11 @@
             android:name=".InfoEvento"
             android:label=".InfoEvento"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".Tickets"
+            android:label=".Tickets"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".splash_Creen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

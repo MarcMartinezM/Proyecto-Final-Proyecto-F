@@ -43,7 +43,7 @@ public class Eventos extends AppCompatActivity {
         super.onResume();
 
 
-        listaEventos = (ListView) findViewById(R.id.lista_eventos);
+        listaEventos = (ListView) findViewById(R.id.lista_Tickets);
         adapter = new Adaptador_eventos(getArray(),this);
         listaEventos.setAdapter(adapter);
 
@@ -92,6 +92,13 @@ public class Eventos extends AppCompatActivity {
         });
 
         icono_entradas = (ImageView) findViewById(R.id.icono_ticket);
+        icono_entradas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pagTickets = new Intent(Eventos.this, Tickets.class);
+                startActivity(pagTickets);
+            }
+        });
         icono_favoritos = (ImageView) findViewById(R.id.icono_guardados);
         icono_perfil = (ImageView) findViewById(R.id.icono_perfil);
 
