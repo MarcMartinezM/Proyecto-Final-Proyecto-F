@@ -37,4 +37,11 @@
 
     <string name="boton_añadir">+</string>
     <string name="boton_restar">-</string>
+
+    <string name="boton_configurar_cuenta">Configurar Cuenta</string>
+    <string name="boton_compartir">Compartir</string>
+    <string name="boton_saldo">Saldo</string>
+    <string name="boton_cerrar_sesion">Cerrar Sesion</string>
+    <string name="txt_perfil">Perfil</string>
+    <string name="txt_nombre_user">User</string>
 </resources>
