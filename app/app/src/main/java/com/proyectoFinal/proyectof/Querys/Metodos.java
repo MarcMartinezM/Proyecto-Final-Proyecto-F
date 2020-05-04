@@ -1,16 +1,11 @@
 package com.proyectoFinal.proyectof.Querys;
 
-import android.util.Log;
-
-import com.mongodb.MongoClient;
+import com.proyectoFinal.proyectof.Conexiones.Get;
 import com.proyectoFinal.proyectof.Conexiones.Post;
-
 import org.json.JSONObject;
 
+import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.UnknownHostException;
-
-import static com.proyectoFinal.proyectof.Conexiones.Mongo.crearConexion;
 
 public class Metodos {
 
@@ -41,6 +36,16 @@ public class Metodos {
             URL url = new URL("http://proyectof.tk/api/user/create");
 
             return Post.post(url,postDataParams);
+        }
+        catch(Exception e){
+            return new String("Exception: " + e.getMessage());
+        }
+    }
+
+    public String getEventos() throws MalformedURLException {
+        URL url = new URL("http://proyectof.tk/api/events");
+        try {
+          return Get.metodoGet(url);
         }
         catch(Exception e){
             return new String("Exception: " + e.getMessage());
