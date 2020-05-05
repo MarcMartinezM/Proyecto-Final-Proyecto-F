@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 
+import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
@@ -21,7 +22,7 @@ import com.proyectoFinal.proyectof.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Adaptador_eventos extends ArrayAdapter<Evento> implements Filterable {
+public class Adaptador_eventos extends  ArrayAdapter<Evento> implements Filterable {
     private Context context;
     private static List<Evento> arrayEventos;
    private static List<Evento> origArrayEventos;

@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.proyectoFinal.proyectof.Adapters.Adaptador_entrada;
 import com.proyectoFinal.proyectof.Objectos.Evento;
+import com.proyectoFinal.proyectof.Objectos.Favorito;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -131,13 +132,11 @@ public class InfoEvento extends AppCompatActivity {
                                 Log.i("AL CLICKAR",Eventos.arrayEventos.get(i).getFavorito_evento()+"");
                                 boton_fav.setBackgroundResource(R.drawable.icono_corazon_llemo);
                                 Eventos.adapter.setData(Eventos.arrayEventos);
+                                Favoritos.arrayFavoritos.add(new Favorito(Eventos.arrayEventos.get(i).getFecha_evento(),Eventos.arrayEventos.get(i).getNombre_evento(),Eventos.arrayEventos.get(i).getPrecio_evento(),Eventos.arrayEventos.get(i).getFoto_evento(),Eventos.arrayEventos.get(i).getHorario_evento(),Eventos.arrayEventos.get(i).getFavorito_evento()));
+
                                 if(Favoritos.arrayFavoritos.size()>0  ){
-                                    for(int j=0;j<Favoritos.arrayFavoritos.size();i++){
-                                        if(Favoritos.arrayFavoritos.get(j).getNombre_evento_fav().equalsIgnoreCase(nombreEventoPasar)){
-                                            Favoritos.arrayFavoritos.get(j).setFavorito_evento_fav(true);
-                                        }
-                                    }
-                                    Favoritos.adapter.notifyDataSetChanged();
+
+                                   // Favoritos.adaptador.notifyDataSetChanged();
                                 }
 
 
@@ -148,12 +147,12 @@ public class InfoEvento extends AppCompatActivity {
                                 boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
                                 Eventos.adapter.setData(Eventos.arrayEventos);
                                 if(Favoritos.arrayFavoritos.size()>0){
-                                    for(int j=0;j<Favoritos.arrayFavoritos.size();i++){
+                                    for(int j=0;j<Favoritos.arrayFavoritos.size();j++){
                                         if(Favoritos.arrayFavoritos.get(j).getNombre_evento_fav().equalsIgnoreCase(nombreEventoPasar)){
-                                            Favoritos.arrayFavoritos.get(j).setFavorito_evento_fav(false);
+                                            Favoritos.arrayFavoritos.remove(j);
                                         }
                                     }
-                                    Favoritos.adapter.notifyDataSetChanged();
+                                    Favoritos.adaptador.notifyDataSetChanged();
                                 }
                             }
                         }
