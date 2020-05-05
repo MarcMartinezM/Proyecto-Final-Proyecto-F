@@ -9,17 +9,19 @@ public class Evento {
     double precio_evento;
     int    foto_evento;
     String horario_evento;
+    boolean favorito_evento;
     public Evento() {
 
     }
 
-    public Evento(String fecha_evento, String nombre_evento, double precio_evento, int foto_evento,String horario_evento) {
+    public Evento(String fecha_evento, String nombre_evento, double precio_evento, int foto_evento,String horario_evento,boolean favorito_evento) {
         super();
         this.fecha_evento = fecha_evento;
         this.nombre_evento = nombre_evento;
         this.precio_evento = precio_evento;
         this.foto_evento = foto_evento;
         this.horario_evento = horario_evento;
+        this.favorito_evento = favorito_evento;
     }
     public String getFecha_evento() {
         return fecha_evento;
@@ -50,5 +52,11 @@ public class Evento {
     }
     public void setHorario_evento(String horario_evento) {
         this.horario_evento = horario_evento;
+    }
+    public boolean  getFavorito_evento() {
+        return favorito_evento;
+    }
+    public void setFavorito_evento(boolean favorito_evento) {
+        this.favorito_evento = favorito_evento;
     }
 }

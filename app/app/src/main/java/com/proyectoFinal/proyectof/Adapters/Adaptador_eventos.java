@@ -33,13 +33,7 @@ public class Adaptador_eventos extends ArrayAdapter<Evento> implements Filterabl
         this.arrayEventos = arrayEventos;
         this.origArrayEventos = arrayEventos;
     }
-/*
-    public Adaptador_eventos(Context context, List<Evento> arrayEventos) {
-        super(context,R.layout.item_lista_eventos,arrayEventos);
-        this.context = context;
-        this.arrayEventos = arrayEventos;
-    }
-*/
+
     @Override
     public int getCount() {
         return arrayEventos.size();
@@ -47,7 +41,9 @@ public class Adaptador_eventos extends ArrayAdapter<Evento> implements Filterabl
 
     @Override
     public Evento getItem(int position) {
-        return arrayEventos.get(position);
+
+            return arrayEventos.get(position);
+
     }
 
     @Override
@@ -72,7 +68,10 @@ public class Adaptador_eventos extends ArrayAdapter<Evento> implements Filterabl
 
         return convertView;
     }
-
+    public void setData( List<Evento> arrayeventos){
+        this.arrayEventos = arrayeventos;
+        notifyDataSetChanged();
+    }
 public Filter getFilter() {
         if(EventosFilter == null){
             EventosFilter = new EventosFilter();

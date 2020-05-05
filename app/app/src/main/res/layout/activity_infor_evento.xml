@@ -72,8 +72,7 @@
             <Button
                 android:id="@+id/button_fav"
                 android:layout_width="64dp"
-                android:layout_height="61dp"
-                android:background="@drawable/icono_corazon_vacio" />
+                android:layout_height="61dp" />
 
             <TextView
                 android:id="@+id/text_titulo_evento"

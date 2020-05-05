@@ -81,6 +81,13 @@ public class Tickets extends AppCompatActivity {
             }
         });
         icono_favoritos = (ImageView) findViewById(R.id.icono_guardados_ticket);
+        icono_favoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pagFavoritos = new Intent(Tickets.this,Favoritos.class);
+                startActivity(pagFavoritos);
+            }
+        });
         icono_perfil = (ImageView) findViewById(R.id.icono_perfil_ticket);
     }
 }

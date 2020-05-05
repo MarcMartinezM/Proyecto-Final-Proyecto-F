@@ -22,8 +22,8 @@ import java.util.List;
 public class Eventos extends AppCompatActivity {
     public static String nombreEvento;
     public static  List<Evento> arrayEventos;
-    private Adaptador_eventos adapter;
-    private ListView listaEventos;
+    public static Adaptador_eventos adapter;
+    public static  ListView listaEventos;
     private ImageView icono_eventos,icono_entradas,icono_favoritos,icono_perfil;
     private EditText input_busqueda;
     @Override
@@ -33,9 +33,9 @@ public class Eventos extends AppCompatActivity {
     }
     private ArrayList<Evento> getArray(){
         arrayEventos = new ArrayList<Evento>();
-        arrayEventos.add(new Evento("27/4/2020", "Pacha Barcelona", 12.00, R.drawable.pacha, "23:00-05:00"));
+        arrayEventos.add(new Evento("27/4/2020", "Pacha Barcelona", 12.00, R.drawable.pacha, "23:00-05:00",true));
 
-        arrayEventos.add(new Evento("27/4/2020", "Sala Apolo", 15.00, R.drawable.pacha, "23:00-05:00"));
+        arrayEventos.add(new Evento("27/4/2020", "Sala Apolo", 15.00, R.drawable.pacha, "23:00-05:00",false));
         return (ArrayList<Evento>) arrayEventos;
     }
     @Override
@@ -100,6 +100,13 @@ public class Eventos extends AppCompatActivity {
             }
         });
         icono_favoritos = (ImageView) findViewById(R.id.icono_guardados);
+        icono_favoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pagFavoritos = new Intent(Eventos.this, Favoritos.class);
+                startActivity(pagFavoritos);
+            }
+        });
         icono_perfil = (ImageView) findViewById(R.id.icono_perfil);
 
         }

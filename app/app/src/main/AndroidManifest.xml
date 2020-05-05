@@ -34,6 +34,11 @@
             android:name=".Tickets"
             android:label=".Tickets"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".Favoritos"
+            android:label=".Favoritos"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".splash_Creen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
