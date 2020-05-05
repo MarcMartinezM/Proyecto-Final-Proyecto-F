@@ -46,4 +46,8 @@
     <string name="boton_cerrar_sesion">Cerrar Sesion</string>
     <string name="txt_perfil">Perfil</string>
     <string name="txt_nombre_user">User</string>
+
+    <string name="text_saldo_disponible">Saldo Disponible</string>
+    <string name="text_euros">0,0€</string>
+    <string name ="boton_canjear_codigo">Canjear Codigo</string>
 </resources>

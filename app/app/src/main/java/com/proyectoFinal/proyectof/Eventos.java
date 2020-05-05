@@ -107,7 +107,15 @@ public class Eventos extends AppCompatActivity {
                 startActivity(pagFavoritos);
             }
         });
+
         icono_perfil = (ImageView) findViewById(R.id.icono_perfil);
+        icono_perfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pagPerfil = new Intent(Eventos.this, Perfil.class);
+                startActivity(pagPerfil);
+            }
+        });
 
         }
         /*

@@ -36,6 +36,16 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
+            android:name=".Perfil"
+            android:label=".Perfil"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".Saldo"
+            android:label=".Saldo"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".Favoritos"
             android:label=".Favoritos"
             android:theme="@style/AppTheme.NoActionBar" />
