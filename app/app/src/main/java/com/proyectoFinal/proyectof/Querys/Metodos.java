@@ -1,5 +1,7 @@
 package com.proyectoFinal.proyectof.Querys;
 
+import android.util.Log;
+
 import com.proyectoFinal.proyectof.Conexiones.Get;
 import com.proyectoFinal.proyectof.Conexiones.Post;
 import org.json.JSONObject;
@@ -45,6 +47,7 @@ public class Metodos {
     public String getEventos() throws MalformedURLException {
         URL url = new URL("http://proyectof.tk/api/events");
         try {
+            Log.i("USRS",Get.metodoGet(url));
           return Get.metodoGet(url);
         }
         catch(Exception e){

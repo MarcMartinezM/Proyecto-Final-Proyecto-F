@@ -1,12 +1,14 @@
 package com.proyectoFinal.proyectof.Conexiones;
 
+import android.os.AsyncTask;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Get {
+public class Get extends AsyncTask {
 
     public static String metodoGet(URL url){
         try {
@@ -40,4 +42,8 @@ public class Get {
         return null;
     }
 
+    @Override
+    protected Object doInBackground(Object[] objects) {
+        return null;
+    }
 }

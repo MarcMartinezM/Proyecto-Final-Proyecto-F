@@ -10,13 +10,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Handler;
+import android.os.StrictMode;
 import android.view.View;
 import android.view.WindowManager;
 
 import com.proyectoFinal.proyectof.Conexiones.Post;
+import com.proyectoFinal.proyectof.Querys.Metodos;
 
 import org.json.JSONObject;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class splash_Creen extends AppCompatActivity {
@@ -24,6 +27,8 @@ public class splash_Creen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -36,5 +41,11 @@ public class splash_Creen extends AppCompatActivity {
                 finish();
             }
         },DURATION);
+        Metodos set = new Metodos();
+        try {
+            set.getEventos();
+        }catch (MalformedURLException e){
+            e.printStackTrace();
+        }
     }
 }

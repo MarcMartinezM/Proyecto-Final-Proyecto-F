@@ -1,5 +1,7 @@
 package com.proyectoFinal.proyectof.Conexiones;
 
+import android.os.AsyncTask;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,7 +22,7 @@ import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class Post {
+public class Post extends AsyncTask {
 
     private static String readStream(InputStream is) {
         try {
@@ -117,4 +119,8 @@ public class Post {
         }
     }
 
+    @Override
+    protected Object doInBackground(Object[] objects) {
+        return null;
+    }
 }
