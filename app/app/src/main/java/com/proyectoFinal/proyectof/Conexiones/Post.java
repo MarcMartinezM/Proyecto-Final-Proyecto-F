@@ -65,8 +65,6 @@ public class Post extends AsyncTask {
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
-            InputStream in = new BufferedInputStream(conn.getInputStream());
-            readStream(in);
 
             OutputStream os = conn.getOutputStream();
             BufferedWriter writer = new BufferedWriter( new OutputStreamWriter(os, "UTF-8"));
@@ -74,6 +72,9 @@ public class Post extends AsyncTask {
             writer.flush();
             writer.close();
             os.close();
+
+            InputStream in = new BufferedInputStream(conn.getInputStream());
+            readStream(in);
 
             int responseCode=conn.getResponseCode();
             if (responseCode == HttpsURLConnection.HTTP_OK) {
