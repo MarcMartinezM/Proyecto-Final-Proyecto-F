@@ -125,18 +125,25 @@ public class Post extends AsyncTask {
         return null;
     }
 
-    public static JSONObject getJSONObjectFromURL(String urlString) throws IOException, JSONException {
+    public static JSONObject getJSONObjectFromURL(String urlString, JSONObject param) throws Exception {
         HttpURLConnection urlConnection = null;
 
         URL url = new URL(urlString);
 
         urlConnection = (HttpURLConnection) url.openConnection();
-        urlConnection.setRequestMethod("GET");
+        urlConnection.setRequestMethod("POST");
         urlConnection.setReadTimeout(10000);
         urlConnection.setConnectTimeout(15000);
 
         urlConnection.setDoOutput(true);
         urlConnection.connect();
+
+        OutputStream os = urlConnection.getOutputStream();
+        BufferedWriter writer = new BufferedWriter( new OutputStreamWriter(os, "UTF-8"));
+        writer.write(encodeParams(param));
+        writer.flush();
+        writer.close();
+        os.close();
 
         BufferedReader br=new BufferedReader(new InputStreamReader(url.openStream()));
 
