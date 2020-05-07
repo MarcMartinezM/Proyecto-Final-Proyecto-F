@@ -89,5 +89,12 @@ public class Tickets extends AppCompatActivity {
             }
         });
         icono_perfil = (ImageView) findViewById(R.id.icono_perfil_ticket);
+        icono_perfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pagPerfil = new Intent(Tickets.this,Perfil.class);
+                startActivity(pagPerfil);
+            }
+        });
     }
 }

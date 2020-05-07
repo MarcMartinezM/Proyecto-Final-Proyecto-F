@@ -64,6 +64,13 @@ public class Favoritos extends AppCompatActivity {
             }
         });
         icono_perfil = (ImageView) findViewById(R.id.icono_perfil_fav);
+        icono_perfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pagPerfil = new Intent(Favoritos.this,Perfil.class);
+                startActivity(pagPerfil);
+            }
+        });
     }
     private ArrayList<Favorito> getTrueArray(){
 

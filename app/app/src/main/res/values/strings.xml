@@ -19,7 +19,7 @@
     <string name="registrarse_Ciudad">Ciudad:</string>
     <string name="registrarse_codigopostal">Codigo Postal:</string>
     <string name="registrarse_telefono">Numero de Telefono:</string>
-    <string name="registrarse_botton">REGISTRARSE:</string>
+    <string name="registrarse_botton">REGISTRARSE</string>
     <string-array name="array_spinner">
         <item>Barcelona</item>
         <item>Madrid</item>
@@ -50,4 +50,7 @@
     <string name="text_saldo_disponible">Saldo Disponible</string>
     <string name="text_euros">0,0€</string>
     <string name ="boton_canjear_codigo">Canjear Codigo</string>
+
+    <string name="titulo_configurar_cuenta">CONFIGURAR</string>
+    <string name="boton_config">GUARDAR</string>
 </resources>

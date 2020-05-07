@@ -26,7 +26,7 @@
         android:text="@string/boton_cerrar_sesion" />
 
     <ImageView
-        android:id="@+id/icono_ticket_ticket2"
+        android:id="@+id/icono_ticket_perfil"
         android:layout_width="wrap_content"
         android:layout_height="51dp"
         android:layout_alignParentStart="true"
@@ -44,7 +44,7 @@
         android:background="@drawable/icono_ticket" />
 
     <ImageView
-        android:id="@+id/icono_eventos_ticket2"
+        android:id="@+id/icono_eventos_perfil"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_alignParentStart="true"
@@ -62,7 +62,7 @@
         android:background="@drawable/icono_eventos" />
 
     <ImageView
-        android:id="@+id/icono_perfil_ticket2"
+        android:id="@+id/icono_perfil"
         android:layout_width="50dp"
         android:layout_height="52dp"
         android:layout_alignParentStart="true"
@@ -80,7 +80,7 @@
         android:background="@drawable/icono_perfil" />
 
     <ImageView
-        android:id="@+id/icono_guardados_ticket2"
+        android:id="@+id/icono_guardados_perfil"
         android:layout_width="wrap_content"
         android:layout_height="51dp"
         android:layout_alignParentStart="true"
@@ -102,17 +102,17 @@
         android:layout_width="177dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentTop="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentBottom="false"
-        android:layout_marginStart="136dp"
-        android:layout_marginLeft="136dp"
-        android:layout_marginTop="175dp"
-        android:layout_marginEnd="47dp"
-        android:layout_marginRight="47dp"
-        android:layout_marginBottom="374dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="73dp"
+        android:layout_marginLeft="73dp"
+        android:layout_marginTop="173dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginRight="110dp"
+        android:layout_marginBottom="376dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
@@ -125,10 +125,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="false"
         android:layout_alignParentBottom="false"
-        android:layout_marginStart="181dp"
+        android:layout_marginStart="109dp"
         android:layout_marginLeft="192dp"
         android:layout_marginTop="105dp"
-        android:layout_marginEnd="83dp"
+        android:layout_marginEnd="155dp"
         android:layout_marginRight="122dp"
         android:layout_marginBottom="578dp"
         android:text="@string/txt_nombre_user"
@@ -152,24 +152,6 @@
         android:layout_marginRight="29dp"
         android:layout_marginBottom="633dp"
         android:background="@drawable/icono_mensajes" />
-
-    <ImageView
-        android:id="@+id/icono_guardados2"
-        android:layout_width="85dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="216dp"
-        android:layout_marginLeft="216dp"
-        android:layout_marginTop="672dp"
-        android:layout_marginEnd="110dp"
-        android:layout_marginRight="110dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/icono_guardados" />
 
     <Button
         android:id="@+id/button_saldo"
