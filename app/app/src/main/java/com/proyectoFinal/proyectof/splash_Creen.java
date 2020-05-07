@@ -45,16 +45,6 @@ public class splash_Creen extends AppCompatActivity {
             }
         },DURATION);
 
-        try {
-            JSONObject user = new JSONObject();
-            user.put("email", "roberwido@gmail.com");
-            user.put("password", "scarlet123321");
-            JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/user/login", user);
-            System.out.println(job.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 }

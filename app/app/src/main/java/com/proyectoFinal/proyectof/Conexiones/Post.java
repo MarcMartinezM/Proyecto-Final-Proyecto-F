@@ -135,7 +135,7 @@ public class Post extends AsyncTask {
         urlConnection.setReadTimeout(10000);
         urlConnection.setConnectTimeout(15000);
 
-        urlConnection.setDoOutput(true);
+        urlConnection.setDoOutput(false);
         urlConnection.connect();
 
         OutputStream os = urlConnection.getOutputStream();
@@ -144,9 +144,15 @@ public class Post extends AsyncTask {
         writer.flush();
         writer.close();
         os.close();
-
-        BufferedReader br=new BufferedReader(new InputStreamReader(url.openStream()));
-
+        int responseCode = urlConnection.getResponseCode();
+        InputStream inputStream = null;
+        if (responseCode == 200) {
+            inputStream = new BufferedInputStream(urlConnection.getInputStream());
+        } else {
+            inputStream = new BufferedInputStream(urlConnection.getErrorStream());
+        }
+        //in = new BufferedReader(new InputStreamReader(httpConnect.getInputStream(), "UTF-8"));
+        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
         char[] buffer = new char[1024];
 
         String jsonString = new String();

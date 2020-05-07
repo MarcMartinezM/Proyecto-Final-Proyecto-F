@@ -44,6 +44,13 @@ public class Perfil extends AppCompatActivity {
         });
         button_compartir = (Button) findViewById(R.id.button_compartir);
         button_config_cuenta = (Button) findViewById(R.id.button_config_cuenta);
+        button_config_cuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pagConf= new Intent (Perfil.this,ConfigurarCuenta.class);
+                startActivity(pagConf);
+            }
+        });
         icono_perfil = (ImageView) findViewById(R.id.icono_perfil);
         icono_perfil.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -44,6 +44,10 @@
             android:name=".Saldo"
             android:label=".Saldo"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ConfigurarCuenta"
+            android:label=".ConfigurarCuenta"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".Favoritos"
