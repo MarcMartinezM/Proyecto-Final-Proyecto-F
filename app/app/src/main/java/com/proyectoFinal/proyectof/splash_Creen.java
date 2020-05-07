@@ -14,12 +14,14 @@ import android.os.StrictMode;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.google.gson.JsonObject;
 import com.proyectoFinal.proyectof.Conexiones.Post;
 import com.proyectoFinal.proyectof.Querys.Metodos;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -42,13 +44,13 @@ public class splash_Creen extends AppCompatActivity {
                 finish();
             }
         },DURATION);
-        Metodos set = new Metodos();
+
         try {
-            JSONObject obj = new JSONObject();
-            obj.put("email", "roberwido@gmail.com");
-            obj.put("password", "scarlet123321");
-            System.out.println(set.postLogin(obj));
-        }catch (JSONException e){
+            JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/user/login");
+            System.out.println(job.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
