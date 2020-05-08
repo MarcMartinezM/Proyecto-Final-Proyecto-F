@@ -14,7 +14,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.proyectoFinal.proyectof.Adapters.Adaptador_eventos;
+import com.proyectoFinal.proyectof.Conexiones.Get;
 import com.proyectoFinal.proyectof.Objectos.Evento;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +31,14 @@ public class Eventos extends AppCompatActivity {
     private EditText input_busqueda;
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        String rutaURL = new String("http://proyectof.tk/api/events");
+        try {
+            JSONObject job = Get.getJSONObjectFromURL(rutaURL);
+            System.out.println(job.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventos);
     }

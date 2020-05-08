@@ -2,11 +2,20 @@ package com.proyectoFinal.proyectof.Conexiones;
 
 import android.os.AsyncTask;
 
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Iterator;
 
 public class Get extends AsyncTask {
 
@@ -40,6 +49,46 @@ public class Get extends AsyncTask {
             ex.printStackTrace();
         }
         return null;
+    }
+
+    public static JSONObject getJSONObjectFromURL(String urlString) throws Exception {
+        HttpURLConnection urlConnection = null;
+
+        URL url = new URL(urlString);
+
+        urlConnection = (HttpURLConnection) url.openConnection();
+        urlConnection.setRequestMethod("GET");
+        urlConnection.setReadTimeout(10000);
+        urlConnection.setConnectTimeout(15000);
+        urlConnection.setDoOutput(false);
+        urlConnection.connect();
+
+        int responseCode = urlConnection.getResponseCode();
+        InputStream inputStream = null;
+        if (responseCode == 200) {
+            inputStream = new BufferedInputStream(urlConnection.getInputStream());
+        } else {
+            inputStream = new BufferedInputStream(urlConnection.getErrorStream());
+        }
+        //in = new BufferedReader(new InputStreamReader(httpConnect.getInputStream(), "UTF-8"));
+        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+        char[] buffer = new char[1024];
+
+        String jsonString = new String();
+
+        StringBuilder sb = new StringBuilder();
+        String line;
+        while ((line = br.readLine()) != null) {
+            sb.append(line+"\n");
+        }
+        br.close();
+
+        jsonString = sb.toString();
+
+        System.out.println("JSON: " + jsonString);
+        urlConnection.disconnect();
+
+        return new JSONObject(jsonString);
     }
 
     @Override
