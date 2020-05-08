@@ -3,7 +3,6 @@ package com.proyectoFinal.proyectof.Objectos;
 public class Usuario {
     String nombre_real;
     String apellido;
-    String nombre_usuario;
     String contrasenya;
     String correo;
     int cod_postal;
@@ -13,10 +12,9 @@ public class Usuario {
 
     }
 
-    public Usuario(String nombre_real, String apellido, String nombre_usuario, String contrasenya, String correo, int cod_postal, int num_tlf) {
+    public Usuario(String nombre_real, String apellido, String contrasenya, String correo, int cod_postal, int num_tlf) {
         this.nombre_real = nombre_real;
         this.apellido = apellido;
-        this.nombre_usuario = nombre_usuario;
         this.contrasenya = contrasenya;
         this.correo = correo;
         this.cod_postal = cod_postal;
@@ -37,14 +35,6 @@ public class Usuario {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getNombre_usuario() {
-        return nombre_usuario;
-    }
-
-    public void setNombre_usuario(String nombre_usuario) {
-        this.nombre_usuario = nombre_usuario;
     }
 
     public String getContrasenya() {

@@ -82,6 +82,12 @@
                 android:textSize="30sp" />
 
             <TextView
+                android:id="@+id/text_descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="149dp"
+                android:textSize="21sp" />
+
+            <TextView
                 android:id="@+id/text_precio_entrada"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"

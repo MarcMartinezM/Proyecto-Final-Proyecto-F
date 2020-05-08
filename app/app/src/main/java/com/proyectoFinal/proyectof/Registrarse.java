@@ -68,10 +68,13 @@ public class Registrarse extends AppCompatActivity implements AdapterView.OnItem
                    Toast.makeText(Registrarse.this,"TODOS LOS DATOS TIENES QUE ESTAR RELLENADOS.",Toast.LENGTH_SHORT).show();
                }else{
                    //COMPROVACION CAMPOS PASS
-                   if(input_pass.getText().toString() != input_repetirPass.getText().toString()) {
+
+                   if(!input_pass.getText().toString().contentEquals(input_repetirPass.getText().toString())) {
                        crear = false;
                        Toast.makeText(Registrarse.this,"LOS CAMPOS DE CONTRASEÑA NO COINCIDEN",Toast.LENGTH_SHORT).show();
                    }
+
+
                    //COMPROVACION CAMPO COD POSTAL
                    if(input_codigoPostal.length() != 5){
                        crear = false;
