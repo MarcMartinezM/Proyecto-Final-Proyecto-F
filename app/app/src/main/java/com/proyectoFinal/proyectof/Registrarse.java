@@ -9,10 +9,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.proyectoFinal.proyectof.Conexiones.Post;
+
+import org.json.JSONObject;
+
+import java.io.IOException;
 
 public class Registrarse extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -53,25 +58,37 @@ public class Registrarse extends AppCompatActivity implements AdapterView.OnItem
            @Override
            //COMPROVACIONES DE LOS DATOS PARA REGISTRARSE
            public void onClick(View v) {
+               boolean crear = true;
                //SI ALGO ESTA VACIO MENSAJE TOAST
                if((input_nombreReal.getText().toString()== null || input_nombreReal.getText().toString().equals("")) && (input_apellido.getText().toString()== null || input_apellido.getText().toString().equals("")) ||
                        (input_pass.getText().toString()== null || input_pass.getText().toString().equals("")) ||
                        (input_repetirPass.getText().toString()== null || input_repetirPass.getText().toString().equals("")) && (input_correo.getText().toString()== null || input_correo.getText().toString().equals("")) ||
                        (input_codigoPostal.getText().toString()== null || input_codigoPostal.getText().toString().equals(""))&& (input_telefono.getText().toString()== null || input_telefono.getText().toString().equals(""))){
+                   crear = false;
                    Toast.makeText(Registrarse.this,"TODOS LOS DATOS TIENES QUE ESTAR RELLENADOS.",Toast.LENGTH_SHORT).show();
                }else{
-                   
                    //COMPROVACION CAMPOS PASS
                    if(input_pass.getText().toString() != input_repetirPass.getText().toString()) {
+                       crear = false;
                        Toast.makeText(Registrarse.this,"LOS CAMPOS DE CONTRASEÑA NO COINCIDEN",Toast.LENGTH_SHORT).show();
                    }
                    //COMPROVACION CAMPO COD POSTAL
                    if(input_codigoPostal.length() != 5){
+                       crear = false;
                        Toast.makeText(Registrarse.this,"CODIGO POSTAL INCORRECTO(NO TIENE 5 VALORES)",Toast.LENGTH_SHORT).show();
                    }
                    //COMPROVACION CAMPO NUM TLF
                    if(input_telefono.length() != 9){
+                       crear = false;
                        Toast.makeText(Registrarse.this,"NUM TLF INCORRECTO(NO TIENE 9 VALORES)",Toast.LENGTH_SHORT).show();
+                   }
+               }
+
+               if(crear == true){
+                   if(esCorrecto() == true){
+                       Toast.makeText(Registrarse.this,"USUARIO REGISTRADO",Toast.LENGTH_SHORT).show();
+                   } else{
+                       Toast.makeText(Registrarse.this,"USUARIO INVALIDO",Toast.LENGTH_SHORT).show();
                    }
                }
            }
@@ -87,6 +104,36 @@ public class Registrarse extends AppCompatActivity implements AdapterView.OnItem
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public Boolean esCorrecto() {
+        try {
+            JSONObject user = new JSONObject();
+            user.put("name", input_nombreReal.getText().toString());
+            user.put("last_name", input_apellido.getText().toString());
+            user.put("email", input_correo.getText().toString());
+            user.put("password", input_pass.getText().toString());
+            user.put("city", spinner_ciudad.getSelectedItem().toString());
+            user.put("zipcode", input_codigoPostal.getText().toString());
+            user.put("phone", input_telefono.getText().toString());
+
+            JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/user/create", user);
+            System.out.println(job.toString());
+            String status = job.optString("status");
+
+            if (status.equalsIgnoreCase("OK")) {
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
 
