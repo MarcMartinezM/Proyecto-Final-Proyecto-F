@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ConfigurarCuenta extends AppCompatActivity {
-    EditText input_nombreUser,input_pass,input_repetirPass,input_correo,input_codigoPostal,input_telefono;
+    EditText input_pass,input_repetirPass,input_correo,input_codigoPostal,input_telefono;
     ImageView icono_atras;
     @Override
     public void onCreate( Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class ConfigurarCuenta extends AppCompatActivity {
                 startActivity(pagPerfil);
             }
         });
-        input_nombreUser = (EditText) findViewById(R.id.input_nombreUserConf);
+
         input_pass = (EditText) findViewById(R.id.input_PassConf);
         input_repetirPass = (EditText) findViewById(R.id.input_RepetirPassConf);
         input_correo =(EditText) findViewById(R.id.input_CorreConf);

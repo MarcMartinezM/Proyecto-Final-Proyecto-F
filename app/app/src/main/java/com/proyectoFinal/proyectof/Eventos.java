@@ -1,6 +1,7 @@
 package com.proyectoFinal.proyectof;
 
 import android.content.Intent;
+import android.content.SyncStatusObserver;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,6 +18,7 @@ import com.proyectoFinal.proyectof.Adapters.Adaptador_eventos;
 import com.proyectoFinal.proyectof.Conexiones.Get;
 import com.proyectoFinal.proyectof.Objectos.Evento;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -35,6 +37,15 @@ public class Eventos extends AppCompatActivity {
         try {
             JSONObject job = Get.getJSONObjectFromURL(rutaURL);
             System.out.println(job.toString());
+
+            JSONArray arr = job.getJSONArray("data");
+            for(int i=0;i<arr.length();i++){
+                JSONObject jObj = arr.getJSONObject(i);
+                String date = jObj.getString("name");
+                System.out.println(date);
+            }
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

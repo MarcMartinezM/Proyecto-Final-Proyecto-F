@@ -76,14 +76,19 @@ public class InfoEvento extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //      Log.i("cantidad",text_cantidad.getText().toString());
-                String sumar;
-                sumar = text_Cantidad.getText().toString();
-                String[] separar = sumar.split(" ");
-                int numero = Integer.parseInt(separar[0]);
-                Log.i("cantidad", numero + "");
-                numero = numero + 1;
-                sumar = numero + " " + separar[1];
-                text_Cantidad.setText(sumar);
+                if(text_Cantidad.getText().toString().equals("5 x")){
+                    Toast.makeText(InfoEvento.this, "No puedes adquirir mas", Toast.LENGTH_SHORT).show();
+                }else{
+                    String sumar;
+                    sumar = text_Cantidad.getText().toString();
+                    String[] separar = sumar.split(" ");
+                    int numero = Integer.parseInt(separar[0]);
+                    Log.i("cantidad", numero + "");
+                    numero = numero + 1;
+                    sumar = numero + " " + separar[1];
+                    text_Cantidad.setText(sumar);
+                }
+
             }
         });
 
