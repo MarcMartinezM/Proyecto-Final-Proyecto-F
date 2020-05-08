@@ -16,8 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Registrarse extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    //TextView text_titulo,text_nombreReal,text_nombreUsuario,text_apellido,text_pass,text_repetirPass,text_correo,text_ciudad,text_codigoPostal,text_telefono;
-    EditText input_nombreReal,input_nombreUsuario,input_apellido,input_pass,input_repetirPass,input_correo,input_codigoPostal,input_telefono;
+
+    EditText input_nombreReal,input_apellido,input_pass,input_repetirPass,input_correo,input_codigoPostal,input_telefono;
     Spinner spinner_ciudad;
     Button b_registrarse;
     ImageView imagen_atras;
@@ -28,17 +28,8 @@ public class Registrarse extends AppCompatActivity implements AdapterView.OnItem
     }
     public void onResume() {
         super.onResume();
-       /*
-        text_titulo = (TextView) findViewById(R.id.titulo_registrarse);
-        text_nombreReal = (TextView) findViewById(R.id.registrar_nombre_real);
-        text_nombreUsuario = (TextView) findViewById(R.id.registrar_nombre_usuario);
-        text_apellido = (TextView) findViewById(R.id.registrar_apellido);
-        text_pass = (TextView) findViewById(R.id.registrar_pass);
-        text_repetirPass = (TextView) findViewById(R.id.registrar_pass_repetir);
-*/
        input_nombreReal = (EditText) findViewById(R.id.registrarse_input_nombre_real);
        input_apellido = (EditText) findViewById(R.id.registrarse_input_apellido);
-       input_nombreUsuario = (EditText) findViewById(R.id.registrarse_input_nombre_user);
        input_pass = (EditText) findViewById(R.id.registrarse_input_pass);
        input_repetirPass = (EditText) findViewById(R.id.registrarse_input_pass_repetir);
        input_correo = (EditText) findViewById(R.id.registrarse_input_correo);
@@ -64,15 +55,12 @@ public class Registrarse extends AppCompatActivity implements AdapterView.OnItem
            public void onClick(View v) {
                //SI ALGO ESTA VACIO MENSAJE TOAST
                if((input_nombreReal.getText().toString()== null || input_nombreReal.getText().toString().equals("")) && (input_apellido.getText().toString()== null || input_apellido.getText().toString().equals("")) ||
-                       (input_nombreUsuario.getText().toString()== null || input_nombreUsuario.getText().toString().equals("")) && (input_pass.getText().toString()== null || input_pass.getText().toString().equals("")) ||
+                       (input_pass.getText().toString()== null || input_pass.getText().toString().equals("")) ||
                        (input_repetirPass.getText().toString()== null || input_repetirPass.getText().toString().equals("")) && (input_correo.getText().toString()== null || input_correo.getText().toString().equals("")) ||
                        (input_codigoPostal.getText().toString()== null || input_codigoPostal.getText().toString().equals(""))&& (input_telefono.getText().toString()== null || input_telefono.getText().toString().equals(""))){
                    Toast.makeText(Registrarse.this,"TODOS LOS DATOS TIENES QUE ESTAR RELLENADOS.",Toast.LENGTH_SHORT).show();
                }else{
-                   //COMPROVACION NOMBRE USER
-                   if(input_nombreUsuario.getTextSize()<=4){
-                       Toast.makeText(Registrarse.this,"EL NOMBRE DE USUARIO DEBE TENER MAS DE 4 CARACTERES",Toast.LENGTH_SHORT).show();
-                   }
+                   
                    //COMPROVACION CAMPOS PASS
                    if(input_pass.getText().toString() != input_repetirPass.getText().toString()) {
                        Toast.makeText(Registrarse.this,"LOS CAMPOS DE CONTRASEÑA NO COINCIDEN",Toast.LENGTH_SHORT).show();
