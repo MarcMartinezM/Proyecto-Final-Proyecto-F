@@ -10,7 +10,7 @@
 
 
     <string name="titulo_Registrarse">REGISTRARSE</string>
-    <string name="registrarse_nombre_real">Nombre Real:</string>
+    <string name="registrarse_nombre_real">Nombre:</string>
     <string name="registrarse_apellido">Apellido:</string>
     <string name="registrarse_nombre_usuario">Nombre Usuario:</string>
     <string name="registrarse_pass">Contraseña:</string>
