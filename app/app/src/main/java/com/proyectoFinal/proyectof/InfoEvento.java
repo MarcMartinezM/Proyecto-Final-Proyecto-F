@@ -24,7 +24,7 @@ import java.util.List;
 
 import static com.proyectoFinal.proyectof.R.drawable.icono_corazon_llemo;
 
-public class InfoEvento extends AppCompatActivity {
+public class InfoEvento extends AppCompatActivity implements Dialog_CompraTargeta.dialogListener{
     public static String nombreEventoPasar;
     ImageView imagen_evento,imagen_atras;
     TextView text_titulo,text_precio_entrada,text_horario,text_hora,text_Cantidad;
@@ -56,7 +56,12 @@ public class InfoEvento extends AppCompatActivity {
         text_Cantidad = (TextView) findViewById(R.id.text_cantidad);
         text_Cantidad.setText("0 x");
         boton_comprar = (Button) findViewById(R.id.boton_comprar);
-
+        boton_comprar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialog();
+            }
+        });
 
         for (int i = 0; i < Eventos.arrayEventos.size(); i++) {
             if (nombreEventoPasar.equalsIgnoreCase(Eventos.arrayEventos.get(i).getNombre_evento())) {
@@ -169,5 +174,14 @@ public class InfoEvento extends AppCompatActivity {
 
 
         }
+    }
+    public void openDialog(){
+        Dialog_CompraTargeta dialog_comprar = new Dialog_CompraTargeta();
+        dialog_comprar.show(getSupportFragmentManager(),"dialog Compra Targeta");
+    }
+
+    @Override
+    public void applyText(int numeroTargeta, String fecha, int CVC) {
+
     }
 }

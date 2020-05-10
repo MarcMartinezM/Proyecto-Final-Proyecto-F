@@ -37,7 +37,6 @@ public class Eventos extends AppCompatActivity {
         try {
             JSONObject job = Get.getJSONObjectFromURL(rutaURL);
             System.out.println(job.toString());
-
             JSONArray arr = job.getJSONArray("data");
             for(int i=0;i<arr.length();i++){
                 JSONObject jObj = arr.getJSONObject(i);
