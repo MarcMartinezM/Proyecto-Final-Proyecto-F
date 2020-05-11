@@ -1,7 +1,6 @@
 package com.proyectoFinal.proyectof;
 
 import android.content.Intent;
-import android.content.SyncStatusObserver;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -39,9 +38,32 @@ public class Eventos extends AppCompatActivity {
             System.out.println(job.toString());
             JSONArray arr = job.getJSONArray("data");
             for(int i=0;i<arr.length();i++){
+                Evento evento = new Evento();
                 JSONObject jObj = arr.getJSONObject(i);
-                String date = jObj.getString("name");
-                System.out.println(date);
+                String nam = jObj.getString("name");
+                String evento_id = jObj.getString("_id");
+                String fecha_evento = jObj.getString("date");
+                double precio_evento = jObj.getDouble("price");
+                String localizacion = jObj.getString("location");
+                int tickets_en_venta = jObj.getInt("ticketsForSale");
+                int tickets_disponibles = jObj.getInt("tickets_available");
+                String buisness_id = jObj.getString("business_id");
+                String horario = jObj.getString("schedule");
+                String imagen_url = jObj.getString("img_url");
+
+                evento.setBuisness_id(buisness_id);
+                evento.setEvento_id(evento_id);
+                evento.setFecha_evento(fecha_evento);
+                evento.setImagen_url(imagen_url);
+                evento.setHorario_evento(horario);
+                evento.setNombre_evento(nam);
+                evento.setPrecio_evento(precio_evento);
+                evento.setHorario_evento(horario);
+                evento.setTickets_disponibles(tickets_disponibles);
+                evento.setTickets_en_venta(tickets_en_venta);
+                evento.setLocalizacion(localizacion);
+
+                arrayEventos.add(evento);
             }
 
 
@@ -54,9 +76,7 @@ public class Eventos extends AppCompatActivity {
     }
     private ArrayList<Evento> getArray(){
         arrayEventos = new ArrayList<Evento>();
-        arrayEventos.add(new Evento("27/4/2020", "Pacha Barcelona", 12.00, R.drawable.pacha, "23:00-05:00",true));
 
-        arrayEventos.add(new Evento("27/4/2020", "Sala Apolo", 15.00, R.drawable.pacha, "23:00-05:00",false));
         return (ArrayList<Evento>) arrayEventos;
     }
     @Override
