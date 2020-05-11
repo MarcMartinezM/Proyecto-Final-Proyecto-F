@@ -34,7 +34,7 @@ public class Favoritos extends AppCompatActivity {
         super.onResume();
         lista_fav = (ListView) findViewById(R.id.lista_fav);
 
-        adaptador = new adaptador_fav(getTrueArray(),this);
+       // adaptador = new adaptador_fav(getTrueArray(),this);
 
         lista_fav.setAdapter(adaptador);
 
@@ -72,6 +72,7 @@ public class Favoritos extends AppCompatActivity {
             }
         });
     }
+    /*
     private ArrayList<Favorito> getTrueArray(){
 
             Log.i("TAMAÑO ARRAY EVENTOS",Eventos.arrayEventos.size()+"");
@@ -81,4 +82,6 @@ public class Favoritos extends AppCompatActivity {
         }
         return (ArrayList<Favorito>) arrayFavoritos;
     }
+
+     */
     }

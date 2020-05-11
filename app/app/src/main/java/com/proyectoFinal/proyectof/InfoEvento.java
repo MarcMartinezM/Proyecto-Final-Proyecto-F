@@ -120,6 +120,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
         for (int j = 0; j < Eventos.arrayEventos.size(); j++) {
 
             if (Eventos.arrayEventos.get(j).getNombre_evento().equalsIgnoreCase(nombreEventoPasar)) {
+                /*
                 Log.i("PRIMERA ENTRADA",Eventos.arrayEventos.get(j).getFavorito_evento()+"");
                 if (Eventos.arrayEventos.get(j).getFavorito_evento() == false) {
                     boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
@@ -128,7 +129,10 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
                     boton_fav.setBackgroundResource(R.drawable.icono_corazon_llemo);
 
                 }
+
+                 */
             }
+            /*
             boton_fav.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -170,7 +174,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
 
                 }
             });
-
+*/
 
 
         }

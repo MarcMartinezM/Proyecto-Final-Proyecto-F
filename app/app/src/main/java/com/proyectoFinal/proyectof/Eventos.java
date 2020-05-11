@@ -37,6 +37,7 @@ public class Eventos extends AppCompatActivity {
             JSONObject job = Get.getJSONObjectFromURL(rutaURL);
             System.out.println(job.toString());
             JSONArray arr = job.getJSONArray("data");
+            arrayEventos = new ArrayList<Evento>();
             for(int i=0;i<arr.length();i++){
                 Evento evento = new Evento();
                 JSONObject jObj = arr.getJSONObject(i);
@@ -75,8 +76,6 @@ public class Eventos extends AppCompatActivity {
         setContentView(R.layout.activity_eventos);
     }
     private ArrayList<Evento> getArray(){
-        arrayEventos = new ArrayList<Evento>();
-
         return (ArrayList<Evento>) arrayEventos;
     }
     @Override

@@ -12,15 +12,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.proyectoFinal.proyectof.Conexiones.Post;
+import com.proyectoFinal.proyectof.Objectos.Usuario;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Login extends AppCompatActivity {
     TextView text_titulo,text_usuario,text_pass,click_registrarse;
     EditText input_usuario,input_pass;
     Button b_inicio;
+    public static ArrayList<Usuario> arrayUsuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +73,29 @@ public class Login extends AppCompatActivity {
             System.out.println(job.toString());
             String status = job.optString("status");
             if (status.equalsIgnoreCase("OK")) {
+                /*
+                JSONArray arr = job.getJSONArray("data");
+                for(int i=0;i<arr.length();i++){
+                    JSONObject jObj = arr.getJSONObject(i);
+                    ArrayList<String> friends = new ArrayList<String >();
+                    ArrayList<String> tickets = new ArrayList<String >();
+                    /*
+                    JSONArray JSONfriends = jObj.getJSONArray("friends");
+                    ArrayList<String> friends = new ArrayList<String >();
+                    for(int j=0;j<JSONfriends.length();i++){
+                        JSONObject jobjArrayFriends = JSONfriends.getJSONObject(i);
+                     friends.add(jobjArrayFriends.getString());
+                    }
+
+
+                    arrayUsuario.add(new Usuario(jObj.getInt("profileImg_URL"),friends,jObj.getString("_id"),
+                            tickets,jObj.getString("name"),jObj.getString("last_name"),input_pass.getText().toString(),
+                            jObj.getString("email"),jObj.getString("city"),jObj.getInt("zipcode"),jObj.getInt("phone")));
+                }
+                for (Usuario recorrer:arrayUsuario) {
+                    Log.i("DATOS USER JSON",recorrer.toString());
+                }
+                */
                 return true;
 
             } else {
