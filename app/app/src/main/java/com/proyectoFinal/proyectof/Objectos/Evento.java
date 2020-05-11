@@ -1,11 +1,14 @@
 package com.proyectoFinal.proyectof.Objectos;
 
+import android.util.EventLogTags;
+
 import java.util.Date;
 import java.util.List;
 
 public class Evento {
     String evento_id;
     String buisness_id;
+    String Descripcion;
     String fecha_evento;
     String nombre_evento;
     double precio_evento;
@@ -22,7 +25,7 @@ public class Evento {
 
     }
 
-    public Evento(String evento_id, String buisness_id, String fecha_evento, String nombre_evento, double precio_evento, int foto_evento, String horario_evento, boolean favorito_evento, String imagen_url, int status, String localizacion, int tickets_en_venta, int tickets_disponibles) {
+    public Evento(String evento_id, String buisness_id, String fecha_evento, String nombre_evento, double precio_evento, int foto_evento, String horario_evento, boolean favorito_evento, String imagen_url, int status, String localizacion, int tickets_en_venta, int tickets_disponibles,String Descripcion) {
         this.evento_id = evento_id;
         this.buisness_id = buisness_id;
         this.fecha_evento = fecha_evento;
@@ -36,6 +39,7 @@ public class Evento {
         this.localizacion = localizacion;
         this.tickets_en_venta = tickets_en_venta;
         this.tickets_disponibles = tickets_disponibles;
+        this.Descripcion =Descripcion;
     }
 
 
@@ -141,5 +145,13 @@ public class Evento {
 
     public void setTickets_disponibles(int tickets_disponibles) {
         this.tickets_disponibles = tickets_disponibles;
+    }
+
+    public String getDescripcion() {
+        return Descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        Descripcion = descripcion;
     }
 }

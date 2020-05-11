@@ -79,7 +79,7 @@ public class Login extends AppCompatActivity {
                     JSONObject jObj = arr.getJSONObject(i);
                     ArrayList<String> friends = new ArrayList<String >();
                     ArrayList<String> tickets = new ArrayList<String >();
-                    /*
+
                     JSONArray JSONfriends = jObj.getJSONArray("friends");
                     ArrayList<String> friends = new ArrayList<String >();
                     for(int j=0;j<JSONfriends.length();i++){

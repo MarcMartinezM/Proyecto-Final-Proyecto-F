@@ -41,6 +41,7 @@ public class Eventos extends AppCompatActivity {
             for(int i=0;i<arr.length();i++){
                 Evento evento = new Evento();
                 JSONObject jObj = arr.getJSONObject(i);
+                String descp = jObj.getString("description");
                 String nam = jObj.getString("name");
                 String evento_id = jObj.getString("_id");
                 String fecha_evento = jObj.getString("date");
@@ -63,7 +64,7 @@ public class Eventos extends AppCompatActivity {
                 evento.setTickets_disponibles(tickets_disponibles);
                 evento.setTickets_en_venta(tickets_en_venta);
                 evento.setLocalizacion(localizacion);
-
+                evento.setDescripcion(descp);
                 arrayEventos.add(evento);
             }
 

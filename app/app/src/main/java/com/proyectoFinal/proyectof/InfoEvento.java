@@ -27,7 +27,7 @@ import static com.proyectoFinal.proyectof.R.drawable.icono_corazon_llemo;
 public class InfoEvento extends AppCompatActivity implements Dialog_CompraTargeta.dialogListener{
     public static String nombreEventoPasar;
     ImageView imagen_evento,imagen_atras;
-    TextView text_titulo,text_precio_entrada,text_horario,text_hora,text_Cantidad;
+    TextView text_titulo,text_precio_entrada,text_horario,text_hora,text_Cantidad,text_descrip;
     Button boton_comprar,boton_mas,boton_menos,boton_fav;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
             }
         });
         text_titulo = (TextView) findViewById(R.id.text_titulo_evento);
+        text_descrip = (TextView) findViewById(R.id.text_descripcion);
         text_precio_entrada = (TextView) findViewById(R.id.text_precio_entrada);
         text_horario = (TextView) findViewById(R.id.text_horario);
         text_hora = (TextView) findViewById(R.id.text_Hora);
@@ -67,6 +68,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
             if (nombreEventoPasar.equalsIgnoreCase(Eventos.arrayEventos.get(i).getNombre_evento())) {
                 imagen_evento.setImageResource(Eventos.arrayEventos.get(i).getFoto_evento());
                 text_titulo.setText(Eventos.arrayEventos.get(i).getNombre_evento());
+                text_descrip.setText(Eventos.arrayEventos.get(i).getDescripcion());
                 text_precio_entrada.setText(text_precio_entrada.getText() + " " + Eventos.arrayEventos.get(i).getPrecio_evento() + "€");
                 text_horario.setText(text_horario.getText() + " " + Eventos.arrayEventos.get(i).getFecha_evento());
                 text_hora.setText(Eventos.arrayEventos.get(i).getHorario_evento());
