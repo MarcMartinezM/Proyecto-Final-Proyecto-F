@@ -67,34 +67,40 @@ public class Login extends AppCompatActivity {
 
         try {
             JSONObject user = new JSONObject();
+            arrayUsuario = new ArrayList<Usuario>();
             user.put("email", input_usuario.getText().toString());
             user.put("password", input_pass.getText().toString());
             JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/user/login", user);
             System.out.println(job.toString());
             String status = job.optString("status");
             if (status.equalsIgnoreCase("OK")) {
-                JSONArray arr = job.getJSONArray("data");
+                JSONObject arr = job.getJSONObject("data");
+                /*
                 for(int i=0;i<arr.length();i++){
+                    */
                     Usuario usu = new Usuario();
-                    JSONObject jObj = arr.getJSONObject(i);
+
                     ArrayList<String> tickets = new ArrayList<String >();
-                    String userid = jObj.getString("_id");
-                    String nombre = jObj.getString("name");
-                    String apellidos = jObj.getString("last_name");
-                    String email = jObj.getString("email");
-                    String ciudad = jObj.getString("city");
-                    int codigo_postal = jObj.getInt("zipcode");
-                    int telefono = jObj.getInt("phone");
+                    String userid = arr.getString("_id");
+                    String nombre = arr.getString("name");
+                    String apellidos = arr.getString("last_name");
+                    String email = arr.getString("email");
+                    String ciudad = arr.getString("city");
+                    int codigo_postal = arr.getInt("zipcode");
+                    int telefono = arr.getInt("phone");
 
                     usu.setIdUsuario(userid);
                     usu.setNombre_real(nombre);
                     usu.setApellido(apellidos);
+                    usu.setContrasenya( input_pass.getText().toString());
                     usu.setCorreo(email);
                     usu.setCiudad(ciudad);
                     usu.setCod_postal(codigo_postal);
                     usu.setNum_tlf(telefono);
                     arrayUsuario.add(usu);
+                /*
                 }
+                 */
 
                 for (Usuario recorrer:arrayUsuario) {
                     Log.i("DATOS USER JSON",recorrer.toString());
