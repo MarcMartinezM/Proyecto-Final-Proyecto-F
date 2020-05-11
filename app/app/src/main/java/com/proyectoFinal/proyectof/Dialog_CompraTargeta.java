@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.net.ParseException;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -51,24 +52,24 @@ public class Dialog_CompraTargeta  extends AppCompatDialogFragment {
               positivo.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
-                      if(input_numTargeta.getText().length()!=9 && input_cvc.getText().length()!=3 && input_fechaCaducacion.getText().length()!=8){
+                      Log.i("tamaño ","targeta: "+input_numTargeta.getText().length()+" cvc: "+input_cvc.getText().length()+" FECHA: "+input_fechaCaducacion.getText().length());
+                      if(input_numTargeta.getText().length()!=16 && input_cvc.getText().length()!=3 && input_fechaCaducacion.getText().length()!=7){
                           Toast.makeText(getActivity(), "no se han introducido bien los datos", Toast.LENGTH_SHORT).show();
                       }else{
                           String numeroTargeta= input_numTargeta.getText().toString();
                           String CVC =input_cvc.getText().toString();
                           String caducacion = input_fechaCaducacion.getText().toString();
-                          for(int i=0;i<caducacion.length();i++){
-                              char simbolo = caducacion.charAt(i);
+                              char simbolo = caducacion.charAt(2);
                               if(simbolo == '/'){
                                   String [] parse = caducacion.split("/");
-                                  if(isNumeric(parse[0]) && isNumeric(parse[1]) && isNumeric(numeroTargeta) && isNumeric(CVC)){
+                                  if(isNumeric(parse[0]) && isNumeric(parse[1]) && isNumericLong(numeroTargeta) && isNumeric(CVC)){
                                       int mes = Integer.parseInt(parse[0]);
                                       int año = Integer.parseInt(parse[1]);
                                       if(mes>6 && año>2020){
                                           Toast.makeText(getActivity(), "Su targeta esta Caducada", Toast.LENGTH_SHORT).show();
                                       }else{
                                           Toast.makeText(getActivity(), "GRACIAS POR SU COMPRA", Toast.LENGTH_SHORT).show();
-                                          listener.applyText(Integer.parseInt(numeroTargeta),caducacion,Integer.parseInt(CVC));
+                                          listener.applyText(Long.parseLong(numeroTargeta),caducacion,Integer.parseInt(CVC));
                                           dismiss();
                                       }
 
@@ -78,7 +79,7 @@ public class Dialog_CompraTargeta  extends AppCompatDialogFragment {
                               }else{
                                   Toast.makeText(getActivity(), "no has introducido bien la fecha", Toast.LENGTH_SHORT).show();
                               }
-                          }
+
 
 
 
@@ -102,15 +103,27 @@ public class Dialog_CompraTargeta  extends AppCompatDialogFragment {
     }
 
     public interface  dialogListener{
-       void  applyText (int numeroTargeta,String fecha,int CVC );
+       void  applyText (Long numeroTargeta,String fecha,int CVC );
     }
 
 
     public static boolean isNumeric(String cadena){
         try {
             Integer.parseInt(cadena);
+            Log.i("si es numero: ",""+cadena);
             return true;
         } catch (NumberFormatException nfe){
+            Log.i("no es numero: ",""+cadena);
+            return false;
+        }
+    }
+    public static boolean isNumericLong(String cadena){
+        try {
+            Long.parseLong(cadena);
+            Log.i("si es numero: ",""+cadena);
+            return true;
+        } catch (NumberFormatException nfe){
+            Log.i("no es numero: ",""+cadena);
             return false;
         }
     }

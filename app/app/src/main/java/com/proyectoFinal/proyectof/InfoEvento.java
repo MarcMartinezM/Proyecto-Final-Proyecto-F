@@ -181,7 +181,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
     }
 
     @Override
-    public void applyText(int numeroTargeta, String fecha, int CVC) {
+    public void applyText(Long numeroTargeta, String fecha, int CVC) {
 
     }
 }
