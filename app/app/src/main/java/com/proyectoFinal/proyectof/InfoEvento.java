@@ -60,7 +60,12 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
         boton_comprar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openDialog();
+                if(text_Cantidad.getText().toString().equalsIgnoreCase("0 x")){
+                    Toast.makeText(InfoEvento.this, "la cantidad de tickets es 0", Toast.LENGTH_SHORT).show();
+                }else{
+                    openDialog();
+                }
+
             }
         });
 

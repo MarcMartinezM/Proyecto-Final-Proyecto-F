@@ -12,14 +12,14 @@ public class Usuario {
     String contrasenya;
     String correo;
     String ciudad;
-    int cod_postal;
-    int num_tlf;
+    String cod_postal;
+    String  num_tlf;
 
     public Usuario(){
 
     }
 
-    public Usuario(int fotoPerfil, ArrayList<String> amigos, String idUsuario, ArrayList<String> tickets, String nombre_real, String apellido, String contrasenya, String correo, String ciudad, int cod_postal, int num_tlf) {
+    public Usuario(int fotoPerfil, ArrayList<String> amigos, String idUsuario, ArrayList<String> tickets, String nombre_real, String apellido, String contrasenya, String correo, String ciudad, String cod_postal, String  num_tlf) {
         this.fotoPerfil = fotoPerfil;
         this.amigos = amigos;
         this.idUsuario = idUsuario;
@@ -65,19 +65,19 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public int getCod_postal() {
+    public String getCod_postal() {
         return cod_postal;
     }
 
-    public void setCod_postal(int cod_postal) {
+    public void setCod_postal(String cod_postal) {
         this.cod_postal = cod_postal;
     }
 
-    public int getNum_tlf() {
+    public String  getNum_tlf() {
         return num_tlf;
     }
 
-    public void setNum_tlf(int num_tlf) {
+    public void setNum_tlf(String  num_tlf) {
         this.num_tlf = num_tlf;
     }
 

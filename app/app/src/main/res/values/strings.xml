@@ -53,4 +53,7 @@
 
     <string name="titulo_configurar_cuenta">CONFIGURAR</string>
     <string name="boton_config">GUARDAR</string>
+
+    <string name="configurar_passAntiguo">Contraseña antigua:</string>
+    <string name="configurar_passNuevo">Contraseña Nueva:</string>
 </resources>

@@ -84,6 +84,7 @@ public class Perfil extends AppCompatActivity {
         });
         icono_mensajes = (ImageView) findViewById(R.id.icono_mensajes);
         textNomUser = (TextView) findViewById(R.id.textNomUser);
+        textNomUser.setText(Login.arrayUsuario.get(0).getNombre_real());
         textPerfil = (TextView) findViewById(R.id.textPerfil);
     }
 

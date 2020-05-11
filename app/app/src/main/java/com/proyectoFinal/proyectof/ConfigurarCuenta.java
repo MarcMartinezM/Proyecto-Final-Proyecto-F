@@ -28,10 +28,18 @@ public class ConfigurarCuenta extends AppCompatActivity {
             }
         });
 
-        input_pass = (EditText) findViewById(R.id.input_PassConf);
-        input_repetirPass = (EditText) findViewById(R.id.input_RepetirPassConf);
+        input_pass = (EditText) findViewById(R.id.input_PassAntig);
+        input_pass.setText(Login.arrayUsuario.get(0).getContrasenya());
+        input_repetirPass = (EditText) findViewById(R.id.input_PassNew);
+
         input_correo =(EditText) findViewById(R.id.input_CorreConf);
+        input_correo.setText(Login.arrayUsuario.get(0).getCorreo());
+
         input_codigoPostal = (EditText) findViewById(R.id.input_CodigoPostalConf);
+        input_codigoPostal.setText(Login.arrayUsuario.get(0).getCod_postal());
+
         input_telefono = (EditText) findViewById(R.id.input_TelefonoConf);
+        input_telefono.setText(Login.arrayUsuario.get(0).getNum_tlf());
+
     }
 }

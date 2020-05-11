@@ -81,13 +81,25 @@ public class Login extends AppCompatActivity {
                     Usuario usu = new Usuario();
 
                     ArrayList<String> tickets = new ArrayList<String >();
+                ArrayList<String> amigos = new ArrayList<String >();
                     String userid = arr.getString("_id");
                     String nombre = arr.getString("name");
                     String apellidos = arr.getString("last_name");
                     String email = arr.getString("email");
                     String ciudad = arr.getString("city");
-                    int codigo_postal = arr.getInt("zipcode");
-                    int telefono = arr.getInt("phone");
+                    String codigo_postal = arr.getString("zipcode");
+                    String   telefono = arr.getString ("phone");
+                JSONArray tick = arr.getJSONArray("tickets");
+
+                int len = tick.length();
+                for (int i=0;i<len;i++){
+                    tickets.add(tick.get(i).toString());
+                }
+                JSONArray friends = arr.getJSONArray("friends");
+                int len2 = friends.length();
+                for (int i=0;i<len2;i++){
+                    amigos.add(friends.get(i).toString());
+                }
 
                     usu.setIdUsuario(userid);
                     usu.setNombre_real(nombre);
@@ -97,6 +109,8 @@ public class Login extends AppCompatActivity {
                     usu.setCiudad(ciudad);
                     usu.setCod_postal(codigo_postal);
                     usu.setNum_tlf(telefono);
+                    usu.setTickets(tickets);
+                    usu.setAmigos(amigos);
                     arrayUsuario.add(usu);
                 /*
                 }
