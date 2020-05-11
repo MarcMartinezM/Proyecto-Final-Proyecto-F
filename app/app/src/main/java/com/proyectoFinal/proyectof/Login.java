@@ -73,29 +73,33 @@ public class Login extends AppCompatActivity {
             System.out.println(job.toString());
             String status = job.optString("status");
             if (status.equalsIgnoreCase("OK")) {
-                /*
                 JSONArray arr = job.getJSONArray("data");
                 for(int i=0;i<arr.length();i++){
+                    Usuario usu = new Usuario();
                     JSONObject jObj = arr.getJSONObject(i);
-                    ArrayList<String> friends = new ArrayList<String >();
                     ArrayList<String> tickets = new ArrayList<String >();
+                    String userid = jObj.getString("_id");
+                    String nombre = jObj.getString("name");
+                    String apellidos = jObj.getString("last_name");
+                    String email = jObj.getString("email");
+                    String ciudad = jObj.getString("city");
+                    int codigo_postal = jObj.getInt("zipcode");
+                    int telefono = jObj.getInt("phone");
 
-                    JSONArray JSONfriends = jObj.getJSONArray("friends");
-                    ArrayList<String> friends = new ArrayList<String >();
-                    for(int j=0;j<JSONfriends.length();i++){
-                        JSONObject jobjArrayFriends = JSONfriends.getJSONObject(i);
-                     friends.add(jobjArrayFriends.getString());
-                    }
-
-
-                    arrayUsuario.add(new Usuario(jObj.getInt("profileImg_URL"),friends,jObj.getString("_id"),
-                            tickets,jObj.getString("name"),jObj.getString("last_name"),input_pass.getText().toString(),
-                            jObj.getString("email"),jObj.getString("city"),jObj.getInt("zipcode"),jObj.getInt("phone")));
+                    usu.setIdUsuario(userid);
+                    usu.setNombre_real(nombre);
+                    usu.setApellido(apellidos);
+                    usu.setCorreo(email);
+                    usu.setCiudad(ciudad);
+                    usu.setCod_postal(codigo_postal);
+                    usu.setNum_tlf(telefono);
+                    arrayUsuario.add(usu);
                 }
+
                 for (Usuario recorrer:arrayUsuario) {
                     Log.i("DATOS USER JSON",recorrer.toString());
                 }
-                */
+
                 return true;
 
             } else {
