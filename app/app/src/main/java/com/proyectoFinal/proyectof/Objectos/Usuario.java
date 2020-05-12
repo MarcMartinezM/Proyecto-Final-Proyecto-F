@@ -14,12 +14,12 @@ public class Usuario {
     String ciudad;
     String cod_postal;
     String  num_tlf;
-
+    ArrayList<String> favoritos;
     public Usuario(){
 
     }
 
-    public Usuario(int fotoPerfil, ArrayList<String> amigos, String idUsuario, ArrayList<String> tickets, String nombre_real, String apellido, String contrasenya, String correo, String ciudad, String cod_postal, String  num_tlf) {
+    public Usuario(int fotoPerfil, ArrayList<String> amigos, String idUsuario, ArrayList<String> tickets, String nombre_real, String apellido, String contrasenya, String correo, String ciudad, String cod_postal, String  num_tlf,ArrayList<String> favoritos) {
         this.fotoPerfil = fotoPerfil;
         this.amigos = amigos;
         this.idUsuario = idUsuario;
@@ -31,6 +31,15 @@ public class Usuario {
         this.ciudad = ciudad;
         this.cod_postal = cod_postal;
         this.num_tlf = num_tlf;
+        this.favoritos= favoritos;
+    }
+
+    public ArrayList<String> getFavoritos() {
+        return favoritos;
+    }
+
+    public void setFavoritos(ArrayList<String> favoritos) {
+        this.favoritos = favoritos;
     }
 
     public String getNombre_real() {

@@ -79,7 +79,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
         });
 
         for (int i = 0; i < Eventos.arrayEventos.size(); i++) {
-            if (nombreEventoPasar.equalsIgnoreCase(Eventos.arrayEventos.get(i).getNombre_evento())) {
+            if (nombreEventoPasar.equalsIgnoreCase(Eventos.arrayEventos.get(i).getEvento_id())) {
                 imagen_evento.setImageResource(Eventos.arrayEventos.get(i).getFoto_evento());
                 text_titulo.setText(Eventos.arrayEventos.get(i).getNombre_evento());
                 text_descrip.setText(Eventos.arrayEventos.get(i).getDescripcion());
@@ -133,69 +133,33 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
                 }
             }
         });
+
         boton_fav = (Button) findViewById(R.id.button_fav);
-        for (int j = 0; j < Eventos.arrayEventos.size(); j++) {
-
-            if (Eventos.arrayEventos.get(j).getNombre_evento().equalsIgnoreCase(nombreEventoPasar)) {
-                /*
-                Log.i("PRIMERA ENTRADA",Eventos.arrayEventos.get(j).getFavorito_evento()+"");
-                if (Eventos.arrayEventos.get(j).getFavorito_evento() == false) {
-                    boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
-
-                } else  {
+        for(int i=0;i<Login.arrayUsuario.get(0).getFavoritos().size();i++){
+            Log.i("el for klk","klk con el for");
+            if(!Login.arrayUsuario.get(0).getFavoritos().equals(null)){
+                Log.i("el null klk","klk con el null");
+                if(Login.arrayUsuario.get(0).getFavoritos().get(i).equalsIgnoreCase(nombreEventoPasar)){
+                    Log.i("el id klk","klk con el id");
                     boton_fav.setBackgroundResource(R.drawable.icono_corazon_llemo);
-
+                }else{
+                    Log.i("el id no esta klk","klk con el id que no esta");
+                    boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
                 }
-
-                 */
             }
-            /*
+
+        }
             boton_fav.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    for (int i = 0; i < Eventos.arrayEventos.size(); i++) {
-
-                        if (Eventos.arrayEventos.get(i).getNombre_evento().equalsIgnoreCase(nombreEventoPasar)) {
-
-                            if (Eventos.arrayEventos.get(i).getFavorito_evento() == false) {
-
-                                Eventos.arrayEventos.get(i).setFavorito_evento(true);
-                                Log.i("AL CLICKAR",Eventos.arrayEventos.get(i).getFavorito_evento()+"");
-                                boton_fav.setBackgroundResource(R.drawable.icono_corazon_llemo);
-                                Eventos.adapter.setData(Eventos.arrayEventos);
-                                Favoritos.arrayFavoritos.add(new Favorito(Eventos.arrayEventos.get(i).getFecha_evento(),Eventos.arrayEventos.get(i).getNombre_evento(),Eventos.arrayEventos.get(i).getPrecio_evento(),Eventos.arrayEventos.get(i).getFoto_evento(),Eventos.arrayEventos.get(i).getHorario_evento(),Eventos.arrayEventos.get(i).getFavorito_evento()));
-
-                                if(Favoritos.arrayFavoritos.size()>0  ){
-
-                                   // Favoritos.adaptador.notifyDataSetChanged();
-                                }
-
-
-                            } else if (Eventos.arrayEventos.get(i).getFavorito_evento() == true) {
-
-                                Eventos.arrayEventos.get(i).setFavorito_evento(false);
-                                Log.i("AL CLICKAR",Eventos.arrayEventos.get(i).getFavorito_evento()+"");
-                                boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
-                                Eventos.adapter.setData(Eventos.arrayEventos);
-                                if(Favoritos.arrayFavoritos.size()>0){
-                                    for(int j=0;j<Favoritos.arrayFavoritos.size();j++){
-                                        if(Favoritos.arrayFavoritos.get(j).getNombre_evento_fav().equalsIgnoreCase(nombreEventoPasar)){
-                                            Favoritos.arrayFavoritos.remove(j);
-                                        }
-                                    }
-                                    Favoritos.adaptador.notifyDataSetChanged();
-                                }
-                            }
-                        }
-                    }
 
                 }
             });
-*/
+
 
 
         }
-    }
+
     public void openDialog(){
         Dialog_CompraTargeta dialog_comprar = new Dialog_CompraTargeta();
         dialog_comprar.show(getSupportFragmentManager(),"dialog Compra Targeta");

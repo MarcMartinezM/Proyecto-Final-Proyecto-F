@@ -52,7 +52,7 @@ public class ConfigurarCuenta extends AppCompatActivity {
                 JSONObject params = new JSONObject();
                     try {
                         params.put("uid",Login.usu.getIdUsuario());
-                        if (input_pass.getText().equals(input_repetirPass.getText())) {
+                        if (input_pass.getText().toString().equals(input_repetirPass.getText().toString())) {
                             params.put("oldPassword", Login.usu.getContrasenya());
                             params.put("newPassword", input_pass.getText());
                         } else if(!input_codigoPostal.getText().equals(null)){

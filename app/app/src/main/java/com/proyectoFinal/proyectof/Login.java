@@ -27,6 +27,7 @@ public class Login extends AppCompatActivity {
     public static ArrayList<Usuario> arrayUsuario;
     public static ArrayList<String> tickets;
     public static ArrayList<String> amigos;
+    public static ArrayList<String> favoritos;
     public static Usuario usu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +86,7 @@ public class Login extends AppCompatActivity {
 
                    tickets = new ArrayList<String >();
                    amigos = new ArrayList<String >();
+                   favoritos = new ArrayList<String>();
                     String userid = arr.getString("_id");
                     String nombre = arr.getString("name");
                     String apellidos = arr.getString("last_name");
@@ -92,7 +94,7 @@ public class Login extends AppCompatActivity {
                     String ciudad = arr.getString("city");
                     String codigo_postal = arr.getString("zipcode");
                     String   telefono = arr.getString ("phone");
-                JSONArray tick = arr.getJSONArray("tickets");
+                    JSONArray tick = arr.getJSONArray("tickets");
 
                 int len = tick.length();
                 for (int i=0;i<len;i++){
@@ -103,7 +105,11 @@ public class Login extends AppCompatActivity {
                 for (int i=0;i<len2;i++){
                     amigos.add(friends.get(i).toString());
                 }
-
+                JSONArray fav = arr.getJSONArray("fav_events");
+                int len3 = fav.length();
+                for (int i=0;i<len3;i++){
+                    favoritos.add(fav.get(i).toString());
+                }
                     usu.setIdUsuario(userid);
                     usu.setNombre_real(nombre);
                     usu.setApellido(apellidos);
@@ -114,6 +120,7 @@ public class Login extends AppCompatActivity {
                     usu.setNum_tlf(telefono);
                     usu.setTickets(tickets);
                     usu.setAmigos(amigos);
+                    usu.setFavoritos(favoritos);
                     arrayUsuario.add(usu);
                 /*
                 }
