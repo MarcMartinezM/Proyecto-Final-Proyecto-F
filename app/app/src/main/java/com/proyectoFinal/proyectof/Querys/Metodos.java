@@ -62,4 +62,14 @@ public class Metodos {
         }
     }
 
+    public static String postBotonFav(JSONObject postDataParams){
+        try {
+            URL url = new URL("http://proyectof.tk/api/events/fav");
+            return Post.post(url,postDataParams);
+        }
+        catch(Exception e){
+            return new String("Exception: " + e.getMessage());
+        }
+    }
+
 }

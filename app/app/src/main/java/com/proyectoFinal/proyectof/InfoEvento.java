@@ -150,12 +150,41 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
             }
         }
 
-            boton_fav.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
+        boton_fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean leDioFav = false;
+                if(boton_fav.getBackground().equals(R.drawable.icono_corazon_vacio)){
+                    boton_fav.setBackgroundResource(icono_corazon_llemo);
+                }else{
+                    boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
                 }
-            });
+
+                try {
+                    Evento ev = new Evento();
+                    for (int i = 0; i < Eventos.arrayEventos.size(); i++){
+                        if(Eventos.arrayEventos.get(i).getEvento_id().equals(nombreEventoPasar)){
+                            ev = Eventos.arrayEventos.get(i);
+                        }
+                    }
+
+                    if(boton_fav.getBackground().equals(icono_corazon_llemo)){
+                        leDioFav = true;
+                    } else {
+                        leDioFav = false;
+                    }
+
+                    JSONObject evFav = new JSONObject();
+                    evFav.put("uid", Login.usu.getIdUsuario());
+                    evFav.put("event_id", ev.getEvento_id());
+                    evFav.put("fav", leDioFav);
+                    JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/events/fav", evFav);
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
 
 
 
