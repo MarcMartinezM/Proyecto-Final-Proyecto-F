@@ -30,6 +30,7 @@ public class Tickets extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tickets);
     }
+    /*
     public String[] getArrayNombreTicket(){
         arrayTickets = new ArrayList<Ticket>();
         arrayTickets.add(new Ticket("Pacha Barcelona",3));
@@ -40,6 +41,8 @@ public class Tickets extends AppCompatActivity {
         }
        return arrayNombreTicket;
     }
+
+     */
     @Override
     protected void onResume() {
         super.onResume();

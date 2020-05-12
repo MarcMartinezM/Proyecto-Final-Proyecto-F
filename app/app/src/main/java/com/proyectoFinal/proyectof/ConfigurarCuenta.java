@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ConfigurarCuenta extends AppCompatActivity {
-    EditText input_pass,input_repetirPass,input_correo,input_codigoPostal,input_telefono;
+    EditText input_pass,input_repetirPass,input_codigoPostal,input_telefono;
     ImageView icono_atras;
     Button button_confirmar;
     @Override
@@ -41,8 +41,6 @@ public class ConfigurarCuenta extends AppCompatActivity {
         input_pass.setText(Login.arrayUsuario.get(0).getContrasenya());
         input_repetirPass = (EditText) findViewById(R.id.input_PassNew);
 
-        input_correo =(EditText) findViewById(R.id.input_CorreConf);
-        input_correo.setText(Login.arrayUsuario.get(0).getCorreo());
 
         input_codigoPostal = (EditText) findViewById(R.id.input_CodigoPostalConf);
         input_codigoPostal.setText(Login.arrayUsuario.get(0).getCod_postal());
@@ -59,8 +57,7 @@ public class ConfigurarCuenta extends AppCompatActivity {
                         if (input_pass.getText().equals(input_pass.getText())) {
                             params.put("oldPassword", Login.usu.getContrasenya());
                             params.put("newPassword", input_pass.getText());
-                        } else if (!input_correo.getText().equals(null)){
-                            params.put("email", input_correo.getText());
+
                         } else if(!input_codigoPostal.getText().equals(null)){
                             params.put("zipcode", input_codigoPostal.getText());
                         } else if(!input_telefono.getText().equals(null)){
