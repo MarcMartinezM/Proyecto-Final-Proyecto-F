@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class ConfigurarCuenta extends AppCompatActivity {
     EditText input_pass,input_repetirPass,input_correo,input_codigoPostal,input_telefono;
     ImageView icono_atras;
-    Button button;
+    Button button_confirmar;
     @Override
     public void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +49,13 @@ public class ConfigurarCuenta extends AppCompatActivity {
 
         input_telefono = (EditText) findViewById(R.id.input_TelefonoConf);
         input_telefono.setText(Login.arrayUsuario.get(0).getNum_tlf());
-
-        button.setOnClickListener(new View.OnClickListener() {
+        button_confirmar = (Button) findViewById(R.id.button);
+        button_confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 JSONObject params = new JSONObject();
                     try {
+                        params.put("uid",Login.usu.getIdUsuario());
                         if (input_pass.getText().equals(input_pass.getText())) {
                             params.put("oldPassword", Login.usu.getContrasenya());
                             params.put("newPassword", input_pass.getText());
