@@ -38,9 +38,7 @@ public class ConfigurarCuenta extends AppCompatActivity {
         });
 
         input_pass = (EditText) findViewById(R.id.input_PassAntig);
-        input_pass.setText(Login.arrayUsuario.get(0).getContrasenya());
         input_repetirPass = (EditText) findViewById(R.id.input_PassNew);
-
 
         input_codigoPostal = (EditText) findViewById(R.id.input_CodigoPostalConf);
         input_codigoPostal.setText(Login.arrayUsuario.get(0).getCod_postal());
@@ -54,10 +52,9 @@ public class ConfigurarCuenta extends AppCompatActivity {
                 JSONObject params = new JSONObject();
                     try {
                         params.put("uid",Login.usu.getIdUsuario());
-                        if (input_pass.getText().equals(input_pass.getText())) {
+                        if (input_pass.getText().equals(input_repetirPass.getText())) {
                             params.put("oldPassword", Login.usu.getContrasenya());
                             params.put("newPassword", input_pass.getText());
-
                         } else if(!input_codigoPostal.getText().equals(null)){
                             params.put("zipcode", input_codigoPostal.getText());
                         } else if(!input_telefono.getText().equals(null)){
