@@ -27,6 +27,7 @@ public class Login extends AppCompatActivity {
     public static ArrayList<Usuario> arrayUsuario;
     public static ArrayList<String> tickets;
     public static ArrayList<String> amigos;
+    public static Usuario usu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +81,7 @@ public class Login extends AppCompatActivity {
                 /*
                 for(int i=0;i<arr.length();i++){
                     */
-                    Usuario usu = new Usuario();
+                    usu = new Usuario();
 
                    tickets = new ArrayList<String >();
                    amigos = new ArrayList<String >();
