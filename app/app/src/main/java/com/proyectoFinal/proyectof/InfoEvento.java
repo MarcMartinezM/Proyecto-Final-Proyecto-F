@@ -135,20 +135,21 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
         });
 
         boton_fav = (Button) findViewById(R.id.button_fav);
-        for(int i=0;i<Login.arrayUsuario.get(0).getFavoritos().size();i++){
-            Log.i("el for klk","klk con el for");
-            if(!Login.arrayUsuario.get(0).getFavoritos().equals(null)){
-                Log.i("el null klk","klk con el null");
-                if(Login.arrayUsuario.get(0).getFavoritos().get(i).equalsIgnoreCase(nombreEventoPasar)){
-                    Log.i("el id klk","klk con el id");
-                    boton_fav.setBackgroundResource(R.drawable.icono_corazon_llemo);
-                }else{
-                    Log.i("el id no esta klk","klk con el id que no esta");
-                    boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
+        if(Login.arrayUsuario.get(0).getFavoritos().size()==0){
+            boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
+        }else{
+            for(int i=0;i<Login.arrayUsuario.get(0).getFavoritos().size();i++){
+                if(!Login.arrayUsuario.get(0).getFavoritos().equals(null)){
+                    if(Login.arrayUsuario.get(0).getFavoritos().get(i).equalsIgnoreCase(nombreEventoPasar)){
+                        boton_fav.setBackgroundResource(R.drawable.icono_corazon_llemo);
+                    }else{
+                        boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
+                    }
                 }
-            }
 
+            }
         }
+
             boton_fav.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
