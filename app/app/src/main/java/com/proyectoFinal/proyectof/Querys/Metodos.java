@@ -52,4 +52,14 @@ public class Metodos {
         }
     }
 
+    public static String postComprarTickets(JSONObject postDataParams){
+        try {
+            URL url = new URL("http://proyectof.tk/api/tickets/buy");
+            return Post.post(url,postDataParams);
+        }
+        catch(Exception e){
+            return new String("Exception: " + e.getMessage());
+        }
+    }
+
 }

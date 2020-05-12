@@ -16,8 +16,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.proyectoFinal.proyectof.Adapters.Adaptador_entrada;
+import com.proyectoFinal.proyectof.Conexiones.Post;
 import com.proyectoFinal.proyectof.Objectos.Evento;
 import com.proyectoFinal.proyectof.Objectos.Favorito;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -201,5 +204,37 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
     @Override
     public void applyText(Long numeroTargeta, String fecha, int CVC) {
         text_cantidad_tickets.setText(R.string.text_cantidad_ticketa+" "+tickets_dispo);
+        Evento ev = new Evento();
+        for (int i = 0; i < Eventos.arrayEventos.size(); i++){
+            if(Eventos.arrayEventos.get(i).getNombre_evento().equals(nombreEventoPasar)){
+                ev = Eventos.arrayEventos.get(i);
+            }
+        }
+
+        try {
+            JSONObject tick = new JSONObject();
+            tick.put("event_id", ev.getEvento_id());
+            tick.put("qty", numero);
+            tick.put("uid", Login.usu.getIdUsuario());
+            tick.put("number", numeroTargeta);
+            tick.put("expires", fecha);
+            tick.put("ccv", CVC);
+            tick.put("nameOnCard", Login.usu.getNombre_real());
+
+            JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/tickets/buy", tick);
+
+            System.out.println(job.toString());
+            String status = job.optString("status");
+
+            if (status.equalsIgnoreCase("OK")) {
+                Toast.makeText(InfoEvento.this,"DATOS MODIFICADOS CORRECTAMENTE",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(InfoEvento.this,"DATOS NO HAN SIDO MODIFICADOS",Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
     }
 }
