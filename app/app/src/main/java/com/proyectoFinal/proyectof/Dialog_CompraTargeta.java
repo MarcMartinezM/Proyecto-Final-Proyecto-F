@@ -65,10 +65,15 @@ public class Dialog_CompraTargeta  extends AppCompatDialogFragment {
                                   if(isNumeric(parse[0]) && isNumeric(parse[1]) && isNumericLong(numeroTargeta) && isNumeric(CVC)){
                                       int mes = Integer.parseInt(parse[0]);
                                       int año = Integer.parseInt(parse[1]);
-                                      if(mes>6 && año>2020){
+                                      if(año<2020 ){
                                           Toast.makeText(getActivity(), "Su targeta esta Caducada", Toast.LENGTH_SHORT).show();
-                                      }else{
+                                      }else if(mes>12 || mes<1){
+                                          Toast.makeText(getActivity(), "El mes es incorrecto", Toast.LENGTH_SHORT).show();
+                                      }
+                                      else{
                                           Toast.makeText(getActivity(), "GRACIAS POR SU COMPRA", Toast.LENGTH_SHORT).show();
+                                          Login.tickets.add(InfoEvento.nombreEventoPasar+";"+InfoEvento.text_Cantidad.getText().toString());
+                                          Login.arrayUsuario.get(0).setTickets(Login.tickets);
                                           listener.applyText(Long.parseLong(numeroTargeta),caducacion,Integer.parseInt(CVC));
                                           dismiss();
                                       }

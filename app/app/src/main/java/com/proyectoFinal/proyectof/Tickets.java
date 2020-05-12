@@ -46,7 +46,7 @@ public class Tickets extends AppCompatActivity {
 
 
         lista_Tickets = (ListView)findViewById(R.id.lista_Tickets);
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,getArrayNombreTicket());
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,Login.tickets);
         lista_Tickets.setAdapter(adapter);
         text_Buscar = (EditText) findViewById(R.id.input_buscar_ticket);
         text_Buscar.addTextChangedListener(new TextWatcher() {

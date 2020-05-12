@@ -27,7 +27,8 @@ import static com.proyectoFinal.proyectof.R.drawable.icono_corazon_llemo;
 public class InfoEvento extends AppCompatActivity implements Dialog_CompraTargeta.dialogListener{
     public static String nombreEventoPasar;
     ImageView imagen_evento,imagen_atras;
-    TextView text_titulo,text_precio_entrada,text_horario,text_hora,text_Cantidad,text_descrip;
+    TextView text_titulo,text_precio_entrada,text_horario,text_hora,text_descrip;
+    public static TextView text_Cantidad;
     Button boton_comprar,boton_mas,boton_menos,boton_fav;
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -25,6 +25,8 @@ public class Login extends AppCompatActivity {
     EditText input_usuario,input_pass;
     Button b_inicio;
     public static ArrayList<Usuario> arrayUsuario;
+    public static ArrayList<String> tickets;
+    public static ArrayList<String> amigos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,8 +82,8 @@ public class Login extends AppCompatActivity {
                     */
                     Usuario usu = new Usuario();
 
-                    ArrayList<String> tickets = new ArrayList<String >();
-                ArrayList<String> amigos = new ArrayList<String >();
+                   tickets = new ArrayList<String >();
+                   amigos = new ArrayList<String >();
                     String userid = arr.getString("_id");
                     String nombre = arr.getString("name");
                     String apellidos = arr.getString("last_name");
