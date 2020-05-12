@@ -33,6 +33,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
     TextView text_titulo,text_precio_entrada,text_horario,text_hora,text_descrip,text_cantidad_tickets;
     public static TextView text_Cantidad;
     public static int tickets_dispo, numero;
+    boolean estalleno ;
     Button boton_comprar,boton_mas,boton_menos,boton_fav;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -137,13 +138,16 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
         boton_fav = (Button) findViewById(R.id.button_fav);
         if(Login.arrayUsuario.get(0).getFavoritos().size()==0){
             boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
+            estalleno=false;
         }else{
             for(int i=0;i<Login.arrayUsuario.get(0).getFavoritos().size();i++){
                 if(!Login.arrayUsuario.get(0).getFavoritos().equals(null)){
                     if(Login.arrayUsuario.get(0).getFavoritos().get(i).equalsIgnoreCase(nombreEventoPasar)){
                         boton_fav.setBackgroundResource(R.drawable.icono_corazon_llemo);
+                        estalleno=true;
                     }else{
                         boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
+                        estalleno=false;
                     }
                 }
 
@@ -154,10 +158,12 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
             @Override
             public void onClick(View v) {
                 boolean leDioFav = false;
-                if(boton_fav.getBackground().equals(R.drawable.icono_corazon_vacio)){
+                if(estalleno==false){
                     boton_fav.setBackgroundResource(icono_corazon_llemo);
+                    estalleno=true;
                 }else{
                     boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
+                    estalleno=false;
                 }
 
                 try {
@@ -168,17 +174,20 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
                         }
                     }
 
-                    if(boton_fav.getBackground().equals(icono_corazon_llemo)){
+                    if(estalleno==false){
                         leDioFav = true;
+                        estalleno=true;
                     } else {
                         leDioFav = false;
+                        estalleno=false;
                     }
 
                     JSONObject evFav = new JSONObject();
                     evFav.put("uid", Login.usu.getIdUsuario());
                     evFav.put("event_id", ev.getEvento_id());
                     evFav.put("fav", leDioFav);
-                    JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/events/fav", evFav);
+                    JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/user/fav-event", evFav);
+
                 }catch (Exception e) {
                     e.printStackTrace();
                 }
