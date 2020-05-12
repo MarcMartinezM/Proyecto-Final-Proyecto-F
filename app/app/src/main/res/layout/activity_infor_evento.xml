@@ -100,12 +100,19 @@
                 android:layout_height="39dp"
                 android:text="@string/text_horario"
                 android:textSize="24dp" />
+
             <TextView
                 android:id="@+id/text_Hora"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:textSize="24dp" />
 
+            <TextView
+                android:id="@+id/text_cantidad_ticket_disponibles"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:text="@string/text_cantidad_ticketa"
+                android:textSize="24dp" />
             <TextView
                 android:id="@+id/text_cantidad"
                 android:layout_width="match_parent"
