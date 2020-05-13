@@ -30,7 +30,7 @@ import static com.proyectoFinal.proyectof.R.drawable.icono_corazon_llemo;
 public class InfoEvento extends AppCompatActivity implements Dialog_CompraTargeta.dialogListener{
     public static String IDEventoPasar;
     ImageView imagen_evento,imagen_atras;
-    TextView text_titulo,text_precio_entrada,text_horario,text_hora,text_descrip,text_cantidad_tickets;
+    TextView text_titulo,text_precio_entrada,text_horario,text_hora,text_descrip,text_cantidad_tickets,text_localidad;
     public static TextView text_Cantidad;
     public static int tickets_dispo, numero;
     boolean estalleno ;
@@ -57,6 +57,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
         });
         text_titulo = (TextView) findViewById(R.id.text_titulo_evento);
         text_descrip = (TextView) findViewById(R.id.text_descripcion);
+        text_localidad = (TextView) findViewById(R.id.text_localidad);
         text_precio_entrada = (TextView) findViewById(R.id.text_precio_entrada);
         text_horario = (TextView) findViewById(R.id.text_horario);
         text_hora = (TextView) findViewById(R.id.text_Hora);
@@ -122,6 +123,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
                 imagen_evento.setImageResource(Eventos.arrayEventos.get(i).getFoto_evento());
                 text_titulo.setText(Eventos.arrayEventos.get(i).getNombre_evento());
                 text_descrip.setText(Eventos.arrayEventos.get(i).getDescripcion());
+                text_localidad.setText(Eventos.arrayEventos.get(i).getLocalizacion());
                 text_precio_entrada.setText(text_precio_entrada.getText() + " " + Eventos.arrayEventos.get(i).getPrecio_evento() + "€");
                 text_horario.setText(text_horario.getText() + " " + Eventos.arrayEventos.get(i).getFecha_evento());
                 text_hora.setText(Eventos.arrayEventos.get(i).getHorario_evento());
@@ -197,9 +199,11 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
             public void onClick(View v) {
                 if(estalleno==false){
                     boton_fav.setBackgroundResource(icono_corazon_llemo);
+                    Login.favoritos.add(IDEventoPasar);
                     estalleno=true;
                 }else{
                     boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
+                    Login.favoritos.remove(IDEventoPasar);
                     estalleno=false;
                 }
 
@@ -235,7 +239,8 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
 
     @Override
     public void applyText(Long numeroTargeta, String fecha, int CVC) {
-        text_cantidad_tickets.setText(R.string.text_cantidad_ticketa+" "+tickets_dispo);
+        String nombreTextDip= String.valueOf(R.string.text_cantidad_ticketa);
+        text_cantidad_tickets.setText(nombreTextDip+" "+tickets_dispo);
         Evento ev = new Evento();
         for (int i = 0; i < Eventos.arrayEventos.size(); i++){
             if(Eventos.arrayEventos.get(i).getEvento_id().equals(IDEventoPasar)){

@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/imagen_evento"
+        android:id="@+id/imagen_evento_fav"
         android:layout_width="410dp"
         android:layout_height="116dp"
 
@@ -30,7 +30,7 @@
     </ImageView>
 
     <ImageView
-        android:id="@+id/image_atras"
+        android:id="@+id/image_atras_favo"
         android:layout_width="76dp"
         android:layout_height="57dp"
         android:layout_alignParentStart="true"
@@ -69,80 +69,44 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button_fav"
-                android:layout_width="64dp"
-                android:layout_height="61dp" />
-
             <TextView
-                android:id="@+id/text_titulo_evento"
+                android:id="@+id/text_titulo_evento_fav"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:text="Titulo Evento: "
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/text_descripcion"
+                android:id="@+id/text_descripcion_fav"
                 android:layout_width="match_parent"
                 android:layout_height="149dp"
                 android:textSize="21sp" />
+
             <TextView
-                android:id="@+id/text_localidad"
+                android:id="@+id/text_localidad_fav"
                 android:layout_width="match_parent"
                 android:layout_height="73dp"
                 android:text="@string/text_localidad"
                 android:textSize="24sp" />
-
             <TextView
-                android:id="@+id/text_precio_entrada"
-                android:layout_width="377dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/text_precio_entrada_fav"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
                 android:text="@string/text_precio"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/text_horario"
+                android:id="@+id/text_horario_fav"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:text="@string/text_horario"
                 android:textSize="24dp" />
 
             <TextView
-                android:id="@+id/text_Hora"
+                android:id="@+id/text_Hora_fav"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
                 android:textSize="24dp" />
-
-            <TextView
-                android:id="@+id/text_cantidad_ticket_disponibles"
-                android:layout_width="match_parent"
-                android:layout_height="39dp"
-                android:text="@string/text_cantidad_ticketa"
-                android:textSize="24dp" />
-            <TextView
-                android:id="@+id/text_cantidad"
-                android:layout_width="match_parent"
-                android:layout_height="53dp"
-                android:textSize="24sp" />
-
-            <Button
-            android:id="@+id/boton_mas"
-            android:layout_width="74dp"
-            android:layout_height="36dp"
-            android:background="@drawable/frame_input"
-            android:text="@string/boton_añadir" />
-            <Button
-                android:id="@+id/boton_menos"
-                android:layout_width="74dp"
-                android:layout_height="36dp"
-                android:background="@drawable/frame_input"
-                android:text="@string/boton_restar" />
-            <Button
-                android:id="@+id/boton_comprar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/frame_input"
-                android:text="@string/boton_comprar" />
 
         </LinearLayout>
 

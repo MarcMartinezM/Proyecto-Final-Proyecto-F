@@ -20,12 +20,7 @@
     <string name="registrarse_codigopostal">Codigo Postal:</string>
     <string name="registrarse_telefono">Telefono:</string>
     <string name="registrarse_botton">REGISTRARSE</string>
-    <string-array name="array_spinner">
-        <item>Barcelona</item>
-        <item>Madrid</item>
-        <item>Valencia</item>
-        <item>Sevilla</item>
-    </string-array>
+
     <string name ="titulo_eventos">EVENTOS</string>
 
     <string name="titulo_ticket">TICKETS</string>
@@ -35,6 +30,7 @@
    <string name="text_precio">Precio Entrada:</string>
     <string name="text_horario">Horario:</string>
     <string name="text_cantidad_ticketa">Tickets Disponibles:</string>
+    <string name="text_localidad">Localidad:</string>
     <string name="boton_comprar">COMPRAR</string>
 
 

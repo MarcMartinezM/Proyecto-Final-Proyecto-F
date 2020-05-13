@@ -42,7 +42,7 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/text_horario"
+        android:id="@+id/text_horario_fav"
         android:layout_width="186dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
