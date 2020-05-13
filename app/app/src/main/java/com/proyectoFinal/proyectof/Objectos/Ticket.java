@@ -1,32 +1,37 @@
 package com.proyectoFinal.proyectof.Objectos;
 
 public class Ticket {
-    String nombre_Ticket;
+
+    int event_id;
     int cantidad_ticket;
+
     public Ticket() {
-        super();
+
     }
-    public Ticket(String nombre_Ticket, int cantidad_ticket) {
-        super();
-        this.nombre_Ticket = nombre_Ticket;
+
+    public Ticket(int event_id, int cantidad_ticket) {
+        this.event_id = event_id;
         this.cantidad_ticket = cantidad_ticket;
     }
-    public String getNombre_Ticket() {
-        return nombre_Ticket;
-    }
-    public void setNombre_Ticket(String nombre_Ticket) {
-        this.nombre_Ticket = nombre_Ticket;
-    }
+
     public int getCantidad_ticket() {
         return cantidad_ticket;
     }
     public void setCantidad_ticket(int cantidad_ticket) {
         this.cantidad_ticket = cantidad_ticket;
     }
-    @Override
-    public String toString() {
-        return "Ticket [nombre_Ticket=" + nombre_Ticket + ", cantidad_ticket=" + cantidad_ticket + "]";
+    public int getEvent_id() {
+        return event_id;
+    }
+    public void setEvent_id(int event_id) {
+        this.event_id = event_id;
     }
 
-
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "event_id=" + event_id +
+                ", cantidad_ticket=" + cantidad_ticket +
+                '}';
+    }
 }

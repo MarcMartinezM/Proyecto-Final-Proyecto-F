@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.proyectoFinal.proyectof.Conexiones.Post;
+import com.proyectoFinal.proyectof.Objectos.Ticket;
 import com.proyectoFinal.proyectof.Objectos.Usuario;
 
 import org.json.JSONArray;
@@ -25,7 +26,7 @@ public class Login extends AppCompatActivity {
     EditText input_usuario,input_pass;
     Button b_inicio;
     public static ArrayList<Usuario> arrayUsuario;
-    public static ArrayList<String> tickets;
+    public static ArrayList<Ticket> tickets;
     public static ArrayList<String> amigos;
     public static ArrayList<String> favoritos;
     public static Usuario usu;
@@ -84,7 +85,7 @@ public class Login extends AppCompatActivity {
                     */
                     usu = new Usuario();
 
-                   tickets = new ArrayList<String >();
+                   tickets = new ArrayList<Ticket>();
                    amigos = new ArrayList<String >();
                    favoritos = new ArrayList<String>();
                     String userid = arr.getString("_id");
@@ -94,11 +95,19 @@ public class Login extends AppCompatActivity {
                     String ciudad = arr.getString("city");
                     String codigo_postal = arr.getString("zipcode");
                     String   telefono = arr.getString ("phone");
+
                     JSONArray tick = arr.getJSONArray("tickets");
 
                 int len = tick.length();
                 for (int i=0;i<len;i++){
-                    tickets.add(tick.get(i).toString());
+                    JSONObject ev_id = tick.getJSONObject(Integer.parseInt("event_id"));
+                    JSONObject qty = tick.getJSONObject(Integer.parseInt("qty"));
+                    int evi_id = ev_id.getInt("event_id");
+                    int qtyi = qty.getInt("qty");
+                    Ticket t1 = new Ticket();
+                    t1.setEvent_id(evi_id);
+                    t1.setCantidad_ticket(qtyi);
+                    tickets.add(t1);
                 }
                 JSONArray friends = arr.getJSONArray("friends");
                 int len2 = friends.length();

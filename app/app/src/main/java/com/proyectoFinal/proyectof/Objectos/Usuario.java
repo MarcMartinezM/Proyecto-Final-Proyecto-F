@@ -6,7 +6,7 @@ public class Usuario {
     int fotoPerfil;
     ArrayList<String> amigos;
     String idUsuario;
-    ArrayList<String> tickets;
+    ArrayList<Ticket> tickets;
     String nombre_real;
     String apellido;
     String contrasenya;
@@ -19,7 +19,7 @@ public class Usuario {
 
     }
 
-    public Usuario(int fotoPerfil, ArrayList<String> amigos, String idUsuario, ArrayList<String> tickets, String nombre_real, String apellido, String contrasenya, String correo, String ciudad, String cod_postal, String  num_tlf,ArrayList<String> favoritos) {
+    public Usuario(int fotoPerfil, ArrayList<String> amigos, String idUsuario, ArrayList<Ticket> tickets, String nombre_real, String apellido, String contrasenya, String correo, String ciudad, String cod_postal, String  num_tlf,ArrayList<String> favoritos) {
         this.fotoPerfil = fotoPerfil;
         this.amigos = amigos;
         this.idUsuario = idUsuario;
@@ -114,11 +114,11 @@ public class Usuario {
         this.idUsuario = idUsuario;
     }
 
-    public ArrayList<String> getTickets() {
+    public ArrayList<Ticket> getTickets() {
         return tickets;
     }
 
-    public void setTickets(ArrayList<String> tickets) {
+    public void setTickets(ArrayList<Ticket> tickets) {
         this.tickets = tickets;
     }
 
