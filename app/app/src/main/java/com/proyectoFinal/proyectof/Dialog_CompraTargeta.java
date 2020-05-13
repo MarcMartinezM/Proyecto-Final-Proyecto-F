@@ -17,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
+import com.proyectoFinal.proyectof.Objectos.Ticket;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -72,9 +74,10 @@ public class Dialog_CompraTargeta  extends AppCompatDialogFragment {
                                       }
                                       else{
                                           Toast.makeText(getActivity(), "GRACIAS POR SU COMPRA", Toast.LENGTH_SHORT).show();
-                                          Login.tickets.add(InfoEvento.nombreEventoPasar+";"+InfoEvento.text_Cantidad.getText().toString());
+
+                                          Login.tickets.add(new Ticket(InfoEvento.nombreEventoPasar,InfoEvento.numero));
                                           for(int i=0;i<Eventos.arrayEventos.size();i++){
-                                              if(Eventos.arrayEventos.get(i).getNombre_evento().equalsIgnoreCase(InfoEvento.nombreEventoPasar)){
+                                              if(Eventos.arrayEventos.get(i).getEvento_id().equalsIgnoreCase(InfoEvento.nombreEventoPasar)){
                                                   Eventos.arrayEventos.get(i).setTickets_disponibles(Eventos.arrayEventos.get(i).getTickets_disponibles()-InfoEvento.numero);
                                                   Eventos.adapter.setData(Eventos.arrayEventos);
                                                   InfoEvento.tickets_dispo=InfoEvento.tickets_dispo-InfoEvento.numero;

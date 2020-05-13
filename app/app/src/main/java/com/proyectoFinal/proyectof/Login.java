@@ -100,10 +100,9 @@ public class Login extends AppCompatActivity {
 
                 int len = tick.length();
                 for (int i=0;i<len;i++){
-                    JSONObject ev_id = tick.getJSONObject(Integer.parseInt("event_id"));
-                    JSONObject qty = tick.getJSONObject(Integer.parseInt("qty"));
-                    int evi_id = ev_id.getInt("event_id");
-                    int qtyi = qty.getInt("qty");
+                    JSONObject jobj = tick.getJSONObject(i);
+                    String evi_id = jobj.getString("event_id");
+                    int qtyi = jobj.getInt("qty");
                     Ticket t1 = new Ticket();
                     t1.setEvent_id(evi_id);
                     t1.setCantidad_ticket(qtyi);

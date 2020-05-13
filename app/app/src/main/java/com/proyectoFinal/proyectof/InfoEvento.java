@@ -67,13 +67,48 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
         boton_comprar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean abrir =false;
+                int noEsta=0;
                 if(text_Cantidad.getText().toString().equalsIgnoreCase("0 x")){
                     Toast.makeText(InfoEvento.this, "la cantidad de tickets es 0", Toast.LENGTH_SHORT).show();
                 }else if(tickets_dispo==0 || tickets_dispo<numero){
                         Toast.makeText(InfoEvento.this, "No quedan suficientes tickets", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    openDialog();
+
+                    if(Login.tickets.size()!=0){
+                        for(int i=0;i<Login.tickets.size();i++) {
+                            if(Login.tickets.get(i).getEvent_id().equals(nombreEventoPasar)){
+                                Log.i("tickets que poses", Login.tickets.get(i).getCantidad_ticket() + "");
+                                //    SI ES MAS PEQUEÑO ENTRA
+                                if(Login.tickets.get(i).getCantidad_ticket()<5){
+                                    int suma = Login.tickets.get(i).getCantidad_ticket() + numero;
+                                    Log.i("la suma", suma + "");
+                                    if(suma<=5){
+                                        abrir = true;
+                                    }else{
+                                        Toast.makeText(InfoEvento.this, "no puedes comprar mas de los que tienes", Toast.LENGTH_SHORT).show();
+                                        abrir = false;
+                                    }
+                                }else{
+                                    Toast.makeText(InfoEvento.this, "Ya tienes el maximo posibles.", Toast.LENGTH_SHORT).show();
+                                }
+                            }else{
+                                noEsta ++;
+                            }
+                        }
+                        Log.i("klk",abrir+"");
+                        if(abrir==true){
+                            openDialog();
+                        }
+                        if(noEsta== Login.tickets.size()){
+                            openDialog();
+                        }
+                    }else{
+                        openDialog();
+                    }
+
+
                 }
 
             }
@@ -106,8 +141,8 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
                     sumar = text_Cantidad.getText().toString();
                     String[] separar = sumar.split(" ");
                     numero = Integer.parseInt(separar[0]);
-                    Log.i("cantidad", numero + "");
                     numero = numero + 1;
+                    Log.i("cantidad", numero + "");
                     sumar = numero + " " + separar[1];
                     text_Cantidad.setText(sumar);
                 }
@@ -157,7 +192,6 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
         boton_fav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean leDioFav = false;
                 if(estalleno==false){
                     boton_fav.setBackgroundResource(icono_corazon_llemo);
                     estalleno=true;
@@ -174,18 +208,10 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
                         }
                     }
 
-                    if(estalleno==false){
-                        leDioFav = true;
-                        estalleno=true;
-                    } else {
-                        leDioFav = false;
-                        estalleno=false;
-                    }
-
                     JSONObject evFav = new JSONObject();
                     evFav.put("uid", Login.usu.getIdUsuario());
                     evFav.put("event_id", ev.getEvento_id());
-                    evFav.put("fav", leDioFav);
+                    evFav.put("fav", estalleno);
                     JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/user/fav-event", evFav);
 
                 }catch (Exception e) {
@@ -209,7 +235,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
         text_cantidad_tickets.setText(R.string.text_cantidad_ticketa+" "+tickets_dispo);
         Evento ev = new Evento();
         for (int i = 0; i < Eventos.arrayEventos.size(); i++){
-            if(Eventos.arrayEventos.get(i).getNombre_evento().equals(nombreEventoPasar)){
+            if(Eventos.arrayEventos.get(i).getEvento_id().equals(nombreEventoPasar)){
                 ev = Eventos.arrayEventos.get(i);
             }
         }

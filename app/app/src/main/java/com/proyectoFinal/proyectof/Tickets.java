@@ -23,33 +23,33 @@ public class Tickets extends AppCompatActivity {
     private ListView lista_Tickets;
     private ImageView icono_eventos,icono_entradas,icono_favoritos,icono_perfil;
     private ArrayAdapter<String> adapter;
-    public static List<Ticket> arrayTickets;
     private String[] arrayNombreTicket;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tickets);
     }
-    /*
+
     public String[] getArrayNombreTicket(){
-        arrayTickets = new ArrayList<Ticket>();
-        arrayTickets.add(new Ticket("Pacha Barcelona",3));
-        arrayTickets.add(new Ticket("Sala Apolo",1));
-        arrayNombreTicket = new String[arrayTickets.size()];
-        for(int i=0;i<arrayTickets.size();i++) {
-            arrayNombreTicket[i] = arrayTickets.get(i).getNombre_Ticket();
+        arrayNombreTicket = new String[Login.tickets.size()];
+        for(int i=0;i<Login.tickets.size();i++) {
+            for(int j=0;j<Eventos.arrayEventos.size();j++){
+                if(Login.tickets.get(i).getEvent_id().equals(Eventos.arrayEventos.get(j).getEvento_id())){
+                    arrayNombreTicket[i]= Eventos.arrayEventos.get(j).getNombre_evento();
+                }
+            }
         }
        return arrayNombreTicket;
     }
 
-     */
+
     @Override
     protected void onResume() {
         super.onResume();
 
 
         lista_Tickets = (ListView)findViewById(R.id.lista_Tickets);
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,Login.tickets);
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,getArrayNombreTicket());
         lista_Tickets.setAdapter(adapter);
         text_Buscar = (EditText) findViewById(R.id.input_buscar_ticket);
         text_Buscar.addTextChangedListener(new TextWatcher() {
