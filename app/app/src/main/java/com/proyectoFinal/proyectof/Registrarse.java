@@ -22,8 +22,7 @@ import java.io.IOException;
 public class Registrarse extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
 
-    EditText input_nombreReal,input_apellido,input_pass,input_repetirPass,input_correo,input_codigoPostal,input_telefono;
-    Spinner spinner_ciudad;
+    EditText input_nombreReal,input_apellido,input_pass,input_repetirPass,input_correo,input_codigoPostal,input_telefono,input_ciudad;
     Button b_registrarse;
     ImageView imagen_atras;
     @Override
@@ -40,11 +39,7 @@ public class Registrarse extends AppCompatActivity implements AdapterView.OnItem
        input_correo = (EditText) findViewById(R.id.registrarse_input_correo);
        input_codigoPostal = (EditText) findViewById(R.id.registrarse_input_codigopostal);
        input_telefono = (EditText) findViewById(R.id.registrarse_input_telefono);
-       spinner_ciudad = (Spinner) findViewById(R.id.registrarse_spinner);
-       ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.array_spinner,android.R.layout.simple_spinner_item);
-       adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-       spinner_ciudad.setAdapter(adapter);
-       spinner_ciudad.setOnItemSelectedListener(this);
+        input_ciudad = (EditText) findViewById(R.id.registrarse_ciudad);
        b_registrarse = (Button) findViewById(R.id.button_registrarse);
        imagen_atras = (ImageView) findViewById(R.id.icono_atras);
        imagen_atras.setOnClickListener(new View.OnClickListener() {
@@ -116,17 +111,20 @@ public class Registrarse extends AppCompatActivity implements AdapterView.OnItem
             user.put("last_name", input_apellido.getText().toString());
             user.put("email", input_correo.getText().toString());
             user.put("password", input_pass.getText().toString());
-            user.put("city", spinner_ciudad.getSelectedItem().toString());
+            user.put("city", input_ciudad.getText().toString());
             user.put("zipcode", input_codigoPostal.getText().toString());
             user.put("phone", input_telefono.getText().toString());
 
             JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/user/create", user);
             System.out.println(job.toString());
+
             String status = job.optString("status");
 
             if (status.equalsIgnoreCase("OK")) {
                 return true;
             } else {
+                status = job.optString("msg");
+                Toast.makeText(Registrarse.this,status,Toast.LENGTH_SHORT).show();
                 return false;
             }
 

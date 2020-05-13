@@ -28,7 +28,7 @@ import java.util.List;
 import static com.proyectoFinal.proyectof.R.drawable.icono_corazon_llemo;
 
 public class InfoEvento extends AppCompatActivity implements Dialog_CompraTargeta.dialogListener{
-    public static String nombreEventoPasar;
+    public static String IDEventoPasar;
     ImageView imagen_evento,imagen_atras;
     TextView text_titulo,text_precio_entrada,text_horario,text_hora,text_descrip,text_cantidad_tickets;
     public static TextView text_Cantidad;
@@ -43,7 +43,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
     @Override
     protected void onResume() {
         super.onResume();
-        nombreEventoPasar = Eventos.nombreEvento;
+        IDEventoPasar = Eventos.IDEvento;
         imagen_evento = (ImageView) findViewById(R.id.imagen_evento);
 
 
@@ -69,6 +69,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
             public void onClick(View v) {
                 boolean abrir =false;
                 int noEsta=0;
+                int suma=0;
                 if(text_Cantidad.getText().toString().equalsIgnoreCase("0 x")){
                     Toast.makeText(InfoEvento.this, "la cantidad de tickets es 0", Toast.LENGTH_SHORT).show();
                 }else if(tickets_dispo==0 || tickets_dispo<numero){
@@ -78,24 +79,26 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
 
                     if(Login.tickets.size()!=0){
                         for(int i=0;i<Login.tickets.size();i++) {
-                            if(Login.tickets.get(i).getEvent_id().equals(nombreEventoPasar)){
+                            if(Login.tickets.get(i).getEvent_id().equals(IDEventoPasar)){
+                                suma= suma+Login.tickets.get(i).getCantidad_ticket();
                                 Log.i("tickets que poses", Login.tickets.get(i).getCantidad_ticket() + "");
                                 //    SI ES MAS PEQUEÑO ENTRA
-                                if(Login.tickets.get(i).getCantidad_ticket()<5){
-                                    int suma = Login.tickets.get(i).getCantidad_ticket() + numero;
-                                    Log.i("la suma", suma + "");
-                                    if(suma<=5){
-                                        abrir = true;
-                                    }else{
-                                        Toast.makeText(InfoEvento.this, "no puedes comprar mas de los que tienes", Toast.LENGTH_SHORT).show();
-                                        abrir = false;
-                                    }
-                                }else{
-                                    Toast.makeText(InfoEvento.this, "Ya tienes el maximo posibles.", Toast.LENGTH_SHORT).show();
-                                }
+
                             }else{
                                 noEsta ++;
                             }
+                        }
+                        if(suma<5){
+                            suma = suma + numero;
+                            Log.i("la suma", suma + "");
+                            if(suma<=5){
+                                abrir = true;
+                            }else{
+                                Toast.makeText(InfoEvento.this, "no puedes comprar mas de los que tienes", Toast.LENGTH_SHORT).show();
+                                abrir = false;
+                            }
+                        }else{
+                            Toast.makeText(InfoEvento.this, "Ya tienes el maximo posibles.", Toast.LENGTH_SHORT).show();
                         }
                         Log.i("klk",abrir+"");
                         if(abrir==true){
@@ -115,7 +118,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
         });
 
         for (int i = 0; i < Eventos.arrayEventos.size(); i++) {
-            if (nombreEventoPasar.equalsIgnoreCase(Eventos.arrayEventos.get(i).getEvento_id())) {
+            if (IDEventoPasar.equalsIgnoreCase(Eventos.arrayEventos.get(i).getEvento_id())) {
                 imagen_evento.setImageResource(Eventos.arrayEventos.get(i).getFoto_evento());
                 text_titulo.setText(Eventos.arrayEventos.get(i).getNombre_evento());
                 text_descrip.setText(Eventos.arrayEventos.get(i).getDescripcion());
@@ -177,7 +180,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
         }else{
             for(int i=0;i<Login.arrayUsuario.get(0).getFavoritos().size();i++){
                 if(!Login.arrayUsuario.get(0).getFavoritos().equals(null)){
-                    if(Login.arrayUsuario.get(0).getFavoritos().get(i).equalsIgnoreCase(nombreEventoPasar)){
+                    if(Login.arrayUsuario.get(0).getFavoritos().get(i).equalsIgnoreCase(IDEventoPasar)){
                         boton_fav.setBackgroundResource(R.drawable.icono_corazon_llemo);
                         estalleno=true;
                     }else{
@@ -203,7 +206,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
                 try {
                     Evento ev = new Evento();
                     for (int i = 0; i < Eventos.arrayEventos.size(); i++){
-                        if(Eventos.arrayEventos.get(i).getEvento_id().equals(nombreEventoPasar)){
+                        if(Eventos.arrayEventos.get(i).getEvento_id().equals(IDEventoPasar)){
                             ev = Eventos.arrayEventos.get(i);
                         }
                     }
@@ -235,7 +238,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
         text_cantidad_tickets.setText(R.string.text_cantidad_ticketa+" "+tickets_dispo);
         Evento ev = new Evento();
         for (int i = 0; i < Eventos.arrayEventos.size(); i++){
-            if(Eventos.arrayEventos.get(i).getEvento_id().equals(nombreEventoPasar)){
+            if(Eventos.arrayEventos.get(i).getEvento_id().equals(IDEventoPasar)){
                 ev = Eventos.arrayEventos.get(i);
             }
         }

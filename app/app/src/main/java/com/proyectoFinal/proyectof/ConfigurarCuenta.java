@@ -2,6 +2,7 @@ package com.proyectoFinal.proyectof;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ConfigurarCuenta extends AppCompatActivity {
-    EditText input_pass,input_repetirPass,input_codigoPostal,input_telefono;
+    EditText input_pass,input_repetirPass,input_codigoPostal,input_telefono, input_ciudad;
     ImageView icono_atras;
     Button button_confirmar;
     @Override
@@ -39,12 +40,9 @@ public class ConfigurarCuenta extends AppCompatActivity {
 
         input_pass = (EditText) findViewById(R.id.input_PassAntig);
         input_repetirPass = (EditText) findViewById(R.id.input_PassNew);
-
         input_codigoPostal = (EditText) findViewById(R.id.input_CodigoPostalConf);
-        input_codigoPostal.setText(Login.arrayUsuario.get(0).getCod_postal());
-
         input_telefono = (EditText) findViewById(R.id.input_TelefonoConf);
-        input_telefono.setText(Login.arrayUsuario.get(0).getNum_tlf());
+        input_ciudad = (EditText) findViewById(R.id.input_ciudadConf);
         button_confirmar = (Button) findViewById(R.id.button);
         button_confirmar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,13 +50,24 @@ public class ConfigurarCuenta extends AppCompatActivity {
                 JSONObject params = new JSONObject();
                     try {
                         params.put("uid",Login.usu.getIdUsuario());
-                        if (input_pass.getText().toString().equals(input_repetirPass.getText().toString())) {
+                        if (input_pass.getText().toString().equals(input_repetirPass.getText().toString()) ) {
                             params.put("oldPassword", Login.usu.getContrasenya());
-                            params.put("newPassword", input_pass.getText());
-                        } else if(!input_codigoPostal.getText().equals(null)){
-                            params.put("zipcode", input_codigoPostal.getText());
-                        } else if(!input_telefono.getText().equals(null)){
-                            params.put("phone", input_telefono.getText());
+                            params.put("newPassword", input_pass.getText().toString());
+                        } else if(input_pass.getText().toString().equals(null) || input_repetirPass.getText().toString().equals(null)){
+                            params.put("oldPassword", Login.usu.getContrasenya());
+                            params.put("newPassword", Login.usu.getContrasenya());
+                        }
+                        if(!input_ciudad.getText().toString().equals(null)){
+                            Log.i("Ciudad",input_ciudad.getText().toString());
+                            params.put("city", input_ciudad.getText().toString());
+                        }
+                        if(!input_codigoPostal.getText().toString().equals(null) && input_codigoPostal.getText().length()==5){
+                            Log.i("zip",input_codigoPostal.getText().toString());
+                            params.put("zipcode", input_codigoPostal.getText().toString());
+                        }
+                        if(!input_telefono.getText().toString().equals(null) && input_telefono.getText().length()==9  ){
+                            Log.i("tel",input_telefono.getText().toString());
+                            params.put("phone", input_telefono.getText().toString());
                         }
 
                         JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/user/update", params);

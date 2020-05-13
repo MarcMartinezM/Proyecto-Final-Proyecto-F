@@ -20,8 +20,8 @@
         android:layout_marginRight="22dp"
         android:layout_marginBottom="538dp"
         android:ems="10"
+        android:hint="Numero Targeta"
         android:inputType="number"
-        android:text="Numero Targeta"
         android:textSize="24dp" />
 
     <EditText
@@ -41,8 +41,8 @@
         android:layout_marginRight="124dp"
         android:layout_marginBottom="489dp"
         android:ems="10"
+        android:hint="MM/YYYY"
         android:inputType="text"
-        android:text="MM/YYYY"
         android:textSize="24dp" />
 
     <EditText
@@ -62,6 +62,6 @@
         android:layout_marginRight="48dp"
         android:layout_marginBottom="487dp"
         android:ems="10"
-        android:inputType="number"
-        android:text="CVC" />
+        android:hint="CVC"
+        android:inputType="number" />
 </RelativeLayout>
