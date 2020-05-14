@@ -10,10 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.proyectoFinal.proyectof.Objectos.Favorito;
-
 public class Perfil extends AppCompatActivity {
-    Button button_cerrar, button_saldo, button_compartir, button_config_cuenta;
+    Button button_cerrar, button_saldo, button_amigos, button_config_cuenta;
     ImageView icono_perfil, icono_guardados_Perfil, icono_ticket_Perfil, icono_eventos_Perfil, icono_mensajes;
     TextView textNomUser, textPerfil;
 
@@ -38,11 +36,18 @@ public class Perfil extends AppCompatActivity {
         button_saldo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pagSaldo = new Intent(Perfil.this,Saldo.class);
+                Intent pagSaldo = new Intent(Perfil.this, Descuento.class);
                 startActivity(pagSaldo);
             }
         });
-        button_compartir = (Button) findViewById(R.id.button_compartir);
+        button_amigos = (Button) findViewById(R.id.button_amigos);
+        button_amigos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pagAmigos = new Intent(Perfil.this, Amigos.class);
+                startActivity( pagAmigos);
+            }
+        });
         button_config_cuenta = (Button) findViewById(R.id.button_config_cuenta);
         button_config_cuenta.setOnClickListener(new View.OnClickListener() {
             @Override

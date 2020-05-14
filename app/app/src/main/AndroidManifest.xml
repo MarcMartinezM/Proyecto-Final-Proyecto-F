@@ -41,7 +41,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".Saldo"
+            android:name=".Descuento"
             android:label=".Saldo"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -56,6 +56,10 @@
         android:name=".Favoritos"
         android:label=".Favoritos"
         android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Amigos"
+            android:label=".Amigos"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".splash_Creen" android:theme="@style/AppTheme.NoActionBar">
 
             <intent-filter>

@@ -56,7 +56,7 @@ public class Eventos extends AppCompatActivity {
                 evento.setBuisness_id(buisness_id);
                 evento.setEvento_id(evento_id);
                 evento.setFecha_evento(fecha_evento);
-                evento.setImagen_url(imagen_url);
+                evento.setFoto_evento(R.drawable.imagen_evento);
                 evento.setHorario_evento(horario);
                 evento.setNombre_evento(nam);
                 evento.setPrecio_evento(precio_evento);

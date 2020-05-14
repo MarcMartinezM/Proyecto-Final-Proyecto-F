@@ -18,6 +18,8 @@ import com.proyectoFinal.proyectof.Conexiones.Post;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Registrarse extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -68,7 +70,19 @@ public class Registrarse extends AppCompatActivity implements AdapterView.OnItem
                        crear = false;
                        Toast.makeText(Registrarse.this,"LOS CAMPOS DE CONTRASEÑA NO COINCIDEN",Toast.LENGTH_SHORT).show();
                    }
+                   Pattern pattern = Pattern
+                           .compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                                   + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
+                   // El email a validar
+                   String email = input_correo.getText().toString();
+
+                   Matcher mather = pattern.matcher(email);
+
+                   if (!mather.find() == true) {
+                       crear = false;
+                       Toast.makeText(Registrarse.this,"EL FORMATO DEL CORREO ES INCORRECTO",Toast.LENGTH_SHORT).show();
+                   }
 
                    //COMPROVACION CAMPO COD POSTAL
                    if(input_codigoPostal.length() != 5){

@@ -25,6 +25,9 @@
 
     <string name="titulo_ticket">TICKETS</string>
 
+    <string name="titulo_amigos">AMIGOS</string>
+    <string name="boton_añadir_amigos">AÑADIR</string>
+
     <string name="titulo_fav">FAVORITOS</string>
 
    <string name="text_precio">Precio Entrada:</string>
@@ -44,8 +47,8 @@
     <string name="txt_perfil">Perfil</string>
     <string name="txt_nombre_user">User</string>
 
-    <string name="text_saldo_disponible">Saldo Disponible</string>
-    <string name="text_euros">0,0€</string>
+    <string name="text_saldo_disponible">Descuento Disponible</string>
+    <string name="text_euros">0%</string>
     <string name ="boton_canjear_codigo">Canjear Codigo</string>
 
     <string name="titulo_configurar_cuenta">CONFIGURAR</string>
