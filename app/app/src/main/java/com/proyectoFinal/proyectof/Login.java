@@ -103,9 +103,13 @@ public class Login extends AppCompatActivity {
                     JSONObject jobj = tick.getJSONObject(i);
                     String evi_id = jobj.getString("event_id");
                     int qtyi = jobj.getInt("qty");
+                    String fecha_ticket = jobj.getString("bought_at");
+                    String ticket_code = jobj.getString("ticket_code");
                     Ticket t1 = new Ticket();
                     t1.setEvent_id(evi_id);
                     t1.setCantidad_ticket(qtyi);
+                    t1.setTicket_id(ticket_code);
+                    t1.setFecha_compra(fecha_ticket);
                     tickets.add(t1);
                 }
                 JSONArray friends = arr.getJSONArray("friends");
