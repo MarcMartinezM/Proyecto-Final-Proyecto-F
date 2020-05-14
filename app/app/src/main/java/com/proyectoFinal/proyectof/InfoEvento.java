@@ -264,9 +264,9 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
 
             System.out.println(job.toString());
             String status = job.optString("status");
-
-            String fechaCompra = job.getString("bought_at");
-            String ticket_id = job.getString("ticket_code");
+            JSONObject respu= job.getJSONObject("ticket");
+            String fechaCompra = respu.getString("bought_at");
+            String ticket_id = respu.getString("ticket_code");
 
             ticket1.setCantidad_ticket(numero);
             ticket1.setEvent_id(ev.getEvento_id());

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -35,7 +36,7 @@ public class Tickets extends AppCompatActivity {
         for(int i=0;i<Login.tickets.size();i++) {
             for(int j=0;j<Eventos.arrayEventos.size();j++){
                 if(Login.tickets.get(i).getEvent_id().equals(Eventos.arrayEventos.get(j).getEvento_id())){
-                    arrayNombreTicket[i]= Eventos.arrayEventos.get(j).getNombre_evento();
+                    arrayNombreTicket[i]= Eventos.arrayEventos.get(j).getNombre_evento()+Login.tickets.get(i).getFecha_compra();
                 }
             }
         }
@@ -51,6 +52,12 @@ public class Tickets extends AppCompatActivity {
         lista_Tickets = (ListView)findViewById(R.id.lista_Tickets);
         adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,getArrayNombreTicket());
         lista_Tickets.setAdapter(adapter);
+        lista_Tickets.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                openDialogTicket();
+            }
+        });
         text_Buscar = (EditText) findViewById(R.id.input_buscar_ticket);
         text_Buscar.addTextChangedListener(new TextWatcher() {
             @Override
@@ -99,5 +106,8 @@ public class Tickets extends AppCompatActivity {
                 startActivity(pagPerfil);
             }
         });
+    }
+    public void openDialogTicket(){
+
     }
 }
