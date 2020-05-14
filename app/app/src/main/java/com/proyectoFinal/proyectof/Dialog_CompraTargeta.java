@@ -75,7 +75,7 @@ public class Dialog_CompraTargeta  extends AppCompatDialogFragment {
                                       else{
                                           Toast.makeText(getActivity(), "GRACIAS POR SU COMPRA", Toast.LENGTH_SHORT).show();
 
-                                          Login.tickets.add(new Ticket(InfoEvento.IDEventoPasar,InfoEvento.numero));
+                                          //Login.tickets.add(new Ticket(InfoEvento.IDEventoPasar,InfoEvento.numero));
                                           for(int i=0;i<Eventos.arrayEventos.size();i++){
                                               if(Eventos.arrayEventos.get(i).getEvento_id().equalsIgnoreCase(InfoEvento.IDEventoPasar)){
                                                   Eventos.arrayEventos.get(i).setTickets_disponibles(Eventos.arrayEventos.get(i).getTickets_disponibles()-InfoEvento.numero);
@@ -83,7 +83,8 @@ public class Dialog_CompraTargeta  extends AppCompatDialogFragment {
                                                   InfoEvento.tickets_dispo=InfoEvento.tickets_dispo-InfoEvento.numero;
                                               }
                                           }
-                                          Login.arrayUsuario.get(0).setTickets(Login.tickets);
+
+                                          //Login.arrayUsuario.get(0).setTickets(Login.tickets);
                                           listener.applyText(Long.parseLong(numeroTargeta),caducacion,Integer.parseInt(CVC));
                                           dismiss();
                                       }

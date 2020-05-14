@@ -19,6 +19,7 @@ import com.proyectoFinal.proyectof.Adapters.Adaptador_entrada;
 import com.proyectoFinal.proyectof.Conexiones.Post;
 import com.proyectoFinal.proyectof.Objectos.Evento;
 import com.proyectoFinal.proyectof.Objectos.Favorito;
+import com.proyectoFinal.proyectof.Objectos.Ticket;
 
 import org.json.JSONObject;
 
@@ -35,6 +36,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
     public static int tickets_dispo, numero;
     boolean estalleno ;
     Button boton_comprar,boton_mas,boton_menos,boton_fav;
+    Ticket ticket1 = new Ticket();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -262,6 +264,17 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
 
             System.out.println(job.toString());
             String status = job.optString("status");
+
+            String fechaCompra = job.getString("bought_at");
+            String ticket_id = job.getString("ticket_code");
+
+            ticket1.setCantidad_ticket(numero);
+            ticket1.setEvent_id(ev.getEvento_id());
+            ticket1.setFecha_compra(fechaCompra);
+            ticket1.setTicket_id(ticket_id);
+
+            Login.tickets.add(ticket1);
+            Login.arrayUsuario.get(0).setTickets(Login.tickets);
 
             if (status.equalsIgnoreCase("OK")) {
                 Toast.makeText(InfoEvento.this,"DATOS MODIFICADOS CORRECTAMENTE",Toast.LENGTH_SHORT).show();
