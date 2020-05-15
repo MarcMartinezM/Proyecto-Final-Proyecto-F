@@ -76,8 +76,14 @@ public class ConfigurarCuenta extends AppCompatActivity {
 
                         if (status.equalsIgnoreCase("OK")) {
                             Toast.makeText(ConfigurarCuenta.this,"DATOS MODIFICADOS CON EXITO",Toast.LENGTH_SHORT).show();
+                            input_pass.setText("");
+                            input_repetirPass.setText("");
+                            input_ciudad.setText("");
+                            input_codigoPostal.setText("");
+                            input_telefono.setText("");
                         } else {
-                            Toast.makeText(ConfigurarCuenta.this,"IMPOSIBLE MODIFICAR DATOS",Toast.LENGTH_SHORT).show();
+                            status = job.optString("msg");
+                            Toast.makeText(ConfigurarCuenta.this,status,Toast.LENGTH_SHORT).show();
                         }
 
                     } catch (JSONException e) {

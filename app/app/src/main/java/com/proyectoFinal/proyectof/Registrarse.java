@@ -99,6 +99,14 @@ public class Registrarse extends AppCompatActivity implements AdapterView.OnItem
                if(crear == true){
                    if(esCorrecto() == true){
                        Toast.makeText(Registrarse.this,"USUARIO REGISTRADO",Toast.LENGTH_SHORT).show();
+                        input_nombreReal.setText("");
+                        input_apellido.setText("");
+                        input_correo.setText("");
+                        input_pass.setText("");
+                        input_ciudad.setText("");
+                        input_codigoPostal.setText("");
+                        input_telefono.setText("");
+                        input_repetirPass.setText("");
                    } else{
                        Toast.makeText(Registrarse.this,"USUARIO INVALIDO",Toast.LENGTH_SHORT).show();
                    }

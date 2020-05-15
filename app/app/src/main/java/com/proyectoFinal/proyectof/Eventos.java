@@ -89,8 +89,8 @@ public class Eventos extends AppCompatActivity {
         listaEventos.setAdapter(adapter);
 
 
-
         input_busqueda =(EditText) findViewById(R.id.input_buscar);
+        input_busqueda.setVisibility(View.INVISIBLE);
         input_busqueda.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -111,6 +111,8 @@ public class Eventos extends AppCompatActivity {
 
             }
         });
+
+
         listaEventos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -159,22 +161,6 @@ public class Eventos extends AppCompatActivity {
         });
 
         }
-        /*
-        public void openDialog(){
-        Dialog_buscar db = new Dialog_buscar();
-        db.show(getSupportFragmentManager(),"dialog buscar");
-        }
-
-    @Override
-    public void applyTexts(String nombreBuscar,boolean existe) {
-
-        nombre_evento=nombreBuscar;
-        if(existe==true){
-            text_busquerda.setText(nombreBuscar+" a sido encontrado.");
-        }else{
-            text_busquerda.setText(nombreBuscar+" no a sido encontrado.");
-        }
-    }*/
 
 }
 

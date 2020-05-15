@@ -241,7 +241,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
 
     @Override
     public void applyText(Long numeroTargeta, String fecha, int CVC) {
-        String nombreTextDip= String.valueOf(R.string.text_cantidad_ticketa);
+        String nombreTextDip= "Tickets Disponibles:";
         text_cantidad_tickets.setText(nombreTextDip+" "+tickets_dispo);
         Evento ev = new Evento();
         for (int i = 0; i < Eventos.arrayEventos.size(); i++){
@@ -277,9 +277,10 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
             Login.arrayUsuario.get(0).setTickets(Login.tickets);
 
             if (status.equalsIgnoreCase("OK")) {
-                Toast.makeText(InfoEvento.this,"DATOS MODIFICADOS CORRECTAMENTE",Toast.LENGTH_SHORT).show();
+                Toast.makeText(InfoEvento.this,"COMPRADO",Toast.LENGTH_SHORT).show();
+                text_Cantidad.setText("0 x");
             } else {
-                Toast.makeText(InfoEvento.this,"DATOS NO HAN SIDO MODIFICADOS",Toast.LENGTH_SHORT).show();
+                Toast.makeText(InfoEvento.this,"NO COMPRADO",Toast.LENGTH_SHORT).show();
             }
         } catch (Exception e) {
             e.printStackTrace();

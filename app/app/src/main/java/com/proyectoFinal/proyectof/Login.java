@@ -56,6 +56,7 @@ public class Login extends AppCompatActivity {
                 startActivity(pagEventos);
                 }else{
                     Toast.makeText(Login.this,"usuario no correcto",Toast.LENGTH_SHORT).show();
+                    input_pass.setText("");
                 }
             }
         });

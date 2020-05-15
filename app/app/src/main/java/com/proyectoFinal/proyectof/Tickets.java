@@ -25,6 +25,8 @@ public class Tickets extends AppCompatActivity {
     private ImageView icono_eventos,icono_entradas,icono_favoritos,icono_perfil;
     private ArrayAdapter<String> adapter;
     private String[] arrayNombreTicket;
+    private String[] arrayCodigoTicket;
+    public static String codigo;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +35,12 @@ public class Tickets extends AppCompatActivity {
 
     public String[] getArrayNombreTicket(){
         arrayNombreTicket = new String[Login.tickets.size()];
+        arrayCodigoTicket = new String[Login.tickets.size()];
         for(int i=0;i<Login.tickets.size();i++) {
             for(int j=0;j<Eventos.arrayEventos.size();j++){
                 if(Login.tickets.get(i).getEvent_id().equals(Eventos.arrayEventos.get(j).getEvento_id())){
-                    arrayNombreTicket[i]= Eventos.arrayEventos.get(j).getNombre_evento()+Login.tickets.get(i).getFecha_compra();
+                    arrayNombreTicket[i]="EVENTO: "+ Eventos.arrayEventos.get(j).getNombre_evento()+" FECHA COMPRA: "+Login.tickets.get(i).getFecha_compra();
+                    arrayCodigoTicket[i]=Login.tickets.get(i).getTicket_id();
                 }
             }
         }
@@ -55,6 +59,7 @@ public class Tickets extends AppCompatActivity {
         lista_Tickets.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                codigo= arrayCodigoTicket[position];
                 openDialogTicket();
             }
         });
@@ -87,7 +92,7 @@ public class Tickets extends AppCompatActivity {
         icono_entradas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Tickets.this,"Y a estas en la ventana Tickets",Toast.LENGTH_SHORT).show();
+                Toast.makeText(Tickets.this,"Ya estas en la ventana Tickets",Toast.LENGTH_SHORT).show();
             }
         });
         icono_favoritos = (ImageView) findViewById(R.id.icono_guardados_ticket);
@@ -108,6 +113,7 @@ public class Tickets extends AppCompatActivity {
         });
     }
     public void openDialogTicket(){
-
+        Dialog_infoTicket dialogTicket = new Dialog_infoTicket();
+        dialogTicket.show(getSupportFragmentManager(),"dialog ticket");
     }
 }

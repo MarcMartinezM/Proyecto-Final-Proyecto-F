@@ -33,7 +33,7 @@ public class Descuento extends AppCompatActivity {
                 Toast.makeText(Descuento.this,"funcion no disponible",Toast.LENGTH_SHORT).show();
             }
         });
-        image_atras = (ImageView) findViewById(R.id.image_atras);
+        image_atras = (ImageView) findViewById(R.id.image_atras_saldo);
         image_atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
