@@ -32,6 +32,7 @@
 
    <string name="text_precio">Precio Entrada:</string>
     <string name="text_horario">Horario:</string>
+    <string name="text_fecha">Fecha:</string>
     <string name="text_cantidad_ticketa">Tickets Disponibles:</string>
     <string name="text_localidad">Localidad:</string>
     <string name="boton_comprar">COMPRAR</string>

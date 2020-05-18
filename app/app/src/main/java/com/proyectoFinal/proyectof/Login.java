@@ -76,7 +76,7 @@ public class Login extends AppCompatActivity {
             arrayUsuario = new ArrayList<Usuario>();
             user.put("email", input_usuario.getText().toString());
             user.put("password", input_pass.getText().toString());
-            JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/user/login", user);
+            JSONObject job = Post.getJSONObjectFromURL("https://proyectof.tk/api/user/login", user);
             System.out.println(job.toString());
             String status = job.optString("status");
             if (status.equalsIgnoreCase("OK")) {
@@ -89,6 +89,7 @@ public class Login extends AppCompatActivity {
                    tickets = new ArrayList<Ticket>();
                    amigos = new ArrayList<String >();
                    favoritos = new ArrayList<String>();
+                    String ruta_foto = arr.getString("profileImg_URL");
                     String userid = arr.getString("_id");
                     String nombre = arr.getString("name");
                     String apellidos = arr.getString("last_name");
@@ -123,6 +124,8 @@ public class Login extends AppCompatActivity {
                 for (int i=0;i<len3;i++){
                     favoritos.add(fav.get(i).toString());
                 }
+                    usu.setFotoPerfil(R.drawable.foto_perfil_default);
+                    usu.setRuta_foto_perfil(ruta_foto);
                     usu.setIdUsuario(userid);
                     usu.setNombre_real(nombre);
                     usu.setApellido(apellidos);

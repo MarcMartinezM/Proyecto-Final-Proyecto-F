@@ -70,7 +70,7 @@ public class ConfigurarCuenta extends AppCompatActivity {
                             params.put("phone", input_telefono.getText().toString());
                         }
 
-                        JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/user/update", params);
+                        JSONObject job = Post.getJSONObjectFromURL("https://proyectof.tk/api/user/update", params);
                         System.out.println(job.toString());
                         String status = job.optString("status");
 

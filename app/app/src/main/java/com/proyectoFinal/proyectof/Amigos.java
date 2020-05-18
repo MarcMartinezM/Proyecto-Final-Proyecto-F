@@ -95,7 +95,7 @@ public class Amigos extends AppCompatActivity implements Dialog_añadirAmigo.dia
                     JSONObject email = new JSONObject();
                     email.put("uid",Login.arrayUsuario.get(0).getIdUsuario());
                     email.put("email",correo);
-                    JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/user/add", email);
+                    JSONObject job = Post.getJSONObjectFromURL("https://proyectof.tk/api/user/add", email);
                     System.out.println(job.toString());
                     String status = job.optString("status");
                     if (status.equalsIgnoreCase("OK")) {

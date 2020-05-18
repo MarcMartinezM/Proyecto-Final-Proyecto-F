@@ -8,6 +8,7 @@ public class Favorito {
     String nombre_evento_fav;
     double precio_evento_fav;
     int    foto_evento_fav;
+    String ruta_evento_fav;
     String horario_evento_fav;
     boolean favorito_evento_fav;
     String imagen_url_fav;
@@ -19,7 +20,7 @@ public class Favorito {
     public Favorito() {
     }
 
-    public Favorito(String evento_id_fav, String descripcion_fav, String fecha_evento_fav, String nombre_evento_fav, double precio_evento_fav, int foto_evento_fav, String horario_evento_fav, String imagen_url_fav, int status_fav, String localizacion_fav) {
+    public Favorito(String evento_id_fav, String descripcion_fav, String fecha_evento_fav, String nombre_evento_fav, double precio_evento_fav, int foto_evento_fav, String horario_evento_fav, String imagen_url_fav, int status_fav, String localizacion_fav, String ruta_evento_fav) {
         this.evento_id_fav = evento_id_fav;
         this.Descripcion_fav = descripcion_fav;
         this.fecha_evento_fav = fecha_evento_fav;
@@ -30,6 +31,15 @@ public class Favorito {
         this.imagen_url_fav = imagen_url_fav;
         this.status_fav = status_fav;
         this.localizacion_fav = localizacion_fav;
+        this.ruta_evento_fav = ruta_evento_fav;
+    }
+
+    public String getRuta_evento_fav() {
+        return ruta_evento_fav;
+    }
+
+    public void setRuta_evento_fav(String ruta_evento_fav) {
+        this.ruta_evento_fav = ruta_evento_fav;
     }
 
     public String getEvento_id_fav() {

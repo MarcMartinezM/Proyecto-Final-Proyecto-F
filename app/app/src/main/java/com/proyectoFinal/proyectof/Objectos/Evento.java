@@ -13,6 +13,7 @@ public class Evento {
     String nombre_evento;
     double precio_evento;
     int    foto_evento;
+    String ruta_evento;
     String horario_evento;
     boolean favorito_evento;
     String imagen_url;
@@ -25,7 +26,7 @@ public class Evento {
 
     }
 
-    public Evento(String evento_id, String buisness_id, String fecha_evento, String nombre_evento, double precio_evento, int foto_evento, String horario_evento, boolean favorito_evento, String imagen_url, int status, String localizacion, int tickets_en_venta, int tickets_disponibles,String Descripcion) {
+    public Evento(String evento_id, String buisness_id, String fecha_evento, String nombre_evento, double precio_evento, int foto_evento, String horario_evento, boolean favorito_evento, String imagen_url, int status, String localizacion, int tickets_en_venta, int tickets_disponibles,String Descripcion,String ruta_evento) {
         this.evento_id = evento_id;
         this.buisness_id = buisness_id;
         this.fecha_evento = fecha_evento;
@@ -40,8 +41,16 @@ public class Evento {
         this.tickets_en_venta = tickets_en_venta;
         this.tickets_disponibles = tickets_disponibles;
         this.Descripcion =Descripcion;
+        this.ruta_evento=ruta_evento;
     }
 
+    public String getRuta_evento() {
+        return ruta_evento;
+    }
+
+    public void setRuta_evento(String ruta_evento) {
+        this.ruta_evento = ruta_evento;
+    }
 
     public String getEvento_id() {
         return evento_id;

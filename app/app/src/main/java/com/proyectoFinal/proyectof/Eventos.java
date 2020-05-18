@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.proyectoFinal.proyectof.Adapters.Adaptador_eventos;
 import com.proyectoFinal.proyectof.Conexiones.Get;
 import com.proyectoFinal.proyectof.Objectos.Evento;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -32,7 +34,7 @@ public class Eventos extends AppCompatActivity {
     private EditText input_busqueda;
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        String rutaURL = new String("http://proyectof.tk/api/events");
+        String rutaURL = new String("https://proyectof.tk/api/events");
         try {
             JSONObject job = Get.getJSONObjectFromURL(rutaURL);
             System.out.println(job.toString());
@@ -57,6 +59,7 @@ public class Eventos extends AppCompatActivity {
                 evento.setEvento_id(evento_id);
                 evento.setFecha_evento(fecha_evento);
                 evento.setFoto_evento(R.drawable.imagen_evento);
+                evento.setRuta_evento(imagen_url);
                 evento.setHorario_evento(horario);
                 evento.setNombre_evento(nam);
                 evento.setPrecio_evento(precio_evento);

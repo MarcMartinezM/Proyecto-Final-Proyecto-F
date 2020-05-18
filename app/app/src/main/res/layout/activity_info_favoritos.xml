@@ -99,13 +99,14 @@
                 android:id="@+id/text_horario_fav"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
-                android:text="@string/text_horario"
+                android:text="@string/text_fecha"
                 android:textSize="24dp" />
 
             <TextView
                 android:id="@+id/text_Hora_fav"
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
+                android:text="@string/text_horario"
                 android:textSize="24dp" />
 
         </LinearLayout>

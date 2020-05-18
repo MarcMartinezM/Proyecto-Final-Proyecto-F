@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.proyectoFinal.proyectof.Objectos.Favorito;
 import com.proyectoFinal.proyectof.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -55,7 +56,13 @@ public class adaptador_fav extends BaseAdapter {
             text_fecha.setText(fav.getFecha_evento_fav());
             text_nombre_evento.setText(fav.getNombre_evento_fav());
             text_preco.setText(fav.getPrecio_evento_fav()+" €");
+        if(!fav.getRuta_evento_fav().equalsIgnoreCase("default")){
+            Picasso.get().load(fav.getRuta_evento_fav()).resize(300, 95).into(imagen_evento);
+        }
+        else{
             imagen_evento.setImageResource(fav.getFoto_evento_fav());
+        }
+
 
 
         return convertView;

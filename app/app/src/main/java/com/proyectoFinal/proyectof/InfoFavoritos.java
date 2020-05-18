@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.proyectoFinal.proyectof.Objectos.Favorito;
+import com.squareup.picasso.Picasso;
+
 public class InfoFavoritos extends AppCompatActivity {
     public static String IDFavoritosPasar;
     ImageView imagen_evento,imagen_atras;
@@ -41,13 +44,18 @@ public class InfoFavoritos extends AppCompatActivity {
 
         for (int i = 0; i < Favoritos.arrayFavoritos.size(); i++) {
             if (IDFavoritosPasar.equalsIgnoreCase(Favoritos.arrayFavoritos.get(i).getEvento_id_fav())) {
-                imagen_evento.setImageResource(Favoritos.arrayFavoritos.get(i).getFoto_evento_fav());
+                if(!Favoritos.arrayFavoritos.get(i).getRuta_evento_fav().equalsIgnoreCase("default")){
+                    Picasso.get().load(Favoritos.arrayFavoritos.get(i).getRuta_evento_fav()).resize(300, 95).into(imagen_evento);
+                }else{
+                    imagen_evento.setImageResource(Favoritos.arrayFavoritos.get(i).getFoto_evento_fav());
+                }
+
                 text_titulo.setText(Favoritos.arrayFavoritos.get(i).getNombre_evento_fav());
                 text_descrip.setText(Favoritos.arrayFavoritos.get(i).getDescripcion_fav());
                 text_localidad.setText(Favoritos.arrayFavoritos.get(i).getLocalizacion_fav());
                 text_precio_entrada.setText(text_precio_entrada.getText() + " " + Favoritos.arrayFavoritos.get(i).getPrecio_evento_fav() + "€");
                 text_horario.setText(text_horario.getText() + " " + Favoritos.arrayFavoritos.get(i).getFecha_evento_fav());
-                text_hora.setText(Favoritos.arrayFavoritos.get(i).getHorario_evento_fav());
+                text_hora.setText(text_hora.getText()+" "+Favoritos.arrayFavoritos.get(i).getHorario_evento_fav());
 
 
             }

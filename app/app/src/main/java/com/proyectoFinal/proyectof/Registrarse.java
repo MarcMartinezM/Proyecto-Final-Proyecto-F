@@ -137,7 +137,7 @@ public class Registrarse extends AppCompatActivity implements AdapterView.OnItem
             user.put("zipcode", input_codigoPostal.getText().toString());
             user.put("phone", input_telefono.getText().toString());
 
-            JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/user/create", user);
+            JSONObject job = Post.getJSONObjectFromURL("https://proyectof.tk/api/user/create", user);
             System.out.println(job.toString());
 
             String status = job.optString("status");

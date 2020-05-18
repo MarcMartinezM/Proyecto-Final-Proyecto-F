@@ -20,6 +20,7 @@ import com.proyectoFinal.proyectof.Conexiones.Post;
 import com.proyectoFinal.proyectof.Objectos.Evento;
 import com.proyectoFinal.proyectof.Objectos.Favorito;
 import com.proyectoFinal.proyectof.Objectos.Ticket;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
 
@@ -122,13 +123,18 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
 
         for (int i = 0; i < Eventos.arrayEventos.size(); i++) {
             if (IDEventoPasar.equalsIgnoreCase(Eventos.arrayEventos.get(i).getEvento_id())) {
-                imagen_evento.setImageResource(Eventos.arrayEventos.get(i).getFoto_evento());
+                if(!Eventos.arrayEventos.get(i).getRuta_evento().equalsIgnoreCase("default")){
+                    Picasso.get().load(Eventos.arrayEventos.get(i).getRuta_evento()).resize(300, 95).into(imagen_evento);
+                }else{
+                    imagen_evento.setImageResource(Eventos.arrayEventos.get(i).getFoto_evento());
+                }
+
                 text_titulo.setText(Eventos.arrayEventos.get(i).getNombre_evento());
                 text_descrip.setText(Eventos.arrayEventos.get(i).getDescripcion());
                 text_localidad.setText(Eventos.arrayEventos.get(i).getLocalizacion());
                 text_precio_entrada.setText(text_precio_entrada.getText() + " " + Eventos.arrayEventos.get(i).getPrecio_evento() + "€");
                 text_horario.setText(text_horario.getText() + " " + Eventos.arrayEventos.get(i).getFecha_evento());
-                text_hora.setText(Eventos.arrayEventos.get(i).getHorario_evento());
+                text_hora.setText(text_hora.getText()+" "+Eventos.arrayEventos.get(i).getHorario_evento());
                 text_cantidad_tickets.setText(text_cantidad_tickets.getText()+" "+Eventos.arrayEventos.get(i).getTickets_disponibles());
                 tickets_dispo= Eventos.arrayEventos.get(i).getTickets_disponibles();
 
@@ -221,7 +227,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
                     evFav.put("uid", Login.usu.getIdUsuario());
                     evFav.put("event_id", ev.getEvento_id());
                     evFav.put("fav", estalleno);
-                    JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/user/fav-event", evFav);
+                    JSONObject job = Post.getJSONObjectFromURL("https://proyectof.tk/api/user/fav-event", evFav);
 
                 }catch (Exception e) {
                     e.printStackTrace();
@@ -260,7 +266,7 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
             tick.put("ccv", CVC);
             tick.put("nameOnCard", Login.usu.getNombre_real());
 
-            JSONObject job = Post.getJSONObjectFromURL("http://proyectof.tk/api/tickets/buy", tick);
+            JSONObject job = Post.getJSONObjectFromURL("https://proyectof.tk/api/tickets/buy", tick);
 
             System.out.println(job.toString());
             String status = job.optString("status");

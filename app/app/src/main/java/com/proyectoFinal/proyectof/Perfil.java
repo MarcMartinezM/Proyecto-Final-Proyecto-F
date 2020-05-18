@@ -10,9 +10,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.squareup.picasso.Picasso;
+
 public class Perfil extends AppCompatActivity {
     Button button_cerrar, button_saldo, button_amigos, button_config_cuenta;
-    ImageView icono_perfil, icono_guardados_Perfil, icono_ticket_Perfil, icono_eventos_Perfil, icono_mensajes;
+    ImageView icono_perfil, icono_guardados_Perfil, icono_ticket_Perfil, icono_eventos_Perfil, icono_mensajes,imagen_fotoPerfil;
     TextView textNomUser, textPerfil;
 
     @Override
@@ -92,6 +94,12 @@ public class Perfil extends AppCompatActivity {
         textNomUser = (TextView) findViewById(R.id.textNomUser);
         textNomUser.setText(Login.arrayUsuario.get(0).getNombre_real());
         textPerfil = (TextView) findViewById(R.id.textPerfil);
+        imagen_fotoPerfil = (ImageView) findViewById(R.id.imagePerfil);
+        if(!Login.arrayUsuario.get(0).getRuta_foto_perfil().equalsIgnoreCase("default")){
+            Picasso.get().load(Login.arrayUsuario.get(0).getRuta_foto_perfil()).into(imagen_fotoPerfil);
+        }else{
+            imagen_fotoPerfil.setBackgroundResource(Login.arrayUsuario.get(0).getFotoPerfil());
+        }
     }
 
 }

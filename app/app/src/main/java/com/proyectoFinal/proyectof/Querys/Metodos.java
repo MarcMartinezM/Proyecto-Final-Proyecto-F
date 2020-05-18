@@ -13,7 +13,7 @@ public class Metodos {
 
     public static String postLogin(JSONObject postDataParams){
         try {
-            URL url = new URL("http://proyectof.tk/api/user/login");
+            URL url = new URL("https://proyectof.tk/api/user/login");
             return Post.post(url,postDataParams);
         }
         catch(Exception e){
@@ -23,7 +23,7 @@ public class Metodos {
 
     public static String postRegistrar(JSONObject postDataParams){
         try {
-            URL url = new URL("http://proyectof.tk/api/user/create");
+            URL url = new URL("https://proyectof.tk/api/user/create");
             return Post.post(url,postDataParams);
         }
         catch(Exception e){
@@ -32,7 +32,7 @@ public class Metodos {
     }
 
     public static String getEventos() throws MalformedURLException {
-        URL url = new URL("http://proyectof.tk/api/events");
+        URL url = new URL("https://proyectof.tk/api/events");
         try {
             Log.i("USRS",Get.metodoGet(url));
           return Get.metodoGet(url);
@@ -44,7 +44,7 @@ public class Metodos {
 
     public static String postConfigCuenta(JSONObject postDataParams){
         try {
-            URL url = new URL("http://proyectof.tk/api/user/update");
+            URL url = new URL("https://proyectof.tk/api/user/update");
             return Post.post(url,postDataParams);
         }
         catch(Exception e){
@@ -54,7 +54,7 @@ public class Metodos {
 
     public static String postComprarTickets(JSONObject postDataParams){
         try {
-            URL url = new URL("http://proyectof.tk/api/tickets/buy");
+            URL url = new URL("https://proyectof.tk/api/tickets/buy");
             return Post.post(url,postDataParams);
         }
         catch(Exception e){
@@ -64,7 +64,7 @@ public class Metodos {
 
     public static String postBotonFav(JSONObject postDataParams){
         try {
-            URL url = new URL("http://proyectof.tk/api/events/fav");
+            URL url = new URL("https://proyectof.tk/api/events/fav");
             return Post.post(url,postDataParams);
         }
         catch(Exception e){

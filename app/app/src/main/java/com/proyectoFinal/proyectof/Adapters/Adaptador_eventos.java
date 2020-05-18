@@ -3,6 +3,7 @@ package com.proyectoFinal.proyectof.Adapters;
 
 import android.content.Context;
 
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,9 @@ import android.widget.TextView;
 import com.proyectoFinal.proyectof.Eventos;
 import com.proyectoFinal.proyectof.Objectos.Evento;
 import com.proyectoFinal.proyectof.R;
+import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +68,13 @@ public class Adaptador_eventos extends  ArrayAdapter<Evento> implements Filterab
         text_fecha.setText(eve.getFecha_evento());
         text_nombre_evento.setText(eve.getNombre_evento());
         text_preco.setText(eve.getPrecio_evento()+" €");
-        imagen_evento.setImageResource(eve.getFoto_evento());
+        if(!eve.getRuta_evento().equalsIgnoreCase("default")){
+               Picasso.get().load(eve.getRuta_evento()).resize(300, 95).into(imagen_evento);
+        }
+        else{
+            imagen_evento.setImageResource(eve.getFoto_evento());
+        }
+
 
         return convertView;
     }

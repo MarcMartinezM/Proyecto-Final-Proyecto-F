@@ -55,7 +55,7 @@ public class Dialog_CompraTargeta  extends AppCompatDialogFragment {
                   @Override
                   public void onClick(View v) {
                       Log.i("tamaño ","targeta: "+input_numTargeta.getText().length()+" cvc: "+input_cvc.getText().length()+" FECHA: "+input_fechaCaducacion.getText().length());
-                      if(input_numTargeta.getText().length()!=16 && input_cvc.getText().length()!=3 && input_fechaCaducacion.getText().length()!=7){
+                      if(input_numTargeta.getText().length()!=16 || input_cvc.getText().length()!=3 || input_fechaCaducacion.getText().length()!=7){
                           Toast.makeText(getActivity(), "no se han introducido bien los datos", Toast.LENGTH_SHORT).show();
                       }else{
                           String numeroTargeta= input_numTargeta.getText().toString();

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Usuario {
     int fotoPerfil;
+    String ruta_foto_perfil;
     ArrayList<String> amigos;
     String idUsuario;
     ArrayList<Ticket> tickets;
@@ -19,7 +20,7 @@ public class Usuario {
 
     }
 
-    public Usuario(int fotoPerfil, ArrayList<String> amigos, String idUsuario, ArrayList<Ticket> tickets, String nombre_real, String apellido, String contrasenya, String correo, String ciudad, String cod_postal, String  num_tlf,ArrayList<String> favoritos) {
+    public Usuario(int fotoPerfil, ArrayList<String> amigos, String idUsuario, ArrayList<Ticket> tickets, String nombre_real, String apellido, String contrasenya, String correo, String ciudad, String cod_postal, String  num_tlf,ArrayList<String> favoritos , String ruta_foto_perfil) {
         this.fotoPerfil = fotoPerfil;
         this.amigos = amigos;
         this.idUsuario = idUsuario;
@@ -32,6 +33,7 @@ public class Usuario {
         this.cod_postal = cod_postal;
         this.num_tlf = num_tlf;
         this.favoritos= favoritos;
+        this.ruta_foto_perfil= ruta_foto_perfil;
     }
 
     public ArrayList<String> getFavoritos() {
@@ -40,6 +42,14 @@ public class Usuario {
 
     public void setFavoritos(ArrayList<String> favoritos) {
         this.favoritos = favoritos;
+    }
+
+    public String getRuta_foto_perfil() {
+        return ruta_foto_perfil;
+    }
+
+    public void setRuta_foto_perfil(String ruta_foto_perfil) {
+        this.ruta_foto_perfil = ruta_foto_perfil;
     }
 
     public String getNombre_real() {

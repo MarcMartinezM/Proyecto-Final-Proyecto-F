@@ -93,7 +93,7 @@ public class Favoritos extends AppCompatActivity {
                     if(Login.favoritos.get(i).equals(Eventos.arrayEventos.get(j).getEvento_id())){
                         arrayFavoritos.add(new Favorito(Eventos.arrayEventos.get(j).getEvento_id(),Eventos.arrayEventos.get(j).getDescripcion(),Eventos.arrayEventos.get(j).getFecha_evento(),
                                 Eventos.arrayEventos.get(j).getNombre_evento(),Eventos.arrayEventos.get(j).getPrecio_evento(),Eventos.arrayEventos.get(j).getFoto_evento(),
-                                Eventos.arrayEventos.get(j).getHorario_evento(),Eventos.arrayEventos.get(j).getImagen_url(),Eventos.arrayEventos.get(j).getStatus(),Eventos.arrayEventos.get(j).getLocalizacion()));
+                                Eventos.arrayEventos.get(j).getHorario_evento(),Eventos.arrayEventos.get(j).getImagen_url(),Eventos.arrayEventos.get(j).getStatus(),Eventos.arrayEventos.get(j).getLocalizacion(),Eventos.arrayEventos.get(j).getRuta_evento()));
                     }
                 }
             }
