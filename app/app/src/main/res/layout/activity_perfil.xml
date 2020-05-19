@@ -106,15 +106,15 @@
         android:layout_alignParentTop="false"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="false"
-        android:layout_marginStart="98dp"
+        android:layout_marginStart="116dp"
         android:layout_marginLeft="107dp"
         android:layout_marginTop="171dp"
-        android:layout_marginEnd="144dp"
+        android:layout_marginEnd="126dp"
         android:layout_marginRight="136dp" />
 
     <TextView
         android:id="@+id/textNomUser"
-        android:layout_width="96dp"
+        android:layout_width="321dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="false"
@@ -122,15 +122,16 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="false"
         android:layout_alignParentBottom="false"
-        android:layout_marginStart="109dp"
+        android:layout_marginStart="32dp"
         android:layout_marginLeft="192dp"
         android:layout_marginTop="105dp"
-        android:layout_marginEnd="155dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginRight="122dp"
         android:layout_marginBottom="578dp"
+        android:gravity="center"
         android:text="@string/txt_nombre_user"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="36sp" />
+        android:textSize="26sp" />
 
     <ImageView
         android:id="@+id/icono_mensajes"

@@ -88,9 +88,10 @@ public class Favoritos extends AppCompatActivity {
     private ArrayList<Favorito> getTrueArray(){
         arrayFavoritos = new ArrayList<Favorito>();
             Log.i("TAMAÑO ARRAY EVENTOS",Eventos.arrayEventos.size()+"");
-            for(int i=0;i<Login.favoritos.size();i++){
+            Log.i("TAMAÑO ARRAY FAV USER",Login.arrayUsuario.get(0).getFavoritos().size()+"");
+            for(int i=0;i<Login.arrayUsuario.get(0).getFavoritos().size();i++){
                 for(int j=0;j<Eventos.arrayEventos.size();j++){
-                    if(Login.favoritos.get(i).equals(Eventos.arrayEventos.get(j).getEvento_id())){
+                    if(Login.arrayUsuario.get(0).getFavoritos().get(i).equals(Eventos.arrayEventos.get(j).getEvento_id())){
                         arrayFavoritos.add(new Favorito(Eventos.arrayEventos.get(j).getEvento_id(),Eventos.arrayEventos.get(j).getDescripcion(),Eventos.arrayEventos.get(j).getFecha_evento(),
                                 Eventos.arrayEventos.get(j).getNombre_evento(),Eventos.arrayEventos.get(j).getPrecio_evento(),Eventos.arrayEventos.get(j).getFoto_evento(),
                                 Eventos.arrayEventos.get(j).getHorario_evento(),Eventos.arrayEventos.get(j).getImagen_url(),Eventos.arrayEventos.get(j).getStatus(),Eventos.arrayEventos.get(j).getLocalizacion(),Eventos.arrayEventos.get(j).getRuta_evento()));

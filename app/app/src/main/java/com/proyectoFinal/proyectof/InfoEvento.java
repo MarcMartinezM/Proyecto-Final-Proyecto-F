@@ -193,9 +193,10 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
                     if(Login.arrayUsuario.get(0).getFavoritos().get(i).equalsIgnoreCase(IDEventoPasar)){
                         boton_fav.setBackgroundResource(R.drawable.icono_corazon_llemo);
                         estalleno=true;
+                        break;
                     }else{
                         boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
-                        estalleno=false;
+
                     }
                 }
 
@@ -207,11 +208,14 @@ public class InfoEvento extends AppCompatActivity implements Dialog_CompraTarget
             public void onClick(View v) {
                 if(estalleno==false){
                     boton_fav.setBackgroundResource(icono_corazon_llemo);
-                    Login.favoritos.add(IDEventoPasar);
+                    Login.arrayUsuario.get(0).getFavoritos().add(IDEventoPasar);
+                   // Login.favoritos.add(IDEventoPasar);
                     estalleno=true;
                 }else{
                     boton_fav.setBackgroundResource(R.drawable.icono_corazon_vacio);
-                    Login.favoritos.remove(IDEventoPasar);
+                    Login.arrayUsuario.get(0).getFavoritos().remove(IDEventoPasar);
+                    Log.i("arrayFav",Login.arrayUsuario.get(0).getFavoritos().toString());
+                   // Login.favoritos.remove(IDEventoPasar);
                     estalleno=false;
                 }
 

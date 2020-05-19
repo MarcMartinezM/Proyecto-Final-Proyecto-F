@@ -3,7 +3,7 @@
     <!-- strings.xml -->
     <string name="titulo">PROYECTO F</string>
 
-    <string name="nombre_usuario">Nombre Usuario:</string>
+    <string name="nombre_usuario">Corre Electronico:</string>
     <string name="password_usuario">Contraseña:</string>
     <string name="incio_usuario">Inicio</string>
     <string name="Registrar_user">Registrarse</string>

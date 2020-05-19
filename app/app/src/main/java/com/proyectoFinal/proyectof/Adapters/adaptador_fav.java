@@ -46,7 +46,7 @@ public class adaptador_fav extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         Favorito fav = (Favorito) getItem(position);
         Log.i("ARRAY FAVORITOS",arrayFavoritos.get(position).toString());
-
+        Log.i("TAMAÑO ARRAY",arrayFavoritos.size()+"");
             convertView = LayoutInflater.from(context).inflate(R.layout.item_lista_eventos,null);
             TextView text_fecha = convertView.findViewById(R.id.text_fecha);
             TextView text_nombre_evento = convertView.findViewById(R.id.text_nombre_evento);
